@@ -1,4 +1,4 @@
-# Phase 2: Flux Architecture and Note CRUD (2 days)
+# Phase 2: Flux Architecture and Question CRUD (2 days)
 
 ## Rails
 ### Models
@@ -9,25 +9,25 @@
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
+* QuestionsIndex
+  - QuestionsIndexItem
+* QuestionForm
 
 ### Stores
-* Note
+* Question
 
 ### Actions
-* ApiActions.receiveAllNotes
-* ApiActions.receiveSingleNote
-* ApiActions.deleteNote
+* ApiActions.receiveAllQuestions
+* ApiActions.receiveSingleQuestion
+* ApiActions.deleteQuestion
 
 ### ApiUtil
-* ApiUtil.fetchAllNotes
-* ApiUtil.fetchSingleNote
-* ApiUtil.createNote
-* ApiUtil.editNote
-* ApiUtil.destroyNote
+* ApiUtil.fetchAllQuestions
+* ApiUtil.fetchSingleQuestion
+* ApiUtil.createQuestion
+* ApiUtil.editQuestion
+* ApiUtil.destroyQuestion
 
 ## Gems/Libraries
 * Flux Dispatcher
-* Twitter Bootstrap
+* React Router

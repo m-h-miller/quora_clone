@@ -1,6 +1,6 @@
 # Schema Information
 
-## notes
+## questions
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -8,25 +8,23 @@ title       | string    | not null
 body        | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
 notebook_id | integer   | not null, foreign key (references notebooks), indexed
-archived    | boolean   | not null, default: false
 
-## notebooks
+## answers
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
+question_id | integer   | not null, foreign key (references questions), indexed
 title       | string    | not null
-description | string    | 
+body        | string    | 
 
-## reminders
+## comments
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users), indexed
-note_id     | string    | not null, foreign key (references notes), indexed
+answer_id   | string    | not null, foreign key (references answers), indexed
 date        | datetime  | not null
-type        | string    | not null
-prev_id     | integer   | foreign key (references reminders), indexed
 
 ## tags
 column name | data type | details
@@ -39,7 +37,7 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 name        | string    | not null
-note_id     | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
+question_id | integer   | not null, foreign key (references questions), indexed, unique [tag_id]
 tag_id      | integer   | not null, foreign key (references tags), indexed
 
 ## users
