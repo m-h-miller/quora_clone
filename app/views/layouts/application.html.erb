@@ -8,15 +8,32 @@
 </head>
 <body>
 
-  <% if !signed_in? %>
-    <%= link_to "Sign in", new_session_url %> or
-    <%= link_to "Sign up", new_user_url %>
-  <% else %>
-    <%= current_user.username %>
-    <%= button_to "Logout", session_url, method: :delete %>
-  <% end %>
 
-<%= yield %>
+  <div class="background-image"></div>
+
+
+    <% if !signed_in? %>
+      <div class="header-container">
+        <h1 class="logo"> Quorum </h1>
+        <h3 class="tagline"> The best answer to any question. </h3>
+      </div>
+      <div class="button-stuff">
+        <a href="<%= new_session_url %>">Sign in</a>
+        <a href="<%= new_user_url %>">Sign up</a>
+      </div>
+    <% else %>
+      <%= current_user.username %>
+      <form action="<%= session_url %>" method="POST">
+        <%= authenticity_token %>
+        <%= delete_action %>
+        <label>
+          Sign Out
+          <input type="submit" value="Sign Out">
+        </label>
+      </form>
+    <% end %>
+
+  <%= yield %>
 
 </body>
 </html>

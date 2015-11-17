@@ -1,3 +1,78 @@
-body {
+
+.log-in-page{
+  overflow-y: hidden;
+  background-image: linear-gradient(-180deg,#fff 0,#f1f1f1 100%);
+  background-repeat: no-repeat;
+  height: 100%;
+}
+.background-image{
   background:url(//qsf.is.quoracdn.net/-2f32a993187981f4.png);
+  background-size: 1757px 845px;
+  height: 100%;
+  width: 1884px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  position: absolute;
+  left: 50%;
+  margin-left: -942px;
+  opacity: .8;
+  z-index: -1;
+}
+
+body {
+  display:block;
+  height: 100%;
+  font-size: 13px;
+}
+
+.logo {
+  padding-top: 100px;
+  font-family: Georgia,Times,"Times New Roman",serif;
+  font-size: 48px;
+  font-weight: bold;
+  color: DarkRed;
+  margin: auto;
+  text-align: center;
+}
+
+.tagline {
+  font-family: Georgia,Times,"Times New Roman",serif;
+  font-size: 19px;
+  color: #666;
+  font-weight: 400;
+  text-align: center;
+  padding: 20px;
+}
+
+.button-stuff {
+  width: 650px;
+  height: 400px;
+  display: block;
+  top: 10%;
+  bottom: initial;
+  margin: auto;
+  border: 1px solid #dcdcdc;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 #dcdcdc;
+  padding: 22px;
+}
+
+a {
+  width: 35%;
+  float: left;
+  margin: 5%;
+  border: 1px solid #dcdcdc;
+  text-align: center;
+  padding: 15px;
+  padding-top:150px;
+  padding-bottom: 150px;
+  color: #666;
+  font-weight: bold;
+  font-size: 15px;
+
+}
+
+a:hover {
+  background-color:DarkRed;
+  color: #fff;
 }
