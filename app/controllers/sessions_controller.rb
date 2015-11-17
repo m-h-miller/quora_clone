@@ -4,7 +4,6 @@ class SessionsController < ActionController::Base
       params[:user][:username],
       params[:user][:password]
     )
-
     if user.nil?
       flash.now[:errors] = ["Incorrect username and/or password"]
       render :new
