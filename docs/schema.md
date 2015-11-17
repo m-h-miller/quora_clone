@@ -7,7 +7,7 @@ id          | integer   | not null, primary key
 title       | string    | not null
 body        | text      | not null
 author_id   | integer   | not null, foreign key (references users), indexed
-notebook_id | integer   | not null, foreign key (references notebooks), indexed
+topic_id    | integer   | not null, foreign key (references topics), indexed
 
 ## answers
 column name | data type | details
@@ -16,7 +16,7 @@ id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
 question_id | integer   | not null, foreign key (references questions), indexed
 title       | string    | not null
-body        | string    | 
+body        | string    |
 
 ## comments
 column name | data type | details
@@ -36,7 +36,6 @@ name        | string    | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-name        | string    | not null
 question_id | integer   | not null, foreign key (references questions), indexed, unique [tag_id]
 tag_id      | integer   | not null, foreign key (references tags), indexed
 
