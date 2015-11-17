@@ -1,9 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  # Expose current_user method to the views
-  helper_method :current_user
-  helper_method :signed_in?
+  helper_method :current_user, :signed_in?
 
   private
 
