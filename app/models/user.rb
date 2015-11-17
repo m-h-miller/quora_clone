@@ -7,7 +7,12 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  has_many :questions, inverse_of: :author
+  has_many(
+    :questions,
+    class_name: "Question",
+    primary_key: :id,
+    foreign_key: :author_id
+  )
 
   def self.find_by_credentials(user_name, password)
     return nil unless user_name && password
