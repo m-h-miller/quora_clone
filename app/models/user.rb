@@ -3,10 +3,13 @@ class User < ActiveRecord::Base
   validates :password_digest, :session_token, presence: true
   validates :password, length: { minium: 6, allow_nil: true }
 
+  after_initialize :ensure_session_token
+
+  attr_reader :password
+
   def self.find_by_credentials(username, password)
     @user = User.find_by_user_name(username)
     return nil if @user.nil?
-
     @user.is_password?(password) ? @user : nil
   end
 
