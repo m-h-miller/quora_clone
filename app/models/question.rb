@@ -8,5 +8,5 @@ class Question < ActiveRecord::Base
     foreign_key: :author_id,
     inverse_of: :questions
   )
-
+  
 end

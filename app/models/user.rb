@@ -9,11 +9,11 @@ class User < ActiveRecord::Base
 
   has_many :questions, inverse_of: :author
 
-  def self.find_by_credentials(username, password)
-    @user = User.find_by_user_name(username)
-    return nil if @user.nil?
-    @user.is_password?(password) ? @user : nil
-  end
+  def self.find_by_credentials(user_name, password)
+    return nil unless user_name && password
+    user = User.find_by(user_name: user_name)
+    user && user.is_password?(password) ? user : nil
+ end
 
   def password=(password)
     @password = BCrypt::Password.create(password)

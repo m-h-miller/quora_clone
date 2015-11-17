@@ -1,7 +1,7 @@
-class SessionsController < ActionController::Base
+class SessionsController < ApplicationController
   def create
     user = User.find_by_credentials(
-      params[:user][:username],
+      params[:user][:user_name],
       params[:user][:password]
     )
     if user.nil?
@@ -14,7 +14,6 @@ class SessionsController < ActionController::Base
 
   def destroy
     sign_out!
-    redirect_to new_session_url
   end
 
   def new

@@ -14,8 +14,7 @@ class QuestionsController < ActionController::Base
 
   def create
     @question = current_user.questions.new(question_params)
-    if @question.save
-      redirect_to questions_url(@question)
+  end
 
 
 end
