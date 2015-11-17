@@ -9,9 +9,6 @@
 ## QuestionsIndex / QuestionIndexItem / QuestionForm
 ![questions]
 
-## NotebooksIndex / NotebookIndexItem
-![notebooks]
-
 ## QuestionForm
 ![question-form]
 
