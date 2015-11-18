@@ -24,7 +24,6 @@
    text-decoration: inherit;
    background: transparent;
    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-   border: 1px solid grey;
  }
 
  .group:after {
@@ -41,3 +40,20 @@
    border: 1px solid grey;
    padding: 10px;
  }
+
+ .button-stuff * {
+   border: 1px solid grey;
+   padding: 5px;
+   display: block;
+ }
+
+ .newSessionWrapper * {
+   border: 1px solid grey;
+   padding: 5px;
+   display: block;
+ }
+ .newUserWrapper * {
+    border: 1px solid grey;
+    padding: 5px;
+    display: block;
+  }

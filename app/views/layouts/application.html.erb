@@ -14,15 +14,16 @@
         <a href="<%= new_user_url %>">Sign up</a>
       </div>
     <% else %>
-      <%= current_user.user_name %>
-      <form action="<%= session_url %>" method="POST">
-        <%= authenticity_token %>
-        <%= delete_action %>
-        <label>
-          Sign Out
-          <input type="submit" value="Sign Out">
-        </label>
-      </form>
+      <div class="button-stuff">
+        <%= current_user.user_name %>
+        <form action="<%= session_url %>" method="POST">
+          <%= authenticity_token %>
+          <%= delete_action %>
+          <label>
+            <input type="submit" value="Sign Out">
+          </label>
+        </form>
+      </div>
     <% end %>
 
   <%= yield %>
