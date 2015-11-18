@@ -18,5 +18,6 @@
 //= require flux
 //= require eventemitter
 //= require react
+//= require ReactRouter
 //= require components
 //= require_tree .

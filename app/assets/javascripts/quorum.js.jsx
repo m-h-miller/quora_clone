@@ -7,7 +7,7 @@ $(function () {
 
   React.render((
     <Router>
-      <Route path="/" component={Index}>
+      <Route path="/" component={IndexPage}>
       </Route>
     </Router>
   ), root);
