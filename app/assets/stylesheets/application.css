@@ -1,59 +1,130 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
 
- * {
-   border: 0;
-   margin: 0;
-   padding: 0;
 
-   font: inherit;
-   text-align: inherit;
-   text-decoration: inherit;
-   background: transparent;
-   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
- }
 
- .group:after {
-   content: "";
-   display: block;
-   clear: both;
- }
+html, body, header, h1, h2, nav, ul, li, a, footer, small {
+  border: 0;
+  margin: 0;
+  padding: 0;
 
- body {
-   height: 100%;
- }
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  background: transparent;
+  list-style: none;
+}
 
- button {
-   border: 1px solid grey;
-   padding: 10px;
- }
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
 
- .button-stuff * {
-   border: 1px solid grey;
-   padding: 5px;
-   display: block;
- }
+body {
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  background: #fff;
+  color: #333;
+}
 
- .newSessionWrapper * {
-   border: 1px solid grey;
-   padding: 5px;
-   display: block;
- }
- .newUserWrapper * {
-    border: 1px solid grey;
-    padding: 5px;
-    display: block;
-  }
+.header-logo {
+  font-size: 24px;
+  font-family: Georgia,Times,"Times New Roman",serif;
+  text-decoration: none;
+  color: #B92B27;
+  float: left;
+  margin-left: 12%;
+}
+
+.header-logo > a {
+  display: block;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #B92B27;
+}
+
+.header {
+  background-color: #FFF;
+  border: 1px solid grey;
+}
+.header-wrap {
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0px 1px 1px 1px #F6F6F9;
+}
+
+
+.header-nav {
+  float: right;
+  margin-right: 12%;
+}
+
+.header-nav-drop-down {
+  display: none;
+  position: absolute;
+}
+
+.header-nav > ul > li {
+  position:relative;
+  float: left;
+  display: block;
+  padding: 10px 20px;
+  color: #B92B27;
+}
+
+.header-nav > li {
+  position: relative;
+  float: left;
+}
+
+.header-nav > ul > li > a {
+  color: #999;
+}
+
+.header-nav > ul > li > a:hover {
+  color: #B92B27;
+
+}
+
+.page {
+  background: white;
+  width: 860px;
+  padding: 20px;
+  margin: auto;
+  /*border-left: 3px solid #ddd;*/
+  /*border-right: 3px solid #ddd;*/
+}
+.page-left {
+  float: left;
+  width: 160px;
+  padding: 0 20px 0 0;
+  border-right: 1px solid #ddd;
+}
+.page-center {
+  float: left;
+  width: 400px;
+  padding: 0 0 0 20px ;
+}
+
+.page-right {
+  float: right;
+  width: 160px;
+  border-left: 1px solid #ddd;
+  padding: 0 0 0 20px;
+}
+
+.title {
+  color: #999
+}
