@@ -1,11 +1,11 @@
 window.QuestionsIndexItem = React.createClass({
   render: function () {
     return(
-      <li className="questions-index-item">
-        <p className="questions-index-item-title"> Title: {this.props.question.title} </p>
-        <p> Body: {this.props.question.body} </p>
-        <p> Author: {this.props.question.author_id} </p>
-      </li>
+      <ul className="questions-index-item">
+        <li className="questions-index-item-title">{this.props.question.title}</li>
+        <li className="questions-index-item-body">{this.props.question.body} </li>
+        <li> Author: {this.props.question.author.user_name} </li>
+      </ul>
     );
   }
 });

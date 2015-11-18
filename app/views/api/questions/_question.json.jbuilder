@@ -2,6 +2,10 @@ json.extract!(
   question,
   :title, :body, :author_id
 )
+
+json.author(
+  question.author
+)
 #
 # if show_toys
 #   json.toys do
