@@ -6,11 +6,11 @@
 
     <nav class="header-nav">
       <ul class="group">
-        <% if !signed_in? %>
-          <li><a href="/">Home</a></li>
+
+          <!-- <li><a href="/">Home</a></li>
           <li><a href="<%= new_session_url %>">Sign in</a></li>
-          <li><a href="<%= new_user_url %>">Sign up</a></li>
-        <% else %>
+          <li><a href="<%= new_user_url %>">Sign up</a></li> -->
+
           <li><a href="/"><strong>Home</strong></a></li>
           <li><a href="#"><strong>Write</strong></a></li>
           <li>
@@ -28,7 +28,8 @@
               <input type="submit" value="Sign Out">
             </label>
           </form></li>
-        <% end %>
+          <li><a id="#askQuestion" href="#"><strong>Ask Question</strong></a></li>
+
       </ul>
     </nav>
 
@@ -38,13 +39,16 @@
 <div class="page group">
   <section class="page-left">
     <h2 class="title">FEEDS</h2>
-    Place links for feeds here.
+    <section class="page-left-content">
+      Place links for feeds here.
+    </section>
   </section>
 
   <section class="page-center">
-    <h1>Content</h2>
-    I am in the main body content.
-<div id="content"></div>
+    <h2 class="main-body-title">Top Stories for You</h2>
+    <div class="injected-content-wrapper">
+      <div id="content"></div>
+    </div>
   </section>
 
   <section class="page-right">

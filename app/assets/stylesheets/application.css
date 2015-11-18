@@ -113,6 +113,11 @@ body {
   padding: 0 20px 0 0;
   border-right: 1px solid #ddd;
 }
+
+.page-left-content {
+  color: #999;
+}
+
 .page-center {
   float: left;
   width: 400px;
@@ -127,5 +132,29 @@ body {
 }
 
 .title {
-  color: #999
+  color: #999;
+  padding-top: 9px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.main-body-title {
+  color: black;
+  font-size: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+  font-family: Georgia,Times,"Times New Roman",serif;
+}
+
+.injected-content-wrapper {
+  padding-top: 5px;
+}
+
+#askQuestion {
+  border: 1px solid #234462;
+  border-radius: 3px;
+  background: #3E78AD;
+  color: #FFF;
 }
