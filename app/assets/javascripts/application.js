@@ -15,5 +15,8 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
+//= require flux
+//= require eventemitter
+//= require react
 //= require components
 //= require_tree .
