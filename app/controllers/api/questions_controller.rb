@@ -30,9 +30,8 @@ class Api::QuestionsController < ApplicationController
     end
 
     def require_user_owns_question!
-      return if Post.find(params[:id]).author == current_user
+      return if Question.find(params[:id]).author == current_user
       render json: "Forbidden", status: :forbidden
     end
-
 
 end

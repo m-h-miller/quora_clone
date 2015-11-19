@@ -6,7 +6,13 @@ class Question < ActiveRecord::Base
     :author,
     class_name: "User",
     foreign_key: :author_id,
-    inverse_of: :questions
+    primary_key: :id
   )
 
+  has_many(
+    :answers,
+    class_name: "Answer",
+    foreign_key: :question_id,
+    primary_key: :id
+  )
 end

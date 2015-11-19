@@ -12,7 +12,6 @@ window.QuestionDetail = React.createClass({
   },
 
   componentDidMount: function () {
-    debugger;
     QuestionStore.addQuestionsIndexChangeListener(this._onChange);
     var id = this.props.params.id;
     ApiUtil.fetchQuestion(id);
@@ -23,8 +22,9 @@ window.QuestionDetail = React.createClass({
     QuestionStore.removeQuestionsIndexChangeListener(this._onChange);
   },
 
+    // if (this.state.question.author.id === ) --- move into render
+    // need to add delete buttons for content that the user owns
   render: function () {
-    debugger
     if (this.state.question === undefined) { return <div></div>; }
     return (
       <div>
@@ -32,7 +32,7 @@ window.QuestionDetail = React.createClass({
           <p className="detail-title" key={this.state.question.title}> { this.state.question.title } </p>
           <p className="detail-body"> { this.state.question.body } </p>
         </div>
-        <br/>
+      <br/>
         <div className="answers">
           <p className="answers-title">
           Answers:

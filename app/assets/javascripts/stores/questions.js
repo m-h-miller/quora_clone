@@ -16,9 +16,7 @@
       }
     });
 
-    if (!updated) {
-      _questions.push(question);
-    }
+    if (!updated) { _questions.push(question); }
 
     QuestionStore.changed();
   };

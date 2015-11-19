@@ -175,6 +175,11 @@ body {
 }
 
 /*END OF APPLICATION LAYOUT STYLING*/
+
+
+
+
+
 /*BEGIN OF INJECTED CONTENT STYLING*/
 
 .questions-index-item-title {
@@ -199,6 +204,15 @@ body {
   padding-bottom: 10px;
   padding-top: 10px;
 }
+
+.questions-index-item-title > a {
+  color: #333;
+}
+
+.questions-index-item-title:hover > a {
+  text-decoration: underline;
+}
+
 #ask-question {
   background-color: #3E78AD;
   padding: 5px;
