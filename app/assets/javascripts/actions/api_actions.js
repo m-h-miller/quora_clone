@@ -4,5 +4,12 @@ window.ApiActions = {
       actionType: QuestionConstants.QUESTIONS_RECEIVED,
       questions: questions
     });
+  },
+
+  receiveSingleQuestion: function (question) {
+    AppDispatcher.dispatch({
+      actionType: QuestionConstants.QUESTION_RECEIVED,
+      question: question
+    });
   }
 };

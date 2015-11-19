@@ -200,5 +200,14 @@ body {
   padding-top: 10px;
 }
 #ask-question {
-  background-color: blue;
+  background-color: #3E78AD;
+  padding: 5px;
+  color: #FFF;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: normal
+}
+
+.new-question-form {
+  display: none;
 }

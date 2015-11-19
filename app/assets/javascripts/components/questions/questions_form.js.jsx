@@ -13,6 +13,14 @@ window.QuestionsForm = React.createClass({
   submitQuestion: function (e) {
     e.preventDefault();
     var question = {};
+    debugger;
+    question.title = this.state.title;
+    question.body = this.state.body;
+    question.author_id = this.state.id;
+    ApiUtil.createQuestion(question, function (id) {
+      this.history.pushState(null, "/questions/" + id, {});
+    }.bind(this));
+    this.setState(this.defaults);
   },
 
   render: function () {

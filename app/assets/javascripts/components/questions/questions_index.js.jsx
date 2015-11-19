@@ -19,6 +19,7 @@ window.QuestionsIndex = React.createClass({
   render: function () {
     return(
       <ul>
+        <QuestionsForm />
         {this.state.questions.map(function (question) {
           return <QuestionsIndexItem key={question.id} question={question} />;
         })}

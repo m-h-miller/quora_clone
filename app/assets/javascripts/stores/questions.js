@@ -30,6 +30,9 @@
         case QuestionConstants.QUESTIONS_RECEIVED:
             resetQuestions(payload.questions);
           break;
+        case QuestionConstants.QUESTION_RECEIVED:
+            resetQuestions(payload.question);
+          break;
       }
     })
   });
