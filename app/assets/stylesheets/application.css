@@ -191,10 +191,10 @@ body {
   line-height: 1.4;
   color: #333;
   display: block;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 
 }
 .questions-index-item {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
   padding-top: 10px;
@@ -209,5 +209,20 @@ body {
 }
 
 .new-question-form {
-  display: none;
+  /*display: none;*/
+}
+
+.detail-title {
+  FONT-SIZE: 19px;
+  color: #333;
+  letter-spacing: -0.5px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  line-height: 1.25;
+  display: block;
+}
+.detail {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
 }

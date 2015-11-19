@@ -4,6 +4,7 @@ class Api::QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    render json: @question
   end
 
   def index
@@ -17,16 +18,15 @@ class Api::QuestionsController < ApplicationController
   def create
     @question = current_user.questions.new(question_params)
     if @question.save
-      redirect_to question_url(@question)
+      render json: @question
     else
-      flash.now[:errors] = @question.errors.full_messages
-      render :new
+      render json: @question.errors
     end
   end
 
   private
     def question_params
-      params.require(:question).permit(:title, :body, :author_id)
+      params.require(:question).permit(:title, :body)
     end
 
     def require_user_owns_question!

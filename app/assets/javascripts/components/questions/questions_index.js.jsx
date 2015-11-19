@@ -12,6 +12,10 @@ window.QuestionsIndex = React.createClass({
     QuestionStore.removeQuestionsIndexChangeListener(this._change);
   },
 
+  componentWillReceiveProps: function () {
+    this._change();
+  },
+
   _change: function () {
     this.setState({ questions: QuestionStore.all() });
   },

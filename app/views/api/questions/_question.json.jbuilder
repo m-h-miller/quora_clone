@@ -1,6 +1,6 @@
 json.extract!(
   question,
-  :title, :body, :author_id
+  :id, :title, :body
 )
 
 json.author(

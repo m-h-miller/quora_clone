@@ -3,7 +3,23 @@
   var _questions = [];
 
   var resetQuestions = function (questions) {
-    _questions = questions;
+    _questions = questions.reverse();
+    QuestionStore.changed();
+  };
+
+  var resetQuestion = function (question) {
+    var updated = false;
+    _questions.forEach(function (q) {
+      if (q.id === question.id) {
+        _questions[_questions.indexOf(q)] = question;
+        updated = true;
+      }
+    });
+
+    if (!updated) {
+      _questions.push(question);
+    }
+
     QuestionStore.changed();
   };
 
@@ -11,6 +27,15 @@
 
     all: function () {
       return _questions.slice(0);
+    },
+
+    find: function (id) {
+      var question;
+      _questions.forEach(function(q) {
+        if (q.id === id) { question = q; }
+      });
+
+      return question;
     },
 
     addQuestionsIndexChangeListener: function (callback) {
@@ -31,7 +56,7 @@
             resetQuestions(payload.questions);
           break;
         case QuestionConstants.QUESTION_RECEIVED:
-            resetQuestions(payload.question);
+            resetQuestion(payload.question);
           break;
       }
     })

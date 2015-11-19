@@ -20,7 +20,17 @@ window.ApiUtil = {
         callback && callback(question.id);
       }
     });
+  },
+  fetchQuestion: function (id) {
+    $.ajax({
+      url: 'api/questions/' + id,
+      type: 'GET',
+      success: function (question) {
+        ApiActions.receiveSingleQuestion(question);
+      }
+    });
   }
+
 
 
 };
