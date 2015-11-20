@@ -27,5 +27,16 @@ window.ApiActions = {
       actionType: AnswerConstants.ANSWER_RECEIVED,
       answer: answer
     });
+  },
+
+
+
+
+  receiveUser: function (user) {
+    AppDispatcher.dispatch({
+      actionType: UserConstants.RECEIVE_USER,
+      user: user
+    })
   }
+
 };

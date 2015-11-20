@@ -1,4 +1,21 @@
 window.ApiUtil = {
+
+  createUser: function (formData, callback) {
+    $.ajax({
+      url: 'api/users',
+      type: 'POST',
+      processData: false,
+      contentType: false,
+      dataType: 'json',
+      data: formData,
+      success: function (user) {
+        ApiActions.receiveUser(user);
+        callback && callback();
+      }
+    });
+  },
+
+
   fetchAllQuestions: function () {
     $.ajax({
       url: 'api/questions',

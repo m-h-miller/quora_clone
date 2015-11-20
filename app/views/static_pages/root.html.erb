@@ -7,9 +7,7 @@
     <nav class="header-nav">
       <ul class="group">
 
-          <!-- <li><a href="/">Home</a></li>
-          <li><a href="<%= new_session_url %>">Sign in</a></li>
-          <li><a href="<%= new_user_url %>">Sign up</a></li> -->
+  
 
           <li><a href="#"><strong>Home</strong></a></li>
           <li><a href="#"><strong>Write</strong></a></li>
@@ -24,9 +22,11 @@
           </li>
 
           <!-- Current user profile drop down -->
+          <% if signed_in? %>
           <li>
             <a href="#"><strong><%= current_user.user_name %></strong></a>
           </li>
+          <% end %>
 
           <li><form action="<%= session_url %>" method="POST">
             <%= authenticity_token %>

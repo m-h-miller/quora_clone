@@ -1,8 +1,7 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
 
-  def new
-    @user = User.new
-    render :new
+  def index
+    @users = User.order(created_at: :desc).all
   end
 
   def create

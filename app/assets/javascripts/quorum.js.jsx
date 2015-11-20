@@ -6,12 +6,25 @@ $(function () {
 
   var root = document.getElementById('content');
 
-  React.render((
-    <Router>
-      <Route path="/" component={IndexPage}></Route>
-      <Route path="/questions/:id" component={QuestionDetail}>
+    var injected_content;
 
-      </Route>
-    </Router>
+
+    if ( CurrentUserStore.isLoggedIn() ) {
+      injected_content = (
+        <Router>
+          <Route path="/" component={IndexPage}></Route>
+          <Route path="/questions/:id" component={QuestionDetail}></Route>
+        </Router>
+      );
+    } else {
+      injected_content = (
+        <Router>
+          <Route path="/" component={ UserForm }></Route>
+        </Router>
+      );
+    }
+
+  React.render((
+      injected_content
   ), root);
 });
