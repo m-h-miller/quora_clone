@@ -33,13 +33,11 @@ window.ApiUtil = {
   },
 
   createAnswer: function (answer, callback) {
-    debugger
     $.ajax({
       url: 'api/questions/' + answer.question_id + '/answers',
       type: 'POST',
       data: {answer: answer},
       success: function (answer) {
-    debugger
         ApiActions.receiveSingleAnswer(answer);
         callback && callback(answer.question_id);
       }

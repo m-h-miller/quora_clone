@@ -10,9 +10,9 @@ User.destroy_all
 Question.destroy_all
 Answer.destroy_all
 
-User.create(user_name: "scooter", password: "scooter")
+User.create(user_name: "guest", password: "password")
 
-10.times do
+5.times do
   name = Faker::Name.name
   name2 = Faker::Name.name
 
