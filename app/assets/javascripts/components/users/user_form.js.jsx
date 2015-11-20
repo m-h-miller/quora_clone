@@ -7,21 +7,28 @@
     render: function() {
       return (
         <div>
-          <h2>Create a New Account</h2>
-          <form onSubmit={this.handleSubmit}>
-            <label>Username
-              <input type="text" onChange={this.changeName} value={this.state.user_name} />
-            </label>
+          <div className="log-in">
+            <h2>Create a New Account</h2>
+            <form onSubmit={this.handleSubmit}>
+              <label>Username
+                <input type="text" onChange={this.changeName} value={this.state.user_name} />
+              </label>
 
-            <label>Password
-              <input type="password" onChange={this.changePw} value={this.state.password} />
-            </label>
+              <label>Password
+                <input type="password" onChange={this.changePw} value={this.state.password} />
+              </label>
 
-            <input type="file" onChange={this.changeFile} />
+              <input type="file" onChange={this.changeFile} />
 
-            <button>Submit</button>
-          </form>
-          <img className="preview-image" src={this.state.imageUrl} />
+              <button>Submit</button>
+            </form>
+            <img className="preview-image" src={this.state.imageUrl} />
+          </div>
+
+          <div className="sign-up">
+            or
+              <a href="/session/new">Sign In</a>
+          </div>
         </div>
       );
     },
