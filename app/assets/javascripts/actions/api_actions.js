@@ -37,6 +37,14 @@ window.ApiActions = {
       actionType: UserConstants.RECEIVE_USER,
       user: user
     })
+  },
+
+
+  receiveCurrentUser: function (currentUser) {
+    AppDispatcher.dispatch({
+      actionType: UserConstants.RECEIVE_CURRENT_USER,
+      currentUser: currentUser
+    });
   }
 
 };
