@@ -11,5 +11,21 @@ window.ApiActions = {
       actionType: QuestionConstants.QUESTION_RECEIVED,
       question: question
     });
+  },
+
+
+
+  receiveAllAnswers: function (answers) {
+    AppDispatcher.dispatch({
+      actionType: AnswerConstants.ANSWERS_RECEIVED,
+      answers: answers
+    });
+  },
+
+  receiveSingleAnswer: function (answer) {
+    AppDispatcher.dispatch({
+      actionType: AnswerConstants.ANSWER_RECEIVED,
+      answer: answer
+    });
   }
 };

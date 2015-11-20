@@ -20,13 +20,13 @@ class Api::AnswersController < ApplicationController
     if @answer.save
       render json: @answer
     else
-      render json: @answer.errors
+      render json: @answer.errors, status: :unprocessable_entity
     end
   end
 
   private
     def answer_params
-      params.require(:answer).permit(:title, :body)
+      params.require(:answer).permit(:title, :body, :question_id)
     end
 
     def require_user_owns_answer!

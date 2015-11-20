@@ -20,4 +20,5 @@ class Answer < ActiveRecord::Base
     through: :question,
     source: :author
   )
+
 end

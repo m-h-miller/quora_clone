@@ -8,16 +8,20 @@
 
 User.destroy_all
 Question.destroy_all
+Answer.destroy_all
 
 User.create(user_name: "scooter", password: "scooter")
 
-20.times do
+10.times do
   name = Faker::Name.name
-  x = User.create(user_name: name, password: "password")
-
+  name2 = Faker::Name.name
 
   title = Faker::Company.bs
   body = Faker::Hacker.say_something_smart
 
-  Question.create(title: title, body: body, author_id: x.id )
+  x = User.create(user_name: name, password: "password")
+  y = User.create(user_name: name2, password: "password")
+
+  q = Question.create(title: title, body: body, author_id: x.id )
+  a = Answer.create(title: title, body: body, author_id: y.id, question_id: q.id)
 end

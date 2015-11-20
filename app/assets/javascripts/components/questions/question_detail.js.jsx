@@ -29,14 +29,13 @@ window.QuestionDetail = React.createClass({
     return (
       <div>
         <div className="detail">
-          <p className="detail-title" key={this.state.question.title}> { this.state.question.title } </p>
+          <p className="detail-title" key={ this.state.question.title }> { this.state.question.title } </p>
           <p className="detail-body"> { this.state.question.body } </p>
         </div>
       <br/>
         <div className="answers">
-          <p className="answers-title">
-          Answers:
-          </p>
+          <p className="answers-header">Answers:</p>
+          <AnswersIndex question={ this.state.question } answers={ this.state.question.answers }/>
         </div>
       </div>
     );

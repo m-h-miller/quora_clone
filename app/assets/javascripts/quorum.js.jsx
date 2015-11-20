@@ -8,9 +8,10 @@ $(function () {
 
   React.render((
     <Router>
-      <Route path="/" component={IndexPage}>
+      <Route path="/" component={IndexPage}></Route>
+      <Route path="/questions/:id" component={QuestionDetail}>
+
       </Route>
-      <Route path="/questions/:id" component={QuestionDetail}></Route>
     </Router>
   ), root);
 });

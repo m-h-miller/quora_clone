@@ -7,15 +7,13 @@ json.author(
   question.author
 )
 
-json.answers(
-  question.answers
-)
 
-# json.answers do
-#   json.array!(question.answers) do |answer|
-#     json.partial! 'answers/answer', answer: answer
-#   end
-# end
+
+json.answers do
+  json.array!(question.answers) do |answer|
+    json.partial! 'api/answers/answer', answer: answer
+  end
+end
 #
 # if show_toys
 #   json.toys do

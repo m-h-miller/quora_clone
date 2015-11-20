@@ -21,6 +21,7 @@ window.ApiUtil = {
       }
     });
   },
+
   fetchQuestion: function (id) {
     $.ajax({
       url: 'api/questions/' + id,
@@ -29,8 +30,19 @@ window.ApiUtil = {
         ApiActions.receiveSingleQuestion(question);
       }
     });
+  },
+
+  createAnswer: function (answer, callback) {
+    debugger
+    $.ajax({
+      url: 'api/questions/' + answer.question_id + '/answers',
+      type: 'POST',
+      data: {answer: answer},
+      success: function (answer) {
+    debugger
+        ApiActions.receiveSingleAnswer(answer);
+        callback && callback(answer.question_id);
+      }
+    });
   }
-
-
-
 };

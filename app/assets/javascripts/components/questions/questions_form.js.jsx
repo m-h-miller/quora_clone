@@ -11,6 +11,7 @@ window.QuestionsForm = React.createClass({
   },
 
   submitQuestion: function (e) {
+    debugger
     e.preventDefault();
     var question = { };
     question.title = this.state.title;
