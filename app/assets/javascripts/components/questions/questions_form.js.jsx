@@ -16,9 +16,11 @@ window.QuestionsForm = React.createClass({
     var question = { };
     question.title = this.state.title;
     question.body = this.state.body;
+
     ApiUtil.createQuestion(question, function (id) {
       this.history.pushState(null, "/questions/" + id, {});
     }.bind(this));
+
     this.setState(this.defaults);
   },
 

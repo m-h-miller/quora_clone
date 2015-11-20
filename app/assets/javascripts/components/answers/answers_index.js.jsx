@@ -21,6 +21,8 @@ window.AnswersIndex = React.createClass({
   },
 
   render: function () {
+    if (typeof this.props.answers === "undefined") { return (<div></div>); }
+    
     return(
       <ul>
         <AnswersForm question={this.props.question}/>
