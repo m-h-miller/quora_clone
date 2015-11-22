@@ -2,21 +2,21 @@ window.Header = React.createClass({
 	render: function () {
 		return (
 			<div>
-				<header class="header">
-				  <div class="header-wrap group">
-				    <h1 class="header-logo">
+				<header className="header">
+				  <div className="header-wrap group">
+				    <h1 className="header-logo">
 				      <a href="#">Quorum</a>
 				    </h1>
 
-				    <nav class="header-nav">
-				      <ul class="group">
+				    <nav className="header-nav">
+				      <ul className="group">
 
 				          <li><a href="#"><strong>Home</strong></a></li>
 				          <li><a href="#"><strong>Write</strong></a></li>
 
 				          <li>
-				            <a href="#">Notifications <strong class="header-nav-badge">3</strong></a>
-				            <ul class="header-nav-drop-down">
+				            <a href="#">Notifications <strong className="header-nav-badge">3</strong></a>
+				            <ul className="header-nav-drop-down">
 				              <li><a href="#">Someone liked your question.</a></li>
 				              <li><a herf="#">Someone answered your question.</a></li>
 				            </ul>
