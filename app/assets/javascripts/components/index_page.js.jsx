@@ -3,6 +3,8 @@ window.IndexPage = React.createClass({
     return(
       <div>
         <div className="index-page">
+        	<Header />
+        	<SideBar />
           <QuestionsIndex />
         </div>
       </div>

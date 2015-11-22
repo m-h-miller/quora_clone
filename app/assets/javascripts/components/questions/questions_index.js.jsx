@@ -22,12 +22,17 @@ window.QuestionsIndex = React.createClass({
 
   render: function () {
     return(
+      <section class="page-center">
+          <h2 class="main-body-title">Top Stories for You</h2>
+
       <ul>
         <QuestionsForm />
         {this.state.questions.map(function (question) {
           return <QuestionsIndexItem key={question.id} question={question} />;
         })}
       </ul>
+      
+      </section>
     );
   }
 });
