@@ -30,7 +30,7 @@ window.Header = React.createClass({
 				            <label>
 				              <input type="submit" value="Sign Out" />
 				            </label>
-				          </form></li>
+				          </li>
 				          <li><a id="ask-question" href="#"><strong>Ask Question</strong>
 				          </a></li>
 
