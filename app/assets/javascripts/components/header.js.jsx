@@ -23,7 +23,7 @@ window.Header = React.createClass({
 				          </li>
 
 				          <li>
-				            <a href="#"><strong><%= current_user.user_name %></strong></a>
+				            <a href="#"><strong> current_user.user_name </strong></a>
 				          </li>
 
 				          <li>
