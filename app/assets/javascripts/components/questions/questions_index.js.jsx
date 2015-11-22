@@ -22,8 +22,8 @@ window.QuestionsIndex = React.createClass({
 
   render: function () {
     return(
-      <section class="page-center">
-          <h2 class="main-body-title">Top Stories for You</h2>
+      <section className="page-center">
+          <h2 className="main-body-title">Top Stories for You</h2>
 
       <ul>
         <QuestionsForm />
@@ -31,7 +31,7 @@ window.QuestionsIndex = React.createClass({
           return <QuestionsIndexItem key={question.id} question={question} />;
         })}
       </ul>
-      
+
       </section>
     );
   }
