@@ -1,5 +1,4 @@
 class Api::AnswersController < ApplicationController
-  before_action :require_user_signed_in!
   before_action :require_user_owns_answer!, only: [:edit, :update, :destroy]
 
   def new

@@ -1,5 +1,4 @@
 class Api::QuestionsController < ApplicationController
-  before_action :require_user_signed_in!
   before_action :require_user_owns_question!, only: [:edit, :update, :destroy]
 
   def new

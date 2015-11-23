@@ -88,6 +88,7 @@ body {
 .header-nav > li {
   position: relative;
   float: left;
+  padding-left:10px;
 }
 
 .header-nav > ul > li > a {

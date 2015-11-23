@@ -9,7 +9,7 @@ $(function () {
   React.render((
     <Router>
       <Route path="/" component={ App }>
-        <IndexRoute path="/" component={ IndexPage } />
+        <IndexRoute component={ IndexPage } />
         <Route path="/questions/:id" component={QuestionDetail} />
         <Route path="login" component={ SessionForm } />
       </Route>
