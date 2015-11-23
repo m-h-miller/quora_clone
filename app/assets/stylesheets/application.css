@@ -58,8 +58,10 @@ body {
 
 .header {
   background-color: #FFF;
-  border: 1px solid grey;
 }
+
+/*Perhaps merge these two?*/
+/*Also possibly add a margin on the bottom?*/
 .header-wrap {
   border-top: 2px solid #B92B27;
   border-bottom: 1px solid #ddd;
@@ -111,8 +113,8 @@ body {
   float: left;
   width: 160px;
   padding: 0 20px 0 0;
-  border-right: 1px solid #ddd;
-}
+/*  border-right: 1px solid #ddd;
+*/}
 
 .page-left-content {
   color: #999;
@@ -239,4 +241,8 @@ body {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px;
+}
+
+.title, .main-body-title {
+  margin-bottom: 10px;
 }
