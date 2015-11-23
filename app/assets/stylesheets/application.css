@@ -56,13 +56,11 @@ body {
   color: #B92B27;
 }
 
-.header {
-  background-color: #FFF;
-}
 
 /*Perhaps merge these two?*/
 /*Also possibly add a margin on the bottom?*/
 .header-wrap {
+  background-color: #FFF;
   border-top: 2px solid #B92B27;
   border-bottom: 1px solid #ddd;
   box-shadow: 0px 1px 1px 1px #F6F6F9;
