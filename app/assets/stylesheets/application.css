@@ -137,6 +137,11 @@ body {
   margin:auto;
   margin-top:35px;
 }
+.detail-view {
+  width:1000px;
+  margin:auto;
+  margin-top:35px;
+}
 .page-left {
   width: 150px;
   float:left;
@@ -321,4 +326,10 @@ body {
   border-left:1px solid #ccc;
   padding-left:10px;
   text-align:left;
+}
+
+
+.new-question-form {
+  border: 1px solid #ccc;
+  padding:20px;
 }

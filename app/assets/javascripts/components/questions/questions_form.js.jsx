@@ -27,6 +27,9 @@ window.QuestionsForm = React.createClass({
     return(
       <section id="modal" className="modal is-active">
         <article className="modal-content">
+        
+
+
           <span class="modal-close js-hide-modal">&times;</span>
 
           <form className='new-question-form' onSubmit={this.submitQuestion}>
@@ -49,6 +52,9 @@ window.QuestionsForm = React.createClass({
             <button> Ask Question </button>
             <br/>
           </form>
+
+
+
         </article>
       </section>
     );
