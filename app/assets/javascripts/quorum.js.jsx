@@ -8,10 +8,13 @@ $(function () {
 
   React.render((
     <Router>
-      <Route path="/" component={IndexPage}></Route>
-      <Route path="/questions/:id" component={QuestionDetail}>
-
+      <Route path="/" component={ App }>
+        <IndexRoute path="/" component={ IndexPage } />
+        <Route path="/questions/:id" component={QuestionDetail} />
+        <Route path="login" component={ SessionForm } />
       </Route>
+
+      <IndexPage />
     </Router>
   ), root);
 });
