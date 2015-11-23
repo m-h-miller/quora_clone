@@ -25,26 +25,32 @@ window.QuestionsForm = React.createClass({
 
   render: function () {
     return(
-      <form className='new-question-form' onSubmit={this.submitQuestion}>
-        <div>
-          <label htmlFor='question_title'>Title:</label>
-          <input
-            type='text'
-            id='question_title'
-            valueLink={this.linkState('title')} />
-        </div>
+      <section id="modal" className="modal is-active">
+        <article className="modal-content">
+          <span class="modal-close js-hide-modal">&times;</span>
 
-        <div>
-          <label htmlFor='question_body'>Body:</label>
-          <input
-            type='text'
-            id='question_body'
-            valueLink={this.linkState('body')} />
-        </div>
+          <form className='new-question-form' onSubmit={this.submitQuestion}>
+            <div>
+              <label htmlFor='question_title'>Title:</label>
+              <input
+                type='text'
+                id='question_title'
+                valueLink={this.linkState('title')} />
+            </div>
 
-        <button> Ask Question </button>
-        <br/>
-      </form>
+            <div>
+              <label htmlFor='question_body'>Body:</label>
+              <input
+                type='text'
+                id='question_body'
+                valueLink={this.linkState('body')} />
+            </div>
+
+            <button> Ask Question </button>
+            <br/>
+          </form>
+        </article>
+      </section>
     );
   }
 });

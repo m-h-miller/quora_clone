@@ -1,21 +1,20 @@
 (function(root) {
   root.App = React.createClass({
+    mixins: [ReactRouter.History],
 
     getInitialState: function () {
       return { currentUser: null };
     },
 
-    mixins: [ReactRouter.History],
-
     componentWillMount: function () {
-      this._ensureLoggedIn();
-      CurrentUserStore.addChangeHandler(this._ensureLoggedIn);
+      this._ensureSignedIn();
+      CurrentUserStore.addChangeHandler(this._ensureSignedIn);
       SessionsApiUtil.fetchCurrentUser();
     },
 
-    _ensureLoggedIn: function () {
-      if (!CurrentUserStore.isLoggedIn()) {
-        this.history.pushState(null, "/login");
+    _ensureSignedIn: function () {
+      if (!CurrentUserStore.isSignedIn()) {
+        this.history.pushState(null, "/signin");
       }
 
       this.setState({currentUser: CurrentUserStore.currentUser()});
@@ -30,7 +29,6 @@
       return (
         <div>
           <Header />
-
           { this.props.children }
         </div>
       );

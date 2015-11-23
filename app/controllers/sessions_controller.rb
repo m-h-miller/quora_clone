@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
 
   def show
+    sleep 10
+
     unless current_user
       render json: {}
       return

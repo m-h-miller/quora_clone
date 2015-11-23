@@ -11,7 +11,7 @@ $(function () {
       <Route path="/" component={ App }>
         <IndexRoute component={ IndexPage } />
         <Route path="/questions/:id" component={QuestionDetail} />
-        <Route path="login" component={ SessionForm } />
+        <Route path="signin" component={ SessionForm } />
       </Route>
 
       <IndexPage />

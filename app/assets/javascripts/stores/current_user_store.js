@@ -1,6 +1,5 @@
 (function (root) {
   var CHANGE_EVENT = "change";
-
   var _currentUser = {};
 
   root.CurrentUserStore = $.extend({}, EventEmitter.prototype, {
@@ -17,7 +16,7 @@
       return $.extend({}, _currentUser);
     },
 
-    isLoggedIn: function () {
+    isSignedIn: function () {
       return (typeof _currentUser.id !== "undefined");
     },
 

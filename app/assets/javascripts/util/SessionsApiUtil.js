@@ -1,5 +1,5 @@
 var SessionsApiUtil = {
-  login: function (credentials, success) {
+  signin: function (credentials, success) {
     console.log("trying to log in");
     $.ajax({
       url: '/session',
@@ -7,20 +7,18 @@ var SessionsApiUtil = {
       dataType: 'json',
       data: {user: credentials},
       success: function (currentUser) {
-        console.log("logged in!");
         UserActions.receiveUser(currentUser);
         success && success();
       }
     });
   },
 
-  logout: function (  ) {
+  signout: function (  ) {
     $.ajax({
       url: '/session',
       type: 'DELETE',
       dataType: 'json',
       success: function () {
-        console.log("logged out!");
         UserActions.receiveUser({});
       }
     });
@@ -32,7 +30,6 @@ var SessionsApiUtil = {
       type: 'GET',
       dataType: 'json',
       success: function (currentUser) {
-        console.log("fetching");
         UserActions.receiveUser(currentUser);
       }
     });
