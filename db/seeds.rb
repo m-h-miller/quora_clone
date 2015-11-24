@@ -12,16 +12,26 @@ Answer.destroy_all
 
 User.create(user_name: "guest", password: "password")
 
-5.times do
+15.times do
   name = Faker::Name.name
   name2 = Faker::Name.name
 
   title = Faker::Company.bs
   body = Faker::Hacker.say_something_smart
+  title = "How to " + title
+  title += "?"
+
+  title2 = Faker::Company.bs
+  body2 = Faker::Hacker.say_something_smart
+  title2 = "How to " + title2
+  title2 += "?"
 
   x = User.create(user_name: name, password: "password")
   y = User.create(user_name: name2, password: "password")
 
-  q = Question.create(title: title, body: body, author_id: x.id )
-  a = Answer.create(title: title, body: body, author_id: y.id, question_id: q.id)
+  q1 = Question.create(title: title, body: body, author_id: x.id )
+  a1 = Answer.create(title: title2, body: body2, author_id: y.id, question_id: q1.id)
+
+  q2 = Question.create(title: title2, body: body2, author_id: y.id)
+  a2 = Answer.create(title: title, body: body, author_id: x.id, question_id: q2.id)
 end
