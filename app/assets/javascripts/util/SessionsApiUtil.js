@@ -1,8 +1,7 @@
 var SessionsApiUtil = {
   signin: function (credentials, success) {
-    console.log("trying to log in");
     $.ajax({
-      url: '/session',
+      url: 'api/session',
       type: 'POST',
       dataType: 'json',
       data: {user: credentials},
@@ -15,7 +14,7 @@ var SessionsApiUtil = {
 
   signout: function (  ) {
     $.ajax({
-      url: '/session',
+      url: 'api/session',
       type: 'DELETE',
       dataType: 'json',
       success: function () {
@@ -26,7 +25,7 @@ var SessionsApiUtil = {
 
   fetchCurrentUser: function () {
     $.ajax({
-      url: '/session/new',
+      url: 'api/session',
       type: 'GET',
       dataType: 'json',
       success: function (currentUser) {

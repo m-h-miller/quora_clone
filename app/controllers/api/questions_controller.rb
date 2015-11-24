@@ -17,7 +17,7 @@ class Api::QuestionsController < ApplicationController
   def create
     @question = current_user.questions.new(question_params)
     if @question.save
-      render json: @question
+      render "api/questions/show"
     else
       render json: @question.errors
     end

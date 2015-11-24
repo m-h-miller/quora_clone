@@ -13,9 +13,14 @@ window.QuestionDetail = React.createClass({
 
   componentDidMount: function () {
     QuestionStore.addQuestionsIndexChangeListener(this._onChange);
+    QuestionStore.addAnswersIndexChangeListener(this._onChange);
     var id = this.props.params.id;
     ApiUtil.fetchQuestion(id);
     this.getStateFromStore();
+  },
+
+  componentWillReceiveProps: function () {
+    this._onChange();
   },
 
   componentWillUnmount: function () {

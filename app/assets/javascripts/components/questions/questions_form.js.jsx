@@ -15,6 +15,7 @@ window.QuestionsForm = React.createClass({
     var question = { };
     question.title = this.state.title;
     question.body = this.state.body;
+    question.author = CurrentUserStore.currentUser().user_name;
 
     ApiUtil.createQuestion(question, function (id) {
       this.history.pushState(null, "/questions/" + id, {});
@@ -27,7 +28,7 @@ window.QuestionsForm = React.createClass({
     return(
       <section id="modal" className="modal is-active">
         <article className="modal-content">
-        
+
 
 
           <span class="modal-close js-hide-modal">&times;</span>

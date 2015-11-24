@@ -13,17 +13,16 @@ window.AnswersForm = React.createClass({
   submitAnswer: function (e) {
     e.preventDefault();
     var answer = { };
-    debugger
     answer.title = this.state.title;
     answer.body = this.state.body;
     answer.question_id = this.props.question.id;
-
 
     ApiUtil.createAnswer(answer, function (question_id) {
       this.history.pushState(null, "/questions/" + question_id, {});
     }.bind(this));
 
     this.setState(this.defaults);
+
   },
 
   render: function () {

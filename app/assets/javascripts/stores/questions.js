@@ -29,7 +29,7 @@
 
   var addAnswer = function (answer) {
     _answers.push(answer);
-    QuestionStore.changed();
+    QuestionStore.answersChanged();
   };
 
   window.QuestionStore = $.extend({}, EventEmitter.prototype, {

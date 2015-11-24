@@ -17,7 +17,7 @@ class Api::AnswersController < ApplicationController
   def create
     @answer = current_user.answers.new(answer_params)
     if @answer.save
-      render json: @answer
+      render "api/answers/show"
     else
       render json: @answer.errors, status: :unprocessable_entity
     end

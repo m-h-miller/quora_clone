@@ -32,12 +32,23 @@ window.ApiUtil = {
     });
   },
 
+  fetchAnswers: function (question_id) {
+    $.ajax({
+      url: 'api/questions/' + question_id + '/answers',
+      type: 'GET',
+      success: function (answers) {
+        ApiActions.receiveAllAnswers(answers);
+      }
+    });
+  },
+
   createAnswer: function (answer, callback) {
     $.ajax({
       url: 'api/questions/' + answer.question_id + '/answers',
       type: 'POST',
       data: {answer: answer},
       success: function (answer) {
+        debugger;
         ApiActions.receiveSingleAnswer(answer);
         callback && callback(answer.question_id);
       }

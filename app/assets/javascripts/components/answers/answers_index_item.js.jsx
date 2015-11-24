@@ -3,7 +3,7 @@ window.AnswersIndexItem = React.createClass({
     return(
       <ul className="answers-index-item">
         <br/>
-        <li className="answers-index-item-author">{this.props.answer.author.user_name} wrote:
+        <li className="answers-index-item-author">{this.props.author.user_name} wrote:
         <br/>
         <li className="answers-index-item-title">
             {this.props.answer.title}

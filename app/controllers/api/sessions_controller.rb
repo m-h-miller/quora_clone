@@ -1,15 +1,13 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
 
   def show
-    sleep 10
-
     unless current_user
       render json: {}
       return
     end
 
     @user = current_user
-    render "api/questions/index"
+    render json: @user
   end
 
   def create
@@ -30,7 +28,4 @@ class SessionsController < ApplicationController
     render json: {}
   end
 
-  def new
-    render :new
-  end
 end
