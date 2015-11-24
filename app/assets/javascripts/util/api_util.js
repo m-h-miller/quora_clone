@@ -43,6 +43,17 @@ window.ApiUtil = {
     });
   },
 
+  deleteAnswer: function(question_id, answer_id) {
+    $.ajax({
+      url: 'api/questions/' + question_id + '/answers/' + answer_id,
+      type: 'DELETE',
+      success: function (question_id) {
+        debugger
+        ApiUtil.fetchAnswers(question_id);
+      }
+    });
+  },
+
   fetchAnswers: function (question_id) {
     $.ajax({
       url: 'api/questions/' + question_id + '/answers',

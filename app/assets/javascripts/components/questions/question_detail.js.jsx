@@ -40,7 +40,7 @@ window.QuestionDetail = React.createClass({
         <br/>
           <div className="answers">
             <p className="answers-header">Answers:</p>
-            <AnswersIndex question={ this.state.question } answers={ this.state.question.answers }/>
+            <AnswersIndex question={ this.state.question } />
           </div>
         </div>
       </div>

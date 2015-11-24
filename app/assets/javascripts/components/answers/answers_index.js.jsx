@@ -14,23 +14,24 @@ window.AnswersIndex = React.createClass({
     QuestionStore.removeAnswersIndexChangeListener(this._change);
   },
 
-  // componentWillReceiveProps: function () {
-  //   QuestionStore.addAnswersIndexChangeListener(this._change);
-  // },
-
   _change: function () {
     this.setState({ answers: QuestionStore.allQuestionAnswers() });
   },
 
   render: function () {
-    if (typeof this.props.answers === "undefined") { return (<div></div>); }
     debugger;
+    if (typeof this.props.question.answers === "undefined") { return (<div></div>); }
+
     return(
       <ul>
         <AnswersForm question={this.props.question}/>
         {this.state.answers.map(function (answer) {
-          return <AnswersIndexItem key={answer.id} answer={answer} author={answer.author} />;
-        })}
+          return <AnswersIndexItem
+                    key={answer.id}
+                    question={this.props.question}
+                    answer={answer}
+                    author={answer.author} />;
+        }.bind(this))}
       </ul>
     );
   }
