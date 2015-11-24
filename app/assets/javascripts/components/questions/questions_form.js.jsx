@@ -31,7 +31,7 @@ window.QuestionsForm = React.createClass({
 
 
 
-          <span class="modal-close js-hide-modal">&times;</span>
+          <span className="modal-close js-hide-modal">&times;</span>
 
           <form className='new-question-form' onSubmit={this.submitQuestion}>
             <div>

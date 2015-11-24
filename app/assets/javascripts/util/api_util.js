@@ -22,6 +22,17 @@ window.ApiUtil = {
     });
   },
 
+  deleteQuestion: function(question_id) {
+    $.ajax({
+      url: 'api/questions/' + question_id,
+      type: 'DELETE',
+      success: function (question_id) {
+        console.log("Question deleted!");
+        ApiUtil.fetchAllQuestions();
+      }
+    });
+  },
+
   fetchQuestion: function (id) {
     $.ajax({
       url: 'api/questions/' + id,
@@ -48,7 +59,6 @@ window.ApiUtil = {
       type: 'POST',
       data: {answer: answer},
       success: function (answer) {
-        debugger;
         ApiActions.receiveSingleAnswer(answer);
         callback && callback(answer.question_id);
       }

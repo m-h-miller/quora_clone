@@ -26,8 +26,8 @@
 							<h1 className="header-logo"><a href="#">Quorum</a></h1>
 
 				      <ul className="header-nav group">
-			          <li><a href="#"><strong>Home</strong></a></li>
-			          <li><a href="#"><strong>Write</strong></a></li>
+			          <li><a href="#">Home</a></li>
+			          <li><a href="#">Write</a></li>
 
 			          <li>
 			            <a href="#">Notifications

@@ -13,8 +13,6 @@ window.ApiActions = {
     });
   },
 
-
-
   receiveAllAnswers: function (answers) {
     AppDispatcher.dispatch({
       actionType: AnswerConstants.ANSWERS_RECEIVED,
