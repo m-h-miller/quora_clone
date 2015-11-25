@@ -47,9 +47,8 @@ window.ApiUtil = {
     $.ajax({
       url: 'api/questions/' + question_id + '/answers/' + answer_id,
       type: 'DELETE',
-      success: function (question_id) {
-        debugger
-        ApiUtil.fetchAnswers(question_id);
+      success: function (answer) {
+        ApiUtil.fetchAnswers(answer.question_id);
       }
     });
   },

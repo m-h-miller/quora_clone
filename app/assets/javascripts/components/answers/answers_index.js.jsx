@@ -19,7 +19,6 @@ window.AnswersIndex = React.createClass({
   },
 
   render: function () {
-    debugger;
     if (typeof this.props.question.answers === "undefined") { return (<div></div>); }
 
     return(
@@ -29,8 +28,7 @@ window.AnswersIndex = React.createClass({
           return <AnswersIndexItem
                     key={answer.id}
                     question={this.props.question}
-                    answer={answer}
-                    author={answer.author} />;
+                    answer={answer} />;
         }.bind(this))}
       </ul>
     );

@@ -10,11 +10,10 @@ $(function () {
     <Router>
       <Route path="/" component={ App }>
         <IndexRoute component={ IndexPage } />
-        <Route path="/questions/:id" component={QuestionDetail} />
+        <Route path="questions/:id" component={QuestionDetail} />
         <Route path="signin" component={ SessionForm } />
       </Route>
 
-      <IndexPage />
     </Router>
   ), root);
 });

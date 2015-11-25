@@ -4,12 +4,11 @@ window.AnswersIndexItem = React.createClass({
   },
 
   render: function () {
-    debugger;
-    if ( this.props.question.author.user_name === CurrentUserStore.currentUser().user_name ) {
+    if ( this.props.answer.author.user_name === CurrentUserStore.currentUser().user_name ) {
       return(
         <ul className="answers-index-item">
           <br/>
-          <li className="answers-index-item-author">{this.props.author.user_name} wrote: </li>
+          <li className="answers-index-item-author">{this.props.answer.author.user_name} wrote: </li>
           <br/>
           <li className="answers-index-item-title">
               {this.props.answer.title}
@@ -25,7 +24,7 @@ window.AnswersIndexItem = React.createClass({
       return(
         <ul className="answers-index-item">
           <br/>
-          <li className="answers-index-item-author">{this.props.author.user_name} wrote: </li>
+          <li className="answers-index-item-author">{this.props.answer.author.user_name} wrote: </li>
           <br/>
           <li className="answers-index-item-title">
               {this.props.answer.title}

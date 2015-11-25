@@ -7,9 +7,15 @@
     },
 
     componentWillMount: function () {
-      this._ensureSignedIn();
       CurrentUserStore.addChangeHandler(this._ensureSignedIn);
       SessionsApiUtil.fetchCurrentUser();
+    },
+
+    componentWillReceiveProps: function (newProps) {
+      debugger;
+      if (newProps.location.pathname !== "/signin") {
+        SessionsApiUtil.fetchCurrentUser();
+      }
     },
 
     _ensureSignedIn: function () {

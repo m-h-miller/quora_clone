@@ -1,15 +1,10 @@
 class Api::UsersController < ApplicationController
 
-  def new
-    @user = User.new
-    render :new
-  end
-
   def create
     @user = User.new(user_params)
     if @user.save
       sign_in!(@user)
-      render json: "api/questions/"
+      render json: "api/users/show"
     else
       render json: {errors: ["Unprocessable Entity!"]}, status: 422
     end
@@ -17,7 +12,6 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    render json: @user
   end
 
   private

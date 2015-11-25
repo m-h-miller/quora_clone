@@ -12,6 +12,7 @@ window.QuestionDetail = React.createClass({
   },
 
   componentDidMount: function () {
+    debugger
     QuestionStore.addQuestionsIndexChangeListener(this._onChange);
     QuestionStore.addAnswersIndexChangeListener(this._onChange);
     var id = this.props.params.id;

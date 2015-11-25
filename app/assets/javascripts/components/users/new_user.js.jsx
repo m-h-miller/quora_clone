@@ -1,13 +1,25 @@
 (function(root) {
   root.UserForm = React.createClass({
+
     mixins: [ReactRouter.History],
+
+    defaults: {
+      user_name: "username",
+      password: "password"
+    },
+
+    getInitialState: function () {
+      return this.defaults;
+    },
 
     submit: function (e) {
       e.preventDefault();
-
       var credentials = $(e.currentTarget).serializeJSON();
-      SessionsApiUtil.login(credentials, function () {
-        this.history.pushState(null, "/");
+
+      ApiUtil.signup(credentials, function () {
+          SessionsApiUtil.login(credentials, function () {
+            this.history.pushState(null, "/");
+          }.bind(this));
       }.bind(this));
     },
 
@@ -16,22 +28,37 @@
     render: function() {
 
       return (
-        <form onSubmit={ this.submit }>
+        <div className="new-session">
 
-          <h1>Sign Up!</h1>
+          <div className="new-session-background "></div>
+          <div className="new-session-gradient"></div>
 
-          <label>
-            Username
-            <input type="text" name="user_name" />
-          </label>
+          <div className="new-session-content">
+            <div className="new-session-header">
+              <h1>
+                Quorum
+              </h1>
+              <h4>
+                The best answer to any question.
+              </h4>
+            </div>
 
-          <label>
-            Password
-            <input type="password" name="password" />
-          </label>
-
-          <button>Sign Up!</button>
-        </form>
+            <div className="new-session-form-wrapper">
+              <form className="new-session-form group" onSubmit={ this.submit }>
+                <label>
+                  Username
+                  <input type="text" name="user_name" />
+                </label>
+                <label>
+                  Password
+                  <input type="password" name="password" />
+                </label>
+                <br/>
+                <button>Sign In</button>
+              </form>
+            </div>
+          </div>
+        </div>
       );
     },
 

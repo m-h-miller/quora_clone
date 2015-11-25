@@ -1,5 +1,5 @@
 var SessionsApiUtil = {
-  signin: function (credentials, success) {
+  signin: function (credentials, callback) {
     $.ajax({
       url: 'api/session',
       type: 'POST',
@@ -7,7 +7,7 @@ var SessionsApiUtil = {
       data: {user: credentials},
       success: function (currentUser) {
         UserActions.receiveUser(currentUser);
-        success && success();
+        callback && callback();
       }
     });
   },
