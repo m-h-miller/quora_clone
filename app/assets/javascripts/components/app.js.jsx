@@ -12,8 +12,8 @@
     },
 
     componentWillReceiveProps: function (newProps) {
-      debugger;
-      if (newProps.location.pathname !== "/signin") {
+      if (newProps.location.pathname !== "/signin" &&
+          newProps.location.pathname !== "/signup") {
         SessionsApiUtil.fetchCurrentUser();
       }
     },

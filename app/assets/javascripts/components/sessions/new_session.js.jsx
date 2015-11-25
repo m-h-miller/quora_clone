@@ -52,7 +52,8 @@
                   <input type="password" name="password" />
                 </label>
                 <br/>
-                <button>Sign In</button>
+                <button>Sign In</button> or
+                  <a href="#/signup">Sign up</a>
               </form>
             </div>
           </div>

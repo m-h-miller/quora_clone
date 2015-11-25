@@ -16,13 +16,11 @@
       e.preventDefault();
       var credentials = $(e.currentTarget).serializeJSON();
 
-      ApiUtil.signup(credentials, function () {
-          SessionsApiUtil.login(credentials, function () {
-            this.history.pushState(null, "/");
-          }.bind(this));
+      UsersApiUtil.signup(credentials, function (credentials) {
+        debugger
+        this.history.pushState(null, "/");
       }.bind(this));
     },
-
 
 
     render: function() {
@@ -54,7 +52,8 @@
                   <input type="password" name="password" />
                 </label>
                 <br/>
-                <button>Sign In</button>
+                <button>Sign Up</button> or
+                  <a href="#/signin">Sign in</a>
               </form>
             </div>
           </div>
