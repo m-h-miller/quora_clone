@@ -73,5 +73,13 @@ window.ApiUtil = {
         callback && callback(answer.question_id);
       }
     });
+  },
+
+  fetchUserQuestions: function (user_id) {
+    $.ajax({
+      url: 'api/questions',
+      type: 'GET',
+      data: {}
+    });
   }
 };

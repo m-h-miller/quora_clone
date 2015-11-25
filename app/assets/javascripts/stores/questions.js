@@ -46,6 +46,14 @@
       return question;
     },
 
+    findAuthorQuestions: function (user_id) {
+      var questions = [];
+      _questions.forEach(function(q) {
+        if (q.author_id === user_id) { questions.push(q); }
+      });
+      return questions;
+    },
+
     allQuestionAnswers: function () {
       return _answers.slice(0);
     },

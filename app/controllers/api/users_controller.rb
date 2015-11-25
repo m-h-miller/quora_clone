@@ -10,8 +10,12 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def index
+    @user = User.includes(questions: [:answers, :author], answers: [:questions, :author]).all
+  end
+
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(questions: [:author, :answers], answers: [:questions, :author]).find(params[:id])
   end
 
   private

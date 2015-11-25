@@ -14,7 +14,7 @@
 *= require_self
 */
 
-html, body, header, h1, h2, nav, ul, li, a, footer, small {
+html, body, header, h1, h2, h6, nav, ul, li, a, p, footer, small {
   border: 0;
   margin: 0;
   padding: 0;
@@ -110,7 +110,6 @@ body {
 
 
 
-
 .title {
   color: #999;
   padding-top: 9px;
@@ -159,6 +158,19 @@ body {
 
 
 /*BEGIN OF INJECTED CONTENT STYLING*/
+.thumb {
+  width:40px;
+  height:40px;
+  float:left;
+  padding-right:5px;
+}
+.author-thumb {
+  width: 100%;
+  border-radius:50%;
+}
+.questions-index-item-body {
+  padding: 5px 10px;
+}
 
 .questions-index-item {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -166,11 +178,14 @@ body {
   padding-bottom: 10px;
   padding-top: 10px;
 }
+
 .questions-index-item-author {
   font-weight:400;
+  float:left;
   font-size: 13px;
   color: #999;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top:10px;
 }
 .questions-index-item-author > strong {
   font-weight:bold;
@@ -183,6 +198,7 @@ body {
   font-weight: bold;
   line-height: 1.25;
   display: block;
+  padding-bottom:5px;
 }
 .questions-index-item-body {
   font-size: 15px;

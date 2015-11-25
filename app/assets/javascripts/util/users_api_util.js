@@ -1,17 +1,28 @@
 window.UsersApiUtil = {
-  signup: function (credentials, callback) {
+  signup: function (formData, callback) {
     $.ajax({
       url: 'api/users',
       type: 'POST',
+      processData: false,
+      contentType: false,
       dataType: 'json',
-      data: {user: credentials},
+      data: formData,
       success: function (user) {
-        debugger
         callback && callback(user);
       },
-      error: function () {
-        debugger;
+    });
+  },
+
+  fetchUser: function(user_id) {
+    $.ajax({
+      url: 'api/users/' + user_id,
+      type: 'GET',
+      dataType: 'json',
+      success: function (user) {
+        console.log("found");
+        UserActions.foundUser(user);
       }
     });
   }
+
 };

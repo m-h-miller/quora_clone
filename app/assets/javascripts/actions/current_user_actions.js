@@ -11,5 +11,12 @@ var UserActions = {
       actionType: UserConstants.RECEIVE_USER,
       user: user
     });
+  },
+
+  foundUser: function (user) {
+    AppDispatcher.dispatch({
+      actionType: UserConstants.FOUND_USER,
+      user: user
+    });
   }
 };

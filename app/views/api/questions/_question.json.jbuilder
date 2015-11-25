@@ -3,22 +3,12 @@ json.extract!(
   :id, :title, :body
 )
 
-json.author(
-  question.author
-)
-
-
+json.author do
+  json.partial! 'api/users/user', user: question.author
+end
 
 json.answers do
   json.array!(question.answers) do |answer|
     json.partial! 'api/answers/answer', answer: answer
   end
 end
-#
-# if show_toys
-#   json.toys do
-#     json.array!(pokemon.toys) do |toy|
-#       json.partial! 'toys/toy', toy: toy
-#     end
-#   end
-# end

@@ -19,7 +19,7 @@ window.QuestionsIndex = React.createClass({
   render: function () {
     return(
       <div className="page-center">
-        <h2 className="main-body-title">Top Stories for You</h2>
+        <h2 className="main-body-title">Top Stories</h2>
 
         <QuestionsForm />
 

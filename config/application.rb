@@ -24,7 +24,7 @@ module Quorum
     config.active_record.raise_in_transactional_callbacks = true
 
     config.paperclip_defaults = {
-      :storeage => :s3,
+      :storage => :s3,
       :s3_credentials => {
         :bucket => ENV["s3_bucket"],
         :access_key_id => ENV["s3_access_key_id"],

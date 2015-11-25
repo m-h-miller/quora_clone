@@ -7,7 +7,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.includes(:author).all
+    @questions = Question.includes(author: [:questions, :answers], answers: [:author]).all
   end
 
   def show

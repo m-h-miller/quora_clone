@@ -1,6 +1,7 @@
 (function (root) {
   var CHANGE_EVENT = "change";
   var _currentUser = {};
+  var found;
 
   root.CurrentUserStore = $.extend({}, EventEmitter.prototype, {
 
@@ -24,10 +25,12 @@
       switch (payload.actionType) {
 
         case UserConstants.RECEIVE_USER:
-          _currentUser = payload.user;
-          CurrentUserStore.emit(CHANGE_EVENT);
+            _currentUser = payload.user;
+            CurrentUserStore.emit(CHANGE_EVENT);
           break;
-
+        case UserConstants.FOUND_USER:
+            found = payload.user;
+          break;
       }
     }),
   });
