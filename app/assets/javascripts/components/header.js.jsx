@@ -30,16 +30,6 @@
 			          <li><a href="#">Write</a></li>
 
 			          <li>
-			            <a href="#">Notifications
-			            	<strong className="header-nav-badge">3</strong>
-			            </a>
-			            <ul className="header-nav-drop-down">
-			              <li><a href="#">Someone liked your question.</a></li>
-			              <li><a herf="#">Someone answered your question.</a></li>
-			            </ul>
-			          </li>
-
-			          <li>
 			            <a href="#">
 			            	{ CurrentUserStore.currentUser().user_name }
 			            </a>
@@ -68,3 +58,16 @@
 		}
 	})
 })(this);
+
+
+
+
+								// <li>
+			     //        <a href="#">Notifications
+			     //        	<strong className="header-nav-badge">3</strong>
+			     //        </a>
+			     //        <ul className="header-nav-drop-down">
+			     //          <li><a href="#">Someone liked your question.</a></li>
+			     //          <li><a herf="#">Someone answered your question.</a></li>
+			     //        </ul>
+			     //      </li>
