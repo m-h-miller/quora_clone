@@ -22,6 +22,11 @@ window.QuestionsForm = React.createClass({
     }.bind(this));
 
     this.setState(this.defaults);
+    this.hideForm();
+  },
+
+  hideForm: function () {
+    $("#modal").removeClass("is-active");
   },
 
   render: function () {
@@ -33,18 +38,17 @@ window.QuestionsForm = React.createClass({
             type='text'
             id='question_title'
             valueLink={this.linkState('title')} />
-        </div>
-          <br/>
+        </div><br/>
+
         <div className="group">
           <label htmlFor='question_body'>Body:</label>
           <input
             type='text'
             id='question_body'
             valueLink={this.linkState('body')} />
-        </div>
-          <br/>
-        <button> Ask Question </button>
-        <br/>
+        </div><br/>
+
+        <button> Ask Question </button><br/>
       </form>
     );
   }

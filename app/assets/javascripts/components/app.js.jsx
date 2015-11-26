@@ -35,12 +35,10 @@
       return (
         <div>
           <Header />
-          <div id="darken">
-            { this.props.children }
-          </div>
+          { this.props.children }
         </div>
       );
     },
 
-  })
+  });
 })(this);

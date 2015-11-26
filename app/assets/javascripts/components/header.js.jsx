@@ -19,12 +19,10 @@
 
 		displayForm: function () {
 			$("#modal").addClass("is-active");
-			$("#darken").addClass("darkened");
 		},
 
 		hideForm: function () {
 			$("#modal").removeClass("is-active");
-			$("#darken").removeClass("darkened");
 		},
 
 		render: function () {
@@ -51,16 +49,18 @@
 			          <li>
 			          	<button id="ask-question" onClick= { this.displayForm }>
 			          		<strong>Ask Question</strong>
-			          	</button>
+									</button>
+
 									<section id="modal" className="modal">
-						        <article className="modal-content">
-						          <span
+										<article className="modal-content">
+											<span
 												onClick= { this.hideForm }
-												className="modal-close js-hide-modal">&times;</span>
-											<QuestionsForm />
-										</article>
-										<div class="modal-screen js-hide-modal"></div>
-					      	</section>
+												className="modal-close js-hide-modal"> &times;
+											</span>
+									<QuestionsForm />
+									</article>
+									<div class="modal-screen js-hide-modal"></div>
+								</section>
 			          </li>
 
 				      </ul>
