@@ -1,4 +1,3 @@
-(function(root) {
 	window.Header = React.createClass({
 		getInitialState: function () {
 	      return {
@@ -17,6 +16,16 @@
 	  signout: function () {
 	    SessionsApiUtil.signout();
 	  },
+
+		displayForm: function () {
+			$("#modal").addClass("is-active");
+			$("#darken").addClass("darkened");
+		},
+
+		hideForm: function () {
+			$("#modal").removeClass("is-active");
+			$("#darken").removeClass("darkened");
+		},
 
 		render: function () {
 			if (CurrentUserStore.isSignedIn()) {
@@ -40,9 +49,18 @@
 			          </li>
 
 			          <li>
-			          	<a id="ask-question" href="#">
+			          	<button id="ask-question" onClick= { this.displayForm }>
 			          		<strong>Ask Question</strong>
-			          	</a>
+			          	</button>
+									<section id="modal" className="modal">
+						        <article className="modal-content">
+						          <span
+												onClick= { this.hideForm }
+												className="modal-close js-hide-modal">&times;</span>
+											<QuestionsForm />
+										</article>
+										<div class="modal-screen js-hide-modal"></div>
+					      	</section>
 			          </li>
 
 				      </ul>
@@ -56,8 +74,7 @@
 			}
 
 		}
-	})
-})(this);
+	});
 
 
 

@@ -21,7 +21,6 @@ window.QuestionsIndex = React.createClass({
       <div className="page-center">
         <h2 className="main-body-title">Top Stories</h2>
 
-        <QuestionsForm />
 
         {this.state.questions.map(function (question) {
           return <QuestionsIndexItem key={question.id} question={question} />;
