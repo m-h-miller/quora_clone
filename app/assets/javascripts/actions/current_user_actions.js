@@ -8,7 +8,7 @@ var UserActions = {
 
   receiveUser: function (user) {
     AppDispatcher.dispatch({
-      actionType: UserConstants.RECEIVE_USER,
+      actionType: UserConstants.RECEIVE_CURRENT_USER,
       user: user
     });
   },

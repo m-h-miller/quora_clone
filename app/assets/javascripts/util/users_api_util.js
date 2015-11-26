@@ -19,7 +19,6 @@ window.UsersApiUtil = {
       type: 'GET',
       dataType: 'json',
       success: function (user) {
-        console.log("found");
         UserActions.foundUser(user);
       }
     });

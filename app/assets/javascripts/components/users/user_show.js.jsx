@@ -1,34 +1,38 @@
 window.UserShow = React.createClass({
-  findUser: function () {
-    return UsersApiUtil.fetchUser(this.props.params.id);
+  getInitialState: function () {
+    return this.getStateFromStore();
+  },
+
+  getStateFromStore: function () {
+    return {user: UsersStore.viewedUser()};
+  },
+
+  componentDidMount: function () {
+    UsersStore.addChangeHandler(this._onChange);
+    UsersApiUtil.fetchUser(parseInt(this.props.params.id));
   },
 
   _onChange: function () {
     this.setState(this.getStateFromStore());
   },
 
-  componentDidMount: function () {
-    // listen to user store, it will hold a rich view of user that includes questions + answers
-    QuestionStore.addQuestionsIndexChangeListener(this._onChange);
-    QuestionStore.addAnswersIndexChangeListener(this._onChange);
-    UsersApiUtil.fetchUser(this.props.params.id);
-  },
-
-  getStateFromStore: function () {
-    return {
-      questions: QuestionStore.findAuthorQuestions(parseInt(this.props.params.id))};
-  },
-
-  getInitialState: function () {
-    return this.getStateFromStore();
-  },
-
   componentWillUnmount: function () {
-    QuestionStore.removeQuestionsIndexChangeListener(this._onChange);
+    UsersStore.removeChangeHandler(this._onChange);
   },
 
   render: function () {
-    debugger
+    var content;
+
+    if (typeof this.state.user.questions !== "undefined") {
+      content = (
+        <div className="users-show-activity">
+          {this.state.user.questions.map(function (question) {
+            return <QuestionsIndexItem key={question.id} question={question} />;
+          })}
+        </div>
+      );
+    }
+
     return (
       <div className="detail-view">
         <SideBar />
@@ -37,16 +41,15 @@ window.UserShow = React.createClass({
             <p
               className="detail-title"
               key={ this.props.params.id }>
-              { this.state.author }
+              Questions asked by { this.state.user.user_name }:
             </p>
 
           </div>
         <br/>
           <div className="answers">
             <p className="answers-header">User Activity:</p>
-              {this.state.questions.map(function (question) {
-                return <QuestionsIndexItem key={question.id} question={question} />;
-              })}
+
+            { content }
           </div>
         </div>
       </div>

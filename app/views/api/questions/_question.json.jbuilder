@@ -4,7 +4,7 @@ json.extract!(
 )
 
 json.author do
-  json.partial! 'api/users/user', user: question.author
+  json.partial! 'api/users/minimal_user', user: question.author
 end
 
 json.answers do

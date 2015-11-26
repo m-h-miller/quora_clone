@@ -34,7 +34,6 @@
     },
 
     handleSubmit: function (e) {
-      debugger
       e.preventDefault();
       var user_name = this.state.user_name;
       var password = this.state.password;
@@ -46,7 +45,6 @@
       formData.append("user[avatar]", file);
 
       UsersApiUtil.signup(formData, function (credentials) {
-        debugger
         this.history.pushState(null, "/");
         this.resetForm();
       }.bind(this));

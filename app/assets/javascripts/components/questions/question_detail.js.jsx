@@ -46,7 +46,11 @@
                   </li>
 
                   <li className="questions-detail-author-link">
-                    <strong>{ this.state.question.author.user_name }</strong> asked this:
+                    <Link
+                      className="questions-index-item-author-link"
+                      to={'/users/' + this.state.question.author.id }>
+                      <strong>{ this.state.question.author.user_name }</strong>
+                    </Link> asked this:
                   </li>
                 </ul>
 
