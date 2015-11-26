@@ -9,7 +9,6 @@ window.AnswersIndex = React.createClass({
     ApiUtil.fetchAnswers(q);
   },
 
-
   componentWillUnmount: function () {
     QuestionStore.removeAnswersIndexChangeListener(this._change);
   },
@@ -22,15 +21,19 @@ window.AnswersIndex = React.createClass({
     if (typeof this.props.question.answers === "undefined") { return (<div></div>); }
 
     return(
-      <ul>
+      <div className="answers-index-page">
         <AnswersForm question={this.props.question}/>
-        {this.state.answers.map(function (answer) {
-          return <AnswersIndexItem
-                    key={answer.id}
-                    question={this.props.question}
-                    answer={answer} />;
-        }.bind(this))}
-      </ul>
+        <p className="answers-header">Answers:</p>
+
+        <div className="answers-index">
+          {this.state.answers.map(function (answer) {
+            return <AnswersIndexItem
+                      key={answer.id}
+                      question={this.props.question}
+                      answer={answer} />;
+          }.bind(this))}
+        </div>
+      </div>
     );
   }
 });

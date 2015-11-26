@@ -21,7 +21,16 @@
       }.bind(this));
     },
 
-
+    handleContinue: function (e) {
+      e.preventDefault();
+      var credentials = {
+        user_name: "guest",
+        password: "password"
+      };
+      SessionsApiUtil.signin(credentials, function () {
+        this.history.pushState(null, "/");
+      }.bind(this));
+    },
 
     render: function() {
 
@@ -52,9 +61,17 @@
                   <input type="password" name="password" />
                 </label>
                 <br/>
-                <button>Sign In</button> or
+                <button>Sign In</button>
+
+                <button>
                   <a href="#/signup">Sign up</a>
+                </button>
+
+              <button onClick={this.handleContinue} className="continue-button">
+                Continue as Guest
+              </button>
               </form>
+
             </div>
           </div>
         </div>

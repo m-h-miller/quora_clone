@@ -1,49 +1,64 @@
-window.QuestionDetail = React.createClass({
-  getStateFromStore: function () {
-    return { question: QuestionStore.find(parseInt(this.props.params.id)) };
-  },
+(function(){
 
-  _onChange: function () {
-    this.setState(this.getStateFromStore());
-  },
+  var Link = ReactRouter.Link;
 
-  getInitialState: function () {
-    return this.getStateFromStore();
-  },
+  window.QuestionDetail = React.createClass({
+    getStateFromStore: function () {
+      return { question: QuestionStore.find(parseInt(this.props.params.id)) };
+    },
 
-  componentDidMount: function () {
-    QuestionStore.addQuestionsIndexChangeListener(this._onChange);
-    QuestionStore.addAnswersIndexChangeListener(this._onChange);
-    var id = this.props.params.id;
-    ApiUtil.fetchQuestion(id);
-    this.getStateFromStore();
-  },
+    _onChange: function () {
+      this.setState(this.getStateFromStore());
+    },
 
-  componentWillReceiveProps: function () {
-    this._onChange();
-  },
+    getInitialState: function () {
+      return this.getStateFromStore();
+    },
 
-  componentWillUnmount: function () {
-    QuestionStore.removeQuestionsIndexChangeListener(this._onChange);
-  },
+    componentDidMount: function () {
+      QuestionStore.addQuestionsIndexChangeListener(this._onChange);
+      QuestionStore.addAnswersIndexChangeListener(this._onChange);
+      var id = this.props.params.id;
+      ApiUtil.fetchQuestion(id);
+      this.getStateFromStore();
+    },
 
-  render: function () {
-    if (this.state.question === undefined) { return <div></div>; }
-    return (
-      <div className="detail-view">
-        <SideBar />
-        <div className="page-center">
-          <div className="detail">
-            <p className="detail-title" key={ this.state.question.title }> { this.state.question.title } </p>
-            <p className="detail-body"> { this.state.question.body } </p>
-          </div>
-        <br/>
-          <div className="answers">
-            <p className="answers-header">Answers:</p>
-            <AnswersIndex question={ this.state.question } />
+    componentWillReceiveProps: function () {
+      this._onChange();
+    },
+
+    componentWillUnmount: function () {
+      QuestionStore.removeQuestionsIndexChangeListener(this._onChange);
+    },
+
+    render: function () {
+      if (this.state.question === undefined) { return <div></div>; }
+      return (
+        <div className="detail-view">
+          <SideBar />
+          <div className="page-center">
+            <div className="detail">
+              <p className="detail-title" key={ this.state.question.title }> { this.state.question.title } </p>
+
+                <ul className="questions-index-wrap group">
+                  <li className="thumb">
+                    <img src={ this.state.question.author.image_url } className="author-thumb" />
+                  </li>
+
+                  <li className="questions-detail-author-link">
+                    <strong>{ this.state.question.author.user_name }</strong> asked this:
+                  </li>
+                </ul>
+
+              <p className="detail-body"> { this.state.question.body } </p>
+            </div>
+          <br/>
+            <div className="answers">
+              <AnswersIndex question={ this.state.question } />
+            </div>
           </div>
         </div>
-      </div>
-    );
-  }
-});
+      );
+    }
+  });
+})();

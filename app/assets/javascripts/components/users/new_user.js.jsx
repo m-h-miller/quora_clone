@@ -97,8 +97,10 @@
                     onChange={this.changeFile} />
                 </label>
                 <br/>
-                <button>Sign Up</button> or
+                <button>Sign Up</button>
+                <button>
                   <a href="#/signin">Sign in</a>
+                </button>
               </form>
             </div>
           </div>
