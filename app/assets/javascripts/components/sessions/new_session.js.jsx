@@ -52,7 +52,8 @@
 
             <div className="new-session-form-wrapper">
 
-              <a href="/auth/facebook">LOG IN WITH THE FACEBOOKS</a>
+              <a className="facebook"
+                href="/auth/facebook">Log in with Facebook</a>
 
               <form className="new-session-form group" onSubmit={ this.submit }>
                 <label>
