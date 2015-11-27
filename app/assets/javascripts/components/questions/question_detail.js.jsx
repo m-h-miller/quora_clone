@@ -40,7 +40,7 @@
     },
 
     render: function () {
-      debugger
+      var deleteButton;
       if (this.state.question === undefined) { return <div></div>; }
 
       if ( this.state.question.author.user_name === CurrentUserStore.currentUser().user_name ) {

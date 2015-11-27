@@ -10,9 +10,9 @@ User.destroy_all
 Question.destroy_all
 Answer.destroy_all
 
-User.create(user_name: "guest", password: "password")
+User.create(user_name: "guest", password: "password", avatar: "http://placecorgi.com/200/200")
 
-15.times do
+5.times do
   name = Faker::Name.name
   name2 = Faker::Name.name
 
@@ -26,12 +26,16 @@ User.create(user_name: "guest", password: "password")
   title2 = "How to " + title2
   title2 += "?"
 
-  x = User.create(user_name: name, password: "password")
-  y = User.create(user_name: name2, password: "password")
+  x = User.create(user_name: name, password: "password", avatar: "http://placecorgi.com/200/200")
+  y = User.create(user_name: name2, password: "password", avatar: "http://placecorgi.com/200/200")
 
   q1 = Question.create(title: title, body: body, author_id: x.id )
   a1 = Answer.create(title: title2, body: body2, author_id: y.id, question_id: q1.id)
 
   q2 = Question.create(title: title2, body: body2, author_id: y.id)
   a2 = Answer.create(title: title, body: body, author_id: x.id, question_id: q2.id)
+
+  a3 = Answer.create(title: title, body: body, author_id: y.id, question_id: q1.id)
+
+  a4 = Answer.create(title:title2, body: body2, author_id: x.id, question_id: q2.id)
 end
