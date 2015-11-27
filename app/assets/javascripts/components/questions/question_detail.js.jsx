@@ -3,6 +3,9 @@
   var Link = ReactRouter.Link;
 
   window.QuestionDetail = React.createClass({
+
+    mixins: [ReactRouter.History],
+
     getStateFromStore: function () {
       return { question: QuestionStore.find(parseInt(this.props.params.id)) };
     },
@@ -31,8 +34,23 @@
       QuestionStore.removeQuestionsIndexChangeListener(this._onChange);
     },
 
+    deleteQuestion: function () {
+      ApiUtil.deleteQuestion(this.state.question.id);
+      this.history.pushState(null, "/");
+    },
+
     render: function () {
+      debugger
       if (this.state.question === undefined) { return <div></div>; }
+
+      if ( this.state.question.author.user_name === CurrentUserStore.currentUser().user_name ) {
+        deleteButton = (
+          <p className="delete-button">
+            <button onClick={ this.deleteQuestion }>DELETE</button>
+          </p>
+        );
+      }
+
       return (
         <div className="detail-view">
           <SideBar />
@@ -55,6 +73,7 @@
                 </ul>
 
               <p className="detail-body"> { this.state.question.body } </p>
+              { deleteButton }
             </div>
           <br/>
             <div className="answers">
