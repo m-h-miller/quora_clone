@@ -1,3 +1,7 @@
+(function(){
+
+  var Link = ReactRouter.Link;
+
 	window.Header = React.createClass({
 		getInitialState: function () {
 	      return {
@@ -37,9 +41,9 @@
 			          <li><a href="#">Write</a></li>
 
 			          <li>
-			            <a href="#">
+			            <Link to={'/users/' + CurrentUserStore.currentUser().id }>
 			            	{ CurrentUserStore.currentUser().user_name }
-			            </a>
+			            </Link>
 			          </li>
 
 			          <li>
@@ -75,6 +79,8 @@
 
 		}
 	});
+})();
+
 
 
 
