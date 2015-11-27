@@ -51,6 +51,9 @@
             </div>
 
             <div className="new-session-form-wrapper">
+
+              <a href="/auth/facebook">LOG IN WITH THE FACEBOOKS</a>
+
               <form className="new-session-form group" onSubmit={ this.submit }>
                 <label>
                   Username
@@ -78,5 +81,5 @@
       );
     },
 
-  })
+  });
 })(this);

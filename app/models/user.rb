@@ -34,7 +34,22 @@ class User < ActiveRecord::Base
     return nil unless user_name && password
     user = User.find_by(user_name: user_name)
     user && user.is_password?(password) ? user : nil
- end
+  end
+
+  def self.find_or_create_by_auth_hash(auth_hash)
+    provider = auth_hash[:provider]
+    uid = auth_hash[:uid]
+
+    user = User.find_by(provider: provider, uid: uid)
+    return user if user
+
+    User.create(
+      user_name: auth_hash[:info][:name],
+      provider: provider,
+      uid: uid,
+      password: SecureRandom.urlsafe_base64
+    )
+  end
 
   def password=(password)
     @password = BCrypt::Password.create(password)
@@ -52,7 +67,6 @@ class User < ActiveRecord::Base
   end
 
   private
-
     def ensure_session_token
       self.session_token ||= SecureRandom.urlsafe_base64(16)
     end
