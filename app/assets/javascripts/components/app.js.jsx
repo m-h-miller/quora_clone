@@ -29,7 +29,7 @@
     render: function() {
       if (!this.state.currentUser) {
         return (
-          <img src="spinner.gif" />
+          <img src="/assets/images/spinner.gif" />
         );
       }
       return (
