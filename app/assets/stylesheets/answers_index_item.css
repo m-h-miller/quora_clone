@@ -1,0 +1,54 @@
+.answers-index-item {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.answers-index-item-body {
+  padding: 5px 10px;
+}
+.answers-index-item-author {
+  font-weight:400;
+  float:left;
+  font-size: 13px;
+  color: #999;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top:10px;
+}
+.answers-index-item-author > strong {
+  font-weight:bold;
+
+}
+.answers-index-item-title {
+  FONT-SIZE: 19px;
+  color: #333;
+  letter-spacing: -0.5px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  line-height: 1.25;
+  display: block;
+  padding-bottom:5px;
+}
+.answers-index-item-body {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #333;
+  display: block;
+}
+
+.answers-index-item-title > a {
+  color: #333;
+}
+.answers-header {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-weight:bold;
+  font-size:24px;
+}
+.answers-index-item-title:hover > a {
+  text-decoration: underline;
+}
+
+.answers-index {
+  border-top: 1px solid #ccc;
+}

@@ -1,0 +1,58 @@
+.questions-index-item-body {
+  padding: 5px 10px;
+}
+
+.questions-index-item {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.questions-index-item-author {
+  font-weight:400;
+  float:left;
+  font-size: 13px;
+  color: #999;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top:10px;
+}
+.questions-index-item-author > a > strong {
+  font-weight:bold;
+  color:#999;
+}
+.questions-index-item-author > a:hover > strong {
+  text-decoration:underline;
+}
+.questions-detail-author-link {
+  font-weight:400;
+  float:left;
+  font-size: 13px;
+  color: #999;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top:10px;
+}
+.questions-index-item-title {
+  FONT-SIZE: 19px;
+  color: #333;
+  letter-spacing: -0.5px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  line-height: 1.25;
+  display: block;
+  padding-bottom:5px;
+}
+.questions-index-item-body {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #333;
+  display: block;
+}
+
+.questions-index-item-title > a {
+  color: #333;
+}
+
+.questions-index-item-title:hover > a {
+  text-decoration: underline;
+}
