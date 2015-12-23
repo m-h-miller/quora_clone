@@ -27,11 +27,11 @@
     },
 
     render: function() {
-      if (!this.state.currentUser) {
-        return (
-          <img src="/assets/images/spinner.gif" />
-        );
-      }
+      // if (!this.state.currentUser) {
+      //   return (
+      //     <img src="/assets/images/spinner.gif" />
+      //   );
+      // }
       return (
         <div>
           <Header />

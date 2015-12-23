@@ -12,7 +12,12 @@ Answer.destroy_all
 
 User.create(user_name: "guest", password: "password", avatar: "http://placecorgi.com/200/200")
 
-5.times do
+Question.create(
+  title: "First!",
+  body: "First post! cool site, Harry! Let me hire you!",
+  author_id: 1)
+
+25.times do
   name = Faker::Name.name
   name2 = Faker::Name.name
 

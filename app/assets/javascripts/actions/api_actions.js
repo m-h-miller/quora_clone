@@ -25,5 +25,12 @@ window.ApiActions = {
       actionType: AnswerConstants.ANSWER_RECEIVED,
       answer: answer
     });
-  }
+  },
+
+  receiveMoreQuestions: function(questions){
+    AppDispatcher.dispatch({
+      actionType: QuestionConstants.MORE_QUESTIONS_RECEIVED,
+      questions: questions
+    });
+},
 };

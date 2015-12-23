@@ -1,0 +1,26 @@
+.page-center-footer {
+  margin-top: 10px;
+}
+
+.load-more span {
+  color: #4090db;
+  text-transform: uppercase;
+
+  margin: auto;
+  display: block;
+}
+
+.load-more:hover {
+  background: #eee;
+}
+
+.page{
+  float: right;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.page:hover{
+  background:#eee;
+}

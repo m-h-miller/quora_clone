@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20151127151857) do
     t.integer "question_id", null: false
     t.string  "title",       null: false
     t.string  "body"
+    t.timestamps
   end
 
   add_index "answers", ["author_id"], name: "index_answers_on_author_id", using: :btree
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 20151127151857) do
     t.string  "title",     null: false
     t.string  "body"
     t.integer "author_id", null: false
+    t.timestamps
   end
 
   add_index "questions", ["author_id"], name: "index_questions_on_author_id", using: :btree
@@ -47,6 +49,7 @@ ActiveRecord::Schema.define(version: 20151127151857) do
     t.datetime "avatar_updated_at"
     t.string   "uid"
     t.string   "provider"
+    t.timestamps
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree

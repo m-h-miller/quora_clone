@@ -81,5 +81,16 @@ window.ApiUtil = {
       type: 'GET',
       data: {}
     });
+  },
+
+  loadMoreQuestions: function(pageNum){
+    $.ajax ({
+      url: 'api/questions',
+      type: 'GET',
+      data: {pageNum: pageNum},
+      success: function(questions) {
+        ApiActions.receiveMoreQuestions(questions);
+      }
+    });
   }
 };

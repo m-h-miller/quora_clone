@@ -6,7 +6,7 @@
   var _answers = [];
 
   var resetQuestions = function (questions) {
-    _questions = questions.reverse();
+    _questions = questions;
     QuestionStore.changed();
   };
 
@@ -72,6 +72,9 @@
         case AnswerConstants.ANSWER_RECEIVED:
             addAnswer(payload.answer);
           break;
+        case QuestionConstants.MORE_QUESTIONS_RECEIVED:
+            resetQuestions(payload.questions);
+          break;
       }
     }),
 
@@ -84,6 +87,7 @@
     changed: function () {
       this.emit(QUESTIONS_INDEX_CHANGE_EVENT);
     },
+
 
     addAnswersIndexChangeListener: function (callback) {
       this.on(ANSWERS_INDEX_CHANGE_EVENT, callback);
