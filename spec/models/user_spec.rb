@@ -51,8 +51,41 @@ RSpec.describe User, type: :model do
   end
 
   describe "#generate_session_token"
+    before(:each) do
+      @user = build(:user)
+    end
 
-  describe "#reset_session_token!"
+    it "sets the session_token of user after_initialize" do
+      expect(@user.session_token).not_to be_nil
+    end
+
+    it "does not generate another session_token if one already exists" do
+      token = @user.session_token
+      @user.generate_session_token
+      expect(@user.session_token).to eq(token)
+    end
+
+  describe "#reset_session_token!" do
+    before(:each) do
+      @user = build(:user)
+    end
+
+    it "resets the session_token" do
+      old_token = @user.session_token
+      @user.reset_session_token!
+      expect(@user.session_token).not_to eq(old_token)
+    end
+
+    it "returns the new token" do
+      token = @user.reset_session_token!
+      expect(@user.session_token).to eq(token)
+    end
+
+    it "persists changes to database" do
+      expect(@user).to receive(:save)
+      @user.reset_session_token!
+    end
+  end
 
 
   #associations
@@ -68,46 +101,7 @@ end
 
 #
 # RSpec.describe User, type: :model do
-#
-#
-#   describe "#generate_session_token" do
-#     before(:each) do
-#       @user = build(:user)
-#     end
-#
-#     it "sets the session_token of the user after initialize" do
-#       expect(@user.session_token).not_to be_nil
-#     end
-#
-#     it "does not generate another session_token if one already exists" do
-#       token = @user.session_token
-#       @user.generate_session_token
-#       expect(@user.session_token).to eq(token)
-#     end
-#   end
-#
-#   describe "#reset_session_token" do
-#     before(:each) do
-#       @user = build(:user)
-#     end
-#
-#     it "changes the session_token" do
-#       old_token = @user.session_token
-#       @user.reset_session_token
-#       expect(@user.session_token).not_to eq(old_token)
-#     end
-#
-#     it "returns the new session token" do
-#       token = @user.reset_session_token
-#       expect(@user.session_token).to eq(token)
-#     end
-#
-#     it "persists changes to the database" do
-#       expect(@user).to receive(:save)
-#       @user.reset_session_token
-#     end
-#   end
-#
+
 #
 #   describe "#groups_led" do
 #     before(:each) do
