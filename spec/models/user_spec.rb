@@ -50,7 +50,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "#generate_session_token"
+  describe "#ensure_session_token" do
     before(:each) do
       @user = build(:user)
     end
@@ -59,11 +59,11 @@ RSpec.describe User, type: :model do
       expect(@user.session_token).not_to be_nil
     end
 
-    it "does not generate another session_token if one already exists" do
+    it "cannot be called after initialize" do
       token = @user.session_token
-      @user.generate_session_token
-      expect(@user.session_token).to eq(token)
+      expect(@user.ensure_session_token).to raise_error
     end
+  end
 
   describe "#reset_session_token!" do
     before(:each) do
@@ -82,7 +82,7 @@ RSpec.describe User, type: :model do
     end
 
     it "persists changes to database" do
-      expect(@user).to receive(:save)
+      expect(@user).to receive(:save!)
       @user.reset_session_token!
     end
   end
