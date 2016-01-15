@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127151857) do
+ActiveRecord::Schema.define(version: 20160115181519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 20151127151857) do
   add_index "answers", ["author_id"], name: "index_answers_on_author_id", using: :btree
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
 
+  create_table "question_topics", force: :cascade do |t|
+    t.integer  "question_id", null: false
+    t.integer  "topic_id",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "question_topics", ["question_id", "topic_id"], name: "index_question_topics_on_question_id_and_topic_id", unique: true, using: :btree
+  add_index "question_topics", ["question_id"], name: "index_question_topics_on_question_id", using: :btree
+  add_index "question_topics", ["topic_id"], name: "index_question_topics_on_topic_id", using: :btree
+
   create_table "questions", force: :cascade do |t|
     t.string   "title",      null: false
     t.string   "body"
@@ -38,6 +49,15 @@ ActiveRecord::Schema.define(version: 20151127151857) do
 
   add_index "questions", ["author_id"], name: "index_questions_on_author_id", using: :btree
   add_index "questions", ["title"], name: "index_questions_on_title", unique: true, using: :btree
+
+  create_table "topics", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.text     "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "topics", ["name"], name: "index_topics_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "user_name",           null: false

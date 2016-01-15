@@ -97,6 +97,8 @@ RSpec.describe User, type: :model do
 
     describe "#answers.comments"
 
+    describe "#answers_to_qs"
+
   describe "#comments"
 
   describe "#topics"

@@ -4,7 +4,8 @@ window.SideBar = React.createClass({
       <div className="page-left">
 		    <h2 className="title">FEEDS</h2>
 		    <section className="page-left-content">
-		      Place links for feeds here.
+		      Select feeds to display.
+          Make checkboxes here, etc, this component will be worth something
 		    </section>
       </div>
     );
