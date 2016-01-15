@@ -91,7 +91,19 @@ RSpec.describe User, type: :model do
   #associations
   describe "#questions"
 
+    describe "#questions.answers"
+
   describe "#answers"
+
+    describe "#answers.comments"
+
+  describe "#comments"
+
+  describe "#topics"
+
+  describe "#QuestionTopics"
+
+
 
 
   # OAuth, might not be test-able?

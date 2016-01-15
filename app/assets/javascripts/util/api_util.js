@@ -15,7 +15,7 @@ window.ApiUtil = {
       url: 'api/questions',
       type: 'POST',
       data: {question: question},
-      success: function (question) {
+      // success: function (question) {
         ApiActions.receiveSingleQuestion(question);
         callback && callback(question.id);
       }
@@ -42,6 +42,12 @@ window.ApiUtil = {
       }
     });
   },
+
+  // I am sort of ambivalent about what to do with my routes here.
+  // While on the one hand I hate this long nesting for my resources,
+  // I also don't want to give the user the ability to view answers
+  // absent the question's context.
+
 
   deleteAnswer: function(question_id, answer_id) {
     $.ajax({
