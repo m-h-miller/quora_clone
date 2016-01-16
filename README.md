@@ -1,8 +1,7 @@
 # Quorum
 
-[Heroku link][heroku] **NB:** Replace this link after Lily's super cool Heroku lecture.
-
-[heroku]: http://www.herokuapp.com
+[Deployed via Heroku][heroku]
+[heroku]: http://quorum-app.herokuapp.com
 
 ## Minimum Viable Product
 
