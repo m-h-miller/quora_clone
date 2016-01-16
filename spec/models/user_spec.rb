@@ -89,22 +89,27 @@ RSpec.describe User, type: :model do
 
 
   #associations
+
+
   describe "#questions"
-
-    describe "#questions.answers"
-
   describe "#answers"
-
-    describe "#answers.comments"
-
-    describe "#answers_to_qs"
-
   describe "#comments"
 
-  describe "#topics"
+  # AS I'm writing this, I haven't yet decided what to do w/r/t topics.
+  # All the examples I've seen use preset checkboxes, giving the user no
+  # ability to create topics. But I believe the reddit_on_rails program might
+  # allow for topic creation, as it has moderators.
 
-  describe "#QuestionTopics"
+  # But even if that is the case, they don't seem to be storing topics in the
+  # user db whatsoever... how might someone do this?
 
+  # I will have to investigate similar projects.
+
+  # describe "#topics"
+
+
+
+  describe "#answers_to_qs"
 
 
 
@@ -112,99 +117,3 @@ RSpec.describe User, type: :model do
   describe ".find_or_create_by_auth_hash"
 
 end
-
-#
-# RSpec.describe User, type: :model do
-
-#
-#   describe "#groups_led" do
-#     before(:each) do
-#       @user = create(:user)
-#       @group = Group.new(attributes_for(:group))
-#       @group.organizer_id = @user.id
-#       @group.save
-#     end
-#
-#     it "should have many groups_led" do
-#       t = User.reflect_on_association(:groups_led)
-#       expect(t.macro).to eq(:has_many)
-#     end
-#
-#     it "returns the groups where the user is the organizer" do
-#       expect(@user.groups_led).to include(@group)
-#     end
-#   end
-#
-#   describe "groups_where_not_organizer" do
-#     before(:each) do
-#       @user = create(:user)
-#       @group = @user.groups_led.create(attributes_for(:group))
-#       @user2 = create(:user)
-#       @group2 = @user2.groups_led.create(attributes_for(:group))
-#     end
-#
-#     it "returns the groups the user is not the organizer" do
-#       expect(@user2.groups_led).not_to include(@group)
-#       expect(@user2.groups_led).to include(@group2)
-#     end
-#   end
-#
-#   describe "#groups" do
-#     before(:each) do
-#       @user = create(:user)
-#       @group = @user.groups_led.create(attributes_for(:group))
-#       @user2 = create(:user)
-#       @group2 = @user2.groups_led.create(attributes_for(:group))
-#     end
-#
-#     it "user should have many groups" do
-#       t = User.reflect_on_association(:groups)
-#       expect(t.macro).to eq(:has_many)
-#     end
-#
-#     it "returns groups the user is part of" do
-#       expect(@user.groups).to include(@group)
-#     end
-#
-#     it "does not return groups the user is not a part of" do
-#       expect(@user.groups).not_to include(@group2)
-#     end
-#   end
-#
-#   describe "#events" do
-#     before(:each) do
-#       @user = create(:user)
-#       @group = @user.groups_led.create(attributes_for(:group))
-#       @event = @group.events.create(attributes_for(:event))
-#     end
-#
-#     it "user should have many events" do
-#       t = User.reflect_on_association(:events)
-#       expect(t.macro).to eq(:has_many)
-#     end
-#
-#     it "returns the events a user is a part of" do
-#       expect(@user.events).to include(@event)
-#     end
-#
-#     it "does not return events a user is not a part of" do
-#       UsersEvent.destroy_all
-#       expect(@user.events).not_to include(@event)
-#     end
-#   end
-#
-#   describe "#comments" do
-#     before(:each) do
-#       @user = create(:user)
-#       @group = @user.groups_led.create(attributes_for(:group))
-#       @event = @group.events.create(attributes_for(:event))
-#       @comment = @event.comments.new(attributes_for(:comment))
-#       @comment.author_id = @user.id
-#       @comment.save
-#     end
-#
-#     it "returns all the comments the user has created" do
-#       expect(@user.comments).to include(@comment)
-#     end
-#   end
-# end
