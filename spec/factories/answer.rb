@@ -6,5 +6,4 @@ FactoryGirl.define do
     association :author, factory: :user, strategy: :build
     association :question, factory: :question, strategy: :build
   end
-
 end

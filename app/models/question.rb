@@ -15,4 +15,8 @@ class Question < ActiveRecord::Base
     foreign_key: :question_id,
     primary_key: :id
   )
+
+  has_many :question_topics
+
+  has_many :topics, through: :question_topics, source: :topics
 end

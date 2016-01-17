@@ -91,9 +91,9 @@ RSpec.describe User, type: :model do
   #associations
 
 
-  describe "#questions"
-  describe "#answers"
-  describe "#comments"
+  pending "#questions"
+  pending "#answers"
+  pending "#comments"
 
   # AS I'm writing this, I haven't yet decided what to do w/r/t topics.
   # All the examples I've seen use preset checkboxes, giving the user no
@@ -109,11 +109,8 @@ RSpec.describe User, type: :model do
 
 
 
-  describe "#answers_to_qs"
-
-
 
   # OAuth, might not be test-able?
-  describe ".find_or_create_by_auth_hash"
+  pending ".find_or_create_by_auth_hash"
 
 end

@@ -76,7 +76,7 @@ I will do all of the styling throughout the project, but I am reserving this tim
 ### Bonus Features (TBD)
 - [ ] Prettify transitions.
 - [ ] Use javascript library for cleaner tag selection.
-- [ ] Pagination / infinite scroll for Indeces.
+- [X] Pagination / infinite scroll for Indeces.
 - [ ] Apply complex styling to questions/answers while editing (embedded images, basic styling, formatted lists).
 - [ ] Voting functionality.
 

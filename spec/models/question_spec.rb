@@ -27,4 +27,7 @@ RSpec.describe Question, type: :model do
     end
   end
 
+  pending "#question_topics"
+
+  pending "#topics"
 end
