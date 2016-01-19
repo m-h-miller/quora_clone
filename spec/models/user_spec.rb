@@ -8,14 +8,14 @@ RSpec.describe User, type: :model do
     end
 
     it "finds the correct user given credentials" do
-      result = User.find_by_credentials("John_Doe_123", "password")
+      result = User.find_by_credentials(@user.user_name, "password")
       expect(result).to eq(@user)
     end
   end
 
   describe "#password=" do
     before(:each) do
-      @user = User.create(user_name: "TEST_USER_IGNORE", password: "passcode")
+      @user = User.create(password: "passcode")
     end
 
     it "sets the instance variable @password" do
@@ -90,9 +90,36 @@ RSpec.describe User, type: :model do
 
   #associations
 
+  describe "#questions" do
+    before(:each) do
+      @user = create(:user_with_questions)
+    end
 
-  pending "#questions"
-  pending "#answers"
+    it "returns a user's posted questions" do
+      expect(@user.questions).to_not be_nil
+    end
+
+    it "returns the right amount of questions" do
+      expect(@user.questions.count).to eq(5)
+    end
+  end
+
+
+  describe "#answers" do
+    before(:each) do
+      @asker = create(:user_with_questions)
+      @answerer = create(:user)
+      @answer = @asker.questions.first.answers.create
+
+      @user = create(:user_with_answers)
+    end
+
+    it "returns the answerer's answer" do
+      expect(@user.answers.count).to eq(2)
+    end
+  end
+
+
   pending "#comments"
 
   # AS I'm writing this, I haven't yet decided what to do w/r/t topics.

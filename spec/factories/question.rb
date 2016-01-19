@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :question do
-    title "TITLE IN ALL CAPS"
+    title { Faker::Company.buzzword + "?" }
     body  "Lorem ipsum"
 
     association :author, factory: :user, strategy: :build
