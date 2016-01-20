@@ -23,7 +23,6 @@ FactoryGirl.define do
     end
 
     factory :user_with_answers do
-
       transient do
         answers_count 2
       end

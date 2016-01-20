@@ -58,11 +58,6 @@ RSpec.describe User, type: :model do
     it "sets the session_token of user after_initialize" do
       expect(@user.session_token).not_to be_nil
     end
-
-    it "cannot be called after initialize" do
-      token = @user.session_token
-      expect(@user.ensure_session_token).to raise_error
-    end
   end
 
   describe "#reset_session_token!" do
@@ -87,8 +82,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-
-  #associations
+#associations
 
   describe "#questions" do
     before(:each) do
@@ -110,7 +104,6 @@ RSpec.describe User, type: :model do
       @asker = create(:user_with_questions)
       @answerer = create(:user)
       @answer = @asker.questions.first.answers.create
-
       @user = create(:user_with_answers)
     end
 
@@ -120,24 +113,11 @@ RSpec.describe User, type: :model do
   end
 
 
-  pending "#comments"
-
-  # AS I'm writing this, I haven't yet decided what to do w/r/t topics.
-  # All the examples I've seen use preset checkboxes, giving the user no
-  # ability to create topics. But I believe the reddit_on_rails program might
-  # allow for topic creation, as it has moderators.
-
-  # But even if that is the case, they don't seem to be storing topics in the
-  # user db whatsoever... how might someone do this?
-
-  # I will have to investigate similar projects.
-
-  # describe "#topics"
+    pending "#comments"
+    # OAuth, might not be test-able?
+    pending ".find_or_create_by_auth_hash"
 
 
 
-
-  # OAuth, might not be test-able?
-  pending ".find_or_create_by_auth_hash"
 
 end
