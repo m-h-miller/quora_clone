@@ -15,7 +15,7 @@ window.ApiUtil = {
       url: 'api/questions',
       type: 'POST',
       data: {question: question},
-      // success: function (question) {
+      success: function (question) {
         ApiActions.receiveSingleQuestion(question);
         callback && callback(question.id);
       }

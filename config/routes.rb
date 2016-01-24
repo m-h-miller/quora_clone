@@ -7,12 +7,10 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :users, only: [:new, :create, :show, :index]
 
-    # resources :topics, except: [:destroy]
+    resources :topics, except: [:destroy]
 
     resources :questions do
-      resources :answers do
-        resources :comments
-      end
+      resources :answers
     end
   end
 end
