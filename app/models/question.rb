@@ -18,5 +18,7 @@ class Question < ActiveRecord::Base
 
   has_many :question_topics
 
-  has_many :topics, through: :question_topics, source: :topics
+  has_many :topics, through: :question_topics, source: :topic
+
+  accepts_nested_attributes_for :question_topics
 end

@@ -6,18 +6,50 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+# RESET THE DB
 User.destroy_all
 Question.destroy_all
 Answer.destroy_all
+Topic.destroy_all
+QuestionTopic.destroy_all
 
-User.create(user_name: "guest", password: "password", avatar: "http://placecorgi.com/200/200")
+# GUEST USER
+@user = User.create(user_name: "guest", password: "password", avatar: "http://placecorgi.com/200/200")
 
-Question.create(
+@topic1 = Topic.create(name: "General", description: "conversation + discussion")
+@topic2 = Topic.create(name: "Ruby", description: "A place for discussing the ruby programming language")
+@topic3 = Topic.create(name: "Philosophy", description: "for thinkers")
+@topic4 = Topic.create(name: "Javascript", description: "js")
+@topic5 = Topic.create(name: "React.js", description: "A new library by facebook")
+
+@question1 = Question.create(
   title: "First!",
   body: "First post! cool site, Harry! Let me hire you!",
-  author_id: 1)
+  author_id: @user.id,
+  question_topics_attributes: [
+    { question_id: 1, topic_id: @topic1.id }])
+@question2 = Question.create(
+  title: title,
+  body: body,
+  author_id: x.id,
+  question_topics_attributes: [
+    { question_id: 2, topic_id: @topic2.id }])
+@question3 = Question.create(
+  title: title,
+  body: body,
+  author_id: x.id,
+  question_topics_attributes: [
+    { question_id: 3, topic_id: @topic3.id }])
 
-25.times do
+
+
+
+
+#deprecated?
+
+i=1
+while i < 6
   name = Faker::Name.name
   name2 = Faker::Name.name
 
@@ -26,15 +58,22 @@ Question.create(
   title = "How to " + title
   title += "?"
 
-  title2 = Faker::Company.bs
-  body2 = Faker::Hacker.say_something_smart
-  title2 = "How to " + title2
-  title2 += "?"
-
   x = User.create(user_name: name, password: "password", avatar: "http://placecorgi.com/200/200")
   y = User.create(user_name: name2, password: "password", avatar: "http://placecorgi.com/200/200")
 
-  q1 = Question.create(title: title, body: body, author_id: x.id )
+
+  i++
+end
+
+5.times do
+
+
+
+
+  q1 = Question.create(title: title, body: body, author_id: x.id,
+        question_topics_attributes: [
+          { question_id: 1, topic_id: @topic1.id }
+          ])
   a1 = Answer.create(title: title2, body: body2, author_id: y.id, question_id: q1.id)
 
   q2 = Question.create(title: title2, body: body2, author_id: y.id)

@@ -22,16 +22,10 @@
       if (!CurrentUserStore.isSignedIn()) {
         this.history.pushState(null, "/signin");
       }
-
       this.setState({currentUser: CurrentUserStore.currentUser()});
     },
 
     render: function() {
-      // if (!this.state.currentUser) {
-      //   return (
-      //     <img src="/assets/images/spinner.gif" />
-      //   );
-      // }
       return (
         <div>
           <Header />

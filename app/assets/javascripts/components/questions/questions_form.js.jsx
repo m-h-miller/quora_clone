@@ -48,6 +48,14 @@ window.QuestionsForm = React.createClass({
             valueLink={this.linkState('body')} />
         </div><br/>
 
+        <div className="group">
+          <label htmlFor='question_body'>Body:</label>
+          <input
+            type='text'
+            id='question_body'
+            valueLink={this.linkState('body')} />
+        </div><br/>
+
         <button> Ask Question </button><br/>
       </form>
     );
