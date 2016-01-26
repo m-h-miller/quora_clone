@@ -13,10 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializeJSON
-//= require react
-//= require react_ujs
-//= require flux
-//= require eventemitter
-//= require ReactRouter
-//= require components
 //= require_tree .
