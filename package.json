@@ -1,0 +1,19 @@
+{
+  "name": "quorum",
+  "description": "quorum",
+  "version": "1.0.0",
+  "devDependencies": {
+    "webpack": "~1.4.13",
+    "expose-loader"
+  },
+  "dependencies": {
+    "flux": "^2.1.1",
+    "history": "1.13.x",
+    "react": "^0.14.3",
+    "react-addons-linked-state-mixin": "^0.14.3",
+    "react-checkbox-group": "^0.3.1",
+    "react-dom": "^0.14.3",
+    "react-router": "^1.0.0",
+    "webpack": "^1.12.9"
+  }
+}
