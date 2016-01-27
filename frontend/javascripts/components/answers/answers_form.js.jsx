@@ -1,5 +1,4 @@
 window.AnswersForm = React.createClass({
-  mixins: [React.addons.LinkedStateMixin, ReactRouter.History],
 
   defaults: {
     title: "",

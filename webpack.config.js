@@ -11,10 +11,18 @@ var config = module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-core',
+        loader: 'babel',
+        query: {
+          presets: ['react']
+        }
       }
     ]
   },
+  output: {
+    path: "./app/assets/javascripts/",
+    filename: "bundle.js"
+  },
+  devtool: "source-maps",
 };
 
 config.output = {

@@ -1,33 +1,32 @@
-(function (root) {
-  var CHANGE_EVENT = "change";
-  var _currentUser = {};
+var CHANGE_EVENT = "change";
+var _currentUser = {};
+window.Dispatcher = require('./../dispatcher/dispatcher.js');
 
-  root.CurrentUserStore = $.extend({}, EventEmitter.prototype, {
+window.CurrentUserStore = $.extend({}, EventEmitter.prototype, {
 
-    addChangeHandler: function (callback) {
-      this.on(CHANGE_EVENT, callback);
-    },
+  addChangeHandler: function (callback) {
+    this.on(CHANGE_EVENT, callback);
+  },
 
-    removeChangeHandler: function (callback) {
-      this.removeListener(CHANGE_EVENT, callback);
-    },
+  removeChangeHandler: function (callback) {
+    this.removeListener(CHANGE_EVENT, callback);
+  },
 
-    currentUser: function () {
-      return $.extend({}, _currentUser);
-    },
+  currentUser: function () {
+    return $.extend({}, _currentUser);
+  },
 
-    isSignedIn: function () {
-      return (typeof _currentUser.id !== "undefined");
-    },
+  isSignedIn: function () {
+    return (typeof _currentUser.id !== "undefined");
+  },
 
-    dispatcherId: AppDispatcher.register(function (payload) {
-      switch (payload.actionType) {
+  dispatcherId: AppDispatcher.register(function (payload) {
+    switch (payload.actionType) {
 
-        case UserConstants.RECEIVE_CURRENT_USER:
-            _currentUser = payload.user;
-            CurrentUserStore.emit(CHANGE_EVENT);
-          break;
-      }
-    }),
-  });
-})(this);
+      case UserConstants.RECEIVE_CURRENT_USER:
+          _currentUser = payload.user;
+          CurrentUserStore.emit(CHANGE_EVENT);
+        break;
+    }
+  }),
+});

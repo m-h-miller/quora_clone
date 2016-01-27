@@ -1,5 +1,5 @@
+(function(root) {
   root.App = React.createClass({
-    mixins: [ReactRouter.History],
     getInitialState: function () {
       return { currentUser: null };
     },
@@ -28,3 +28,4 @@
       );
     },
   });
+});

@@ -1,8 +1,6 @@
 (function(root) {
   root.SessionForm = React.createClass({
 
-    mixins: [ReactRouter.History],
-
     defaults: {
       user_name: "Username",
       password: ""

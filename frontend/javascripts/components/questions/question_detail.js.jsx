@@ -4,8 +4,6 @@
 
   window.QuestionDetail = React.createClass({
 
-    mixins: [ReactRouter.History],
-
     getStateFromStore: function () {
       return { question: QuestionStore.find(parseInt(this.props.params.id)) };
     },

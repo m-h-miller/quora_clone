@@ -1,7 +1,4 @@
-(function(root) {
-  root.UserForm = React.createClass({
-
-    mixins: [ReactRouter.History, React.addons.LinkedStateMixin],
+  window.UserForm = React.createClass({
 
     defaults: {
       user_name: "",
@@ -9,7 +6,6 @@
       imageUrl: "",
       imageFile: null
     },
-
     getInitialState: function () {
       return this.defaults;
     },
@@ -107,4 +103,3 @@
     },
 
   });
-})(this);
