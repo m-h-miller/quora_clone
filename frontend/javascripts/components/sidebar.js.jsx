@@ -1,4 +1,6 @@
-window.SideBar = React.createClass({
+var React = require('react');
+
+var SideBar = React.createClass({
   render: function () {
     return(
       <div className="page-left">

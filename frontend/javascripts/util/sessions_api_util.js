@@ -33,6 +33,4 @@ var SessionsApiUtil = {
       }
     });
   }
-
-
 };

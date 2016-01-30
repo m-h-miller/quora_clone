@@ -1,5 +1,8 @@
-window.QuestionsForm = React.createClass({
+var React = require('react'),
+    ApiUtil = require('../../util/api_util.js');
 
+
+var QuestionsForm = React.createClass({
   defaults: {
     title: "",
     body: ""

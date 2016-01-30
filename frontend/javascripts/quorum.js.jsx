@@ -1,17 +1,15 @@
+var React = require('react'),
+    ReactDOM = require('react-dom'),
+    ReactRouter = require('react-router'),
+    Flux = require('flux'),
+    EventEmitter = require('event-emitter'),
+    IndexRoute = ReactRouter.IndexRoute,
+    Router = ReactRouter.Router,
+    Route = ReactRouter.Route,
+    Link = ReactRouter.Link;
 
-window.React = require('react'),
-window.Flux = require('flux'),
-window.ReactRouter = require('react-router'),
-window.EventEmitter = require('event-emitter'),
-window.IndexRoute = ReactRouter.IndexRoute,
-window.ReactDOM = require('react-dom'),
-window.Router = ReactRouter.Router,
-window.Route = ReactRouter.Route,
-window.Link = ReactRouter.Link;
-
-import IndexPage from './components/index_page.js.jsx'
-
-var Header = require('./components/header.js.jsx'),
+var IndexPage = require('./components/index_page.js.jsx'),
+    Header = require('./components/header.js.jsx'),
     SessionForm = require('./components/sessions/new_session.js.jsx'),
     UserForm = require('./components/users/new_user.js.jsx'),
     UserShow = require('./components/users/user_show.js.jsx'),
@@ -28,60 +26,25 @@ var Header = require('./components/header.js.jsx'),
     App = require('./components/app.js.jsx');
 
 
-window.CurrentUserStore = require('./stores/current_user_store.js'),
-window.SessionsApiUtil = require('./util/sessions_api_util.js');
+var CurrentUserStore = require('./stores/current_user_store.js'),
+    SessionsApiUtil = require('./util/sessions_api_util.js'),
+    ApiActions = require('./actions/api_actions.js'),
+    CurrentUserActions = require('./actions/current_user_actions.js'),
+    AnswerConstants = require('./constants/answer_constants.js'),
+    CurrentUserConstants = require('./constants/current_user_constants.js'),
+    QuestionConstants = require('./constants/question_constants.js');
 
-window.ApiActions = require('./actions/api_actions.js');
-window.CurrentUserActions = require('./actions/current_user_actions.js');
-
-window.AnswerConstants = require('./constants/answer_constants.js');
-window.CurrentUserConstants = require('./constants/current_user_constants.js');
-window.QuestionConstants = require('./constants/question_constants.js');
-
-window.Dispatcher = require('./dispatcher/dispatcher.js');
 // window.CurrentUserStore = require('./stores/current_user_store.js');
-require('./stores/questions.js');
-require('./stores/users_store.js');
-
-
-require('./util/api_util.js');
-require('./util/sessions_api_util.js');
-require('./util/users_api_util.js');
-
-
+// require('./stores/questions.js');
+// require('./stores/users_store.js');
+//
+//
+// require('./util/api_util.js');
+// require('./util/sessions_api_util.js');
+// require('./util/users_api_util.js');
 
 
 
-// define app before including it in routes
-// var App = React.createClass({
-//   getInitialState: function () {
-//     return { currentUser: null };
-//   },
-//   componentWillMount: function () {
-//     CurrentUserStore.addChangeHandler(this._ensureSignedIn);
-//     SessionsApiUtil.fetchCurrentUser();
-//   },
-//   componentWillReceiveProps: function (newProps) {
-//     if (newProps.location.pathname !== "/signin" &&
-//         newProps.location.pathname !== "/signup") {
-//       SessionsApiUtil.fetchCurrentUser();
-//     }
-//   },
-//   _ensureSignedIn: function () {
-//     if (!CurrentUserStore.isSignedIn()) {
-//       this.history.pushState(null, "/signin");
-//     }
-//     this.setState({currentUser: CurrentUserStore.currentUser()});
-//   },
-//   render: function() {
-//     return (
-//       <div>
-//         <Header />
-//         { this.props.children }
-//       </div>
-//     );
-//   },
-// });
 
 var routes = (
   <Route path="/" component={ App }>

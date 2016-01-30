@@ -1,4 +1,6 @@
-window.UsersApiUtil = {
+var UserActions = require('../actions/current_user_actions.js');
+
+var UsersApiUtil = {
   signup: function (formData, callback) {
     $.ajax({
       url: 'api/users',
@@ -23,5 +25,4 @@ window.UsersApiUtil = {
       }
     });
   }
-
 };

@@ -1,3 +1,3 @@
-window.Flux = require('flux'),
+var Flux = require('flux'),
 
-window.AppDispatcher = new Flux.Dispatcher();
+    AppDispatcher = new Flux.Dispatcher();

@@ -1,4 +1,8 @@
-window.ApiActions = {
+var AppDispatcher = require('../dispatcher/dispatcher.js'),
+    QuestionConstants = require('../constants/question_constants.js'),
+    AnswerConstants = require('../constants/answer_constants.js');
+
+var ApiActions = {
   receiveAllQuestions: function (questions) {
     AppDispatcher.dispatch({
       actionType: QuestionConstants.QUESTIONS_RECEIVED,

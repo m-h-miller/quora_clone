@@ -1,89 +1,87 @@
-(function(){
+var React = require('react'),
+    ReactRouter = require('react-router'),
+    Link = ReactRouter.Link;
 
-  var Link = ReactRouter.Link;
+var CurrentUserStore = require('../stores/current_user_store.js'),
+    SessionsApiUtil = require('../util/sessions_api_util.js');
 
-	window.Header = React.createClass({
-		getInitialState: function () {
-	      return {
-	        currentUser: CurrentUserStore.currentUser()
-	      };
-	    },
+var Header = React.createClass({
+	getInitialState: function () {
+      return {
+        currentUser: CurrentUserStore.currentUser()
+      };
+    },
 
-	  componentDidMount: function () {
-	    CurrentUserStore.addChangeHandler(this._onChange);
-	  },
+  componentDidMount: function () {
+    CurrentUserStore.addChangeHandler(this._onChange);
+  },
 
-	  _onChange: function () {
-	    this.setState({currentUser: CurrentUserStore.currentUser()});
-	  },
+  _onChange: function () {
+    this.setState({currentUser: CurrentUserStore.currentUser()});
+  },
 
-	  signout: function () {
-	    SessionsApiUtil.signout();
-	  },
+  signout: function () {
+    SessionsApiUtil.signout();
+  },
 
-		displayForm: function () {
-			$("#modal").addClass("is-active");
-		},
+	displayForm: function () {
+		$("#modal").addClass("is-active");
+	},
 
-		hideForm: function () {
-			$("#modal").removeClass("is-active");
-		},
+	hideForm: function () {
+		$("#modal").removeClass("is-active");
+	},
 
-		render: function () {
-			if (CurrentUserStore.isSignedIn()) {
-				return (
-				  <div className="header-wrap group">
-						<div className="header-content">
-							<h1 className="header-logo"><a href="#">Quorum</a></h1>
+	render: function () {
+		if (CurrentUserStore.isSignedIn()) {
+			return (
+			  <div className="header-wrap group">
+					<div className="header-content">
+						<h1 className="header-logo"><a href="#">Quorum</a></h1>
 
-				      <ul className="header-nav group">
-			          <li><a href="#">Home</a></li>
-			          <li><a href="#">Write</a></li>
+			      <ul className="header-nav group">
+		          <li><a href="#">Home</a></li>
+		          <li><a href="#">Write</a></li>
 
-			          <li>
-			            <Link to={'/users/' + CurrentUserStore.currentUser().id }>
-			            	{ CurrentUserStore.currentUser().user_name }
-			            </Link>
-			          </li>
+		          <li>
+		            <Link to={'/users/' + CurrentUserStore.currentUser().id }>
+		            	{ CurrentUserStore.currentUser().user_name }
+		            </Link>
+		          </li>
 
-			          <li>
-			            <button onClick={ this.signout }>SIGN OUT</button>
-			          </li>
+		          <li>
+		            <button onClick={ this.signout }>SIGN OUT</button>
+		          </li>
 
-			          <li>
-			          	<button id="ask-question" onClick= { this.displayForm }>
-			          		<strong>Ask Question</strong>
-									</button>
+		          <li>
+		          	<button id="ask-question" onClick= { this.displayForm }>
+		          		<strong>Ask Question</strong>
+								</button>
 
-									<section id="modal" className="modal">
-										<article className="modal-content">
-											<span
-												onClick= { this.hideForm }
-												className="modal-close js-hide-modal"> &times;
-											</span>
-									<QuestionsForm />
-									</article>
-									<div class="modal-screen js-hide-modal"></div>
-								</section>
-			          </li>
+								<section id="modal" className="modal">
+									<article className="modal-content">
+										<span
+											onClick= { this.hideForm }
+											className="modal-close js-hide-modal"> &times;
+										</span>
+								<QuestionsForm />
+								</article>
+								<div class="modal-screen js-hide-modal"></div>
+							</section>
+		          </li>
 
-				      </ul>
-						</div>
-				  </div>
-				);
-			} else {
-				return (
-					<div></div>
-				);
-			}
-
+			      </ul>
+					</div>
+			  </div>
+			);
+		} else {
+			return (
+				<div></div>
+			);
 		}
-	});
-})();
 
-
-
-
+	}
+});
 
 								// <li>
 			     //        <a href="#">Notifications

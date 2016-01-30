@@ -1,7 +1,10 @@
+var Dispatcher = require('../dispatcher/dispatcher.js'),
+    UserConstants = require('../constants/current_user_constants.js')
+
 var CHANGE_EVENT = "users_change";
 var _user = {};
 
-window.UsersStore = $.extend({}, EventEmitter.prototype, {
+var UsersStore = $.extend({}, EventEmitter.prototype, {
 
   addChangeHandler: function (callback) {
     this.on(CHANGE_EVENT, callback);
@@ -17,12 +20,10 @@ window.UsersStore = $.extend({}, EventEmitter.prototype, {
 
   dispatcherId: AppDispatcher.register(function (payload) {
     switch (payload.actionType) {
-
       case UserConstants.FOUND_USER:
           _user = payload.user;
           UsersStore.emit(CHANGE_EVENT);
         break;
-
     }
   }),
 });

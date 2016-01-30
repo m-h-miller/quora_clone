@@ -1,4 +1,8 @@
-window.AnswersIndexItem = React.createClass({
+var React = require('react'),
+    ApiUtil = require('../../util/api_util.js'),
+    CurrentUserStore = require('../../stores/current_user_store.js');
+
+var AnswersIndexItem = React.createClass({
   deleteAnswer: function () {
     ApiUtil.deleteAnswer(this.props.question.id, this.props.answer.id);
   },

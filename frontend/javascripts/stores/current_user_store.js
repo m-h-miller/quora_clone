@@ -1,9 +1,10 @@
+var Dispatcher = require('./../dispatcher/dispatcher.js');
+var UserConstants = require('../constants/current_user_constants.js');
+
 var CHANGE_EVENT = "change";
 var _currentUser = {};
-window.Dispatcher = require('./../dispatcher/dispatcher.js');
 
-window.CurrentUserStore = $.extend({}, EventEmitter.prototype, {
-
+var CurrentUserStore = $.extend({}, EventEmitter.prototype, {
   addChangeHandler: function (callback) {
     this.on(CHANGE_EVENT, callback);
   },

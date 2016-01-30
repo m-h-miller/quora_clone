@@ -1,4 +1,8 @@
-window.AnswersIndex = React.createClass({
+var React = require('react'),
+    QuestionStore = require('../../stores/questions.js'),
+    ApiUtil = require('../../util/api_util.js');
+
+var AnswersIndex = React.createClass({
   getInitialState: function () {
     return { answers: QuestionStore.allQuestionAnswers() };
   },

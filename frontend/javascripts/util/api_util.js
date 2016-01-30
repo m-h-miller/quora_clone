@@ -1,4 +1,6 @@
-window.ApiUtil = {
+var ApiActions = require('../actions/api_actions.js');
+
+var ApiUtil = {
   fetchAllQuestions: function () {
     $.ajax({
       url: 'api/questions',

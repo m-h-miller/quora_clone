@@ -1,4 +1,8 @@
-window.UserShow = React.createClass({
+var React = require('react'),
+    UsersStore = require('../../stores/users_store.js'),
+    UsersApiUtil = require('../../util/users_api_util.js');
+
+var UserShow = React.createClass({
   getInitialState: function () {
     return this.getStateFromStore();
   },

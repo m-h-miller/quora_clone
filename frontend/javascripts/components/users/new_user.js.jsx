@@ -1,5 +1,7 @@
-  window.UserForm = React.createClass({
+var React = require('react'),
+    UsersApiUtil = require('../../util/users_api_util.js');
 
+var UserForm = React.createClass({
     defaults: {
       user_name: "",
       password: "",
@@ -101,5 +103,4 @@
         </div>
       );
     },
-
   });

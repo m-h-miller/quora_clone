@@ -1,3 +1,6 @@
+var AppDispatcher = require('../dispatcher/dispatcher.js'),
+    UserConstants = require('../constants/current_user_constants.js');
+
 var UserActions = {
   receiveUsers: function (users) {
     AppDispatcher.dispatch({

@@ -1,84 +1,84 @@
-(function(root) {
-  root.SessionForm = React.createClass({
+var React = require('react'),
+    SessionsApiUtil = require('../../util/sessions_api_util.js');
 
-    defaults: {
-      user_name: "Username",
-      password: ""
-    },
+var SessionForm = React.createClass({
 
-    getInitialState: function () {
-      return this.defaults;
-    },
+  defaults: {
+    user_name: "Username",
+    password: ""
+  },
 
-    submit: function (e) {
-      e.preventDefault();
+  getInitialState: function () {
+    return this.defaults;
+  },
 
-      var credentials = $(e.currentTarget).serializeJSON();
-      SessionsApiUtil.signin(credentials, function () {
-        this.history.pushState(null, "/");
-      }.bind(this));
-    },
+  submit: function (e) {
+    e.preventDefault();
 
-    handleContinue: function (e) {
-      e.preventDefault();
-      var credentials = {
-        user_name: "guest",
-        password: "password"
-      };
-      SessionsApiUtil.signin(credentials, function () {
-        this.history.pushState(null, "/");
-      }.bind(this));
-    },
+    var credentials = $(e.currentTarget).serializeJSON();
+    SessionsApiUtil.signin(credentials, function () {
+      this.history.pushState(null, "/");
+    }.bind(this));
+  },
 
-    render: function() {
+  handleContinue: function (e) {
+    e.preventDefault();
+    var credentials = {
+      user_name: "guest",
+      password: "password"
+    };
+    SessionsApiUtil.signin(credentials, function () {
+      this.history.pushState(null, "/");
+    }.bind(this));
+  },
 
-      return (
-        <div className="new-session">
+  render: function() {
 
-          <div className="new-session-background "></div>
-          <div className="new-session-gradient"></div>
+    return (
+      <div className="new-session">
 
-          <div className="new-session-content">
-            <div className="new-session-header">
-              <h1>
-                Quorum
-              </h1>
-              <h4>
-                The best answer to any question.
-              </h4>
-            </div>
+        <div className="new-session-background "></div>
+        <div className="new-session-gradient"></div>
 
-            <div className="new-session-form-wrapper">
+        <div className="new-session-content">
+          <div className="new-session-header">
+            <h1>
+              Quorum
+            </h1>
+            <h4>
+              The best answer to any question.
+            </h4>
+          </div>
 
-              <a className="facebook"
-                href="/auth/facebook">Log in with Facebook</a>
+          <div className="new-session-form-wrapper">
 
-              <form className="new-session-form group" onSubmit={ this.submit }>
-                <label>
-                  Username
-                  <input type="text" name="user_name" />
-                </label>
-                <label>
-                  Password
-                  <input type="password" name="password" />
-                </label>
-                <br/>
-                <button>Sign In</button>
+            <a className="facebook"
+              href="/auth/facebook">Log in with Facebook</a>
 
-                <button>
-                  <a href="#/signup">Sign up</a>
-                </button>
+            <form className="new-session-form group" onSubmit={ this.submit }>
+              <label>
+                Username
+                <input type="text" name="user_name" />
+              </label>
+              <label>
+                Password
+                <input type="password" name="password" />
+              </label>
+              <br/>
+              <button>Sign In</button>
 
-              <button onClick={this.handleContinue} className="continue-button">
-                Continue as Guest
+              <button>
+                <a href="#/signup">Sign up</a>
               </button>
-              </form>
 
-            </div>
+            <button onClick={this.handleContinue} className="continue-button">
+              Continue as Guest
+            </button>
+            </form>
+
           </div>
         </div>
-      );
-    },
-
-  });
-})(this);
+      </div>
+    );
+  },
+});

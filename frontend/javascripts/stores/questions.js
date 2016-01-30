@@ -1,3 +1,6 @@
+var Dispatcher = require('./../dispatcher/dispatcher.js'),
+    QuestionConstants = require('../constants/question_constants.js');
+
 var QUESTIONS_INDEX_CHANGE_EVENT = "questionsIndexChange";
 var ANSWERS_INDEX_CHANGE_EVENT = "answersIndexChange";
 
@@ -31,7 +34,7 @@ var addAnswer = function (answer) {
   QuestionStore.answersChanged();
 };
 
-window.QuestionStore = $.extend({}, EventEmitter.prototype, {
+var QuestionStore = $.extend({}, EventEmitter.prototype, {
 
   all: function () {
     return _questions.slice(0);
