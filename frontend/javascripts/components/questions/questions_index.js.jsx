@@ -8,12 +8,12 @@ var QuestionsIndex = React.createClass({
   },
 
   componentDidMount: function () {
-    QuestionStore.addQuestionsIndexChangeListener(this._change);
+    this.listener = QuestionStore.addListener(this._change);
     ApiUtil.loadMoreQuestions(this.state.page);
   },
 
   componentWillUnmount: function () {
-    QuestionStore.removeQuestionsIndexChangeListener(this._change);
+    this.listener.remove();
   },
 
   _change: function () {
@@ -59,20 +59,15 @@ var QuestionsIndex = React.createClass({
     return(
       <div className="page-center">
         <h2 className="main-body-title">Top Stories</h2>
-
           {this.state.questions.map(function (question) {
             return <QuestionsIndexItem key={question.id} question={question} />;
           })}
-
           {no_content}
-
         <div className="page-center-footer">
           {back}
           {loadMore}
           {page}
-
         </div>
-
       </div>
     );
   }

@@ -5,8 +5,8 @@ var AppDispatcher = require('./../dispatcher/dispatcher.js'),
 var QUESTIONS_INDEX_CHANGE_EVENT = "questionsIndexChange",
     ANSWERS_INDEX_CHANGE_EVENT = "answersIndexChange";
 
-var _questions = [],
-    _answers = [];
+var _questions = [];
+var  _answers = [];
 
 var QuestionStore = new Store(AppDispatcher);
 
@@ -36,7 +36,7 @@ var addAnswer = function (answer) {
 };
 
 QuestionStore.all = function () {
-  return _question.slice(0);
+  return _questions.slice(0);
 };
 
 QuestionStore.find = function (id) {
@@ -56,9 +56,8 @@ QuestionStore.findAuthorQuestions = function (user_id) {
   return questions;
 };
 
-// ditto.
 QuestionStore.allQuestionAnswers = function () {
-  return _answer.slice(0);
+  return _answers.slice(0);
 };
 
 QuestionStore.__onDispatch = function (payload) {
@@ -87,21 +86,23 @@ QuestionStore.__onDispatch = function (payload) {
   }
 };
 
-addQuestionsIndexChangeListener: function (callback) {
+QuestionStore.addQuestionsIndexChangeListener = function (callback) {
   this.on(QUESTIONS_INDEX_CHANGE_EVENT, callback);
-},
-removeQuestionsIndexChangeListener: function (callback) {
+};
+QuestionStore.removeQuestionsIndexChangeListener = function (callback) {
   this.removeListener(QUESTIONS_INDEX_CHANGE_EVENT, callback);
-},
-changed: function () {
+};
+QuestionStore.changed = function () {
   this.emit(QUESTIONS_INDEX_CHANGE_EVENT);
-},
-addAnswersIndexChangeListener: function (callback) {
+};
+QuestionStore.addAnswersIndexChangeListener = function (callback) {
   this.on(ANSWERS_INDEX_CHANGE_EVENT, callback);
-},
+};
 QuestionStore.removeAnswersIndexChangeListener = function (callback) {
   this.removeListener(ANSWERS_INDEX_CHANGE_EVENT, callback);
 };
 QuestionStore.answersChanged = function () {
   this.emit(ANSWERS_INDEX_CHANGE_EVENT);
 };
+
+module.exports = QuestionStore;

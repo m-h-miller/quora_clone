@@ -36,25 +36,16 @@ var SessionForm = React.createClass({
 
     return (
       <div className="new-session">
-
         <div className="new-session-background "></div>
         <div className="new-session-gradient"></div>
-
         <div className="new-session-content">
           <div className="new-session-header">
-            <h1>
-              Quorum
-            </h1>
-            <h4>
-              The best answer to any question.
-            </h4>
+            <h1> Quorum </h1>
+            <h4> The best answer to any question. </h4>
           </div>
-
           <div className="new-session-form-wrapper">
-
             <a className="facebook"
               href="/auth/facebook">Log in with Facebook</a>
-
             <form className="new-session-form group" onSubmit={ this.submit }>
               <label>
                 Username
@@ -66,16 +57,13 @@ var SessionForm = React.createClass({
               </label>
               <br/>
               <button>Sign In</button>
-
               <button>
                 <a href="#/signup">Sign up</a>
               </button>
-
-            <button onClick={this.handleContinue} className="continue-button">
+            <button onClick={ this.handleContinue } className="continue-button">
               Continue as Guest
             </button>
             </form>
-
           </div>
         </div>
       </div>

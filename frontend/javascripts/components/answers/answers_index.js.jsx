@@ -8,13 +8,13 @@ var AnswersIndex = React.createClass({
   },
 
   componentDidMount: function () {
-    QuestionStore.addAnswersIndexChangeListener(this._change);
+    this.listener = QuestionStore.addListener(this._change);
     var q = this.props.question.id;
     ApiUtil.fetchAnswers(q);
   },
 
   componentWillUnmount: function () {
-    QuestionStore.removeAnswersIndexChangeListener(this._change);
+    this.listener.remove();
   },
 
   _change: function () {
@@ -28,7 +28,6 @@ var AnswersIndex = React.createClass({
       <div className="answers-index-page">
         <AnswersForm question={this.props.question}/>
         <p className="answers-header">Answers:</p>
-
         <div className="answers-index">
           {this.state.answers.map(function (answer) {
             return <AnswersIndexItem

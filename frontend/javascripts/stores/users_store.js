@@ -1,29 +1,21 @@
 var Dispatcher = require('../dispatcher/dispatcher.js'),
-    UserConstants = require('../constants/current_user_constants.js')
+    UserConstants = require('../constants/current_user_constants.js'),
+    Store = require('flux/utils').Store;
+
+var UsersStore = new Store(AppDispatcher);
 
 var CHANGE_EVENT = "users_change";
 var _user = {};
 
-var UsersStore = $.extend({}, EventEmitter.prototype, {
+UsersStore.viewedUser = function () {
+  return $.extend({}, _user);
+};
 
-  addChangeHandler: function (callback) {
-    this.on(CHANGE_EVENT, callback);
-  },
-
-  removeChangeHandler: function (callback) {
-    this.removeListener(CHANGE_EVENT, callback);
-  },
-
-  viewedUser: function () {
-    return $.extend({}, _user);
-  },
-
-  dispatcherId: AppDispatcher.register(function (payload) {
-    switch (payload.actionType) {
-      case UserConstants.FOUND_USER:
-          _user = payload.user;
-          UsersStore.emit(CHANGE_EVENT);
-        break;
-    }
-  }),
-});
+UsersStore.__onDispatch = function (payload) {
+  switch (payload.actionType) {
+    case UserConstants.FOUND_USER:
+        _user = payload.user;
+        UsersStore.emit(CHANGE_EVENT);
+      break;
+  }
+};

@@ -1,33 +1,34 @@
-var Dispatcher = require('./../dispatcher/dispatcher.js');
+var AppDispatcher = require('./../dispatcher/dispatcher.js');
 var UserConstants = require('../constants/current_user_constants.js');
+
+var Store = require('flux/utils').Store;
 
 var CHANGE_EVENT = "change";
 var _currentUser = {};
 
-var CurrentUserStore = $.extend({}, EventEmitter.prototype, {
-  addChangeHandler: function (callback) {
-    this.on(CHANGE_EVENT, callback);
-  },
+var CurrentUserStore = new Store(AppDispatcher);
 
-  removeChangeHandler: function (callback) {
-    this.removeListener(CHANGE_EVENT, callback);
-  },
+CurrentUserStore.currentUser = function () {
+  return $.extend( {}, _currentUser );
+};
 
-  currentUser: function () {
-    return $.extend({}, _currentUser);
-  },
+CurrentUserStore.isSignedIn = function () {
+  return ( typeof _currentUser.id !== "undefined" );
+};
 
-  isSignedIn: function () {
-    return (typeof _currentUser.id !== "undefined");
-  },
+CurrentUserStore.__onDispatch = function (payload) {
+  switch (payload.actionType) {
+    case UserConstants.RECEIVE_CURRENT_USER:
+        _currentUser = payload.user;
+        CurrentUserStore.emit(CHANGE_EVENT);
+      break;
+  }
+};
 
-  dispatcherId: AppDispatcher.register(function (payload) {
-    switch (payload.actionType) {
+CurrentUserStore.addChangeHandler = function (callback) {
+  this.on(CHANGE_EVENT, callback);
+};
 
-      case UserConstants.RECEIVE_CURRENT_USER:
-          _currentUser = payload.user;
-          CurrentUserStore.emit(CHANGE_EVENT);
-        break;
-    }
-  }),
-});
+CurrentUserStore.removeChangeHandler = function (callback) {
+  this.removeListener(CHANGE_EVENT, callback);
+};

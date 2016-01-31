@@ -12,7 +12,7 @@ var UserShow = React.createClass({
   },
 
   componentDidMount: function () {
-    UsersStore.addChangeHandler(this._onChange);
+    this.listener = UsersStore.addListener(this._onChange);
     UsersApiUtil.fetchUser(parseInt(this.props.params.id));
   },
 
@@ -21,7 +21,7 @@ var UserShow = React.createClass({
   },
 
   componentWillUnmount: function () {
-    UsersStore.removeChangeHandler(this._onChange);
+    this.listener.remove();
   },
 
   render: function () {
