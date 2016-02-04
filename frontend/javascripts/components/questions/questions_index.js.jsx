@@ -1,9 +1,11 @@
 var React = require('react'),
     QuestionStore = require('../../stores/questions.js'),
+    QuestionsIndexItem = require('./questions_index_item.js.jsx')
     ApiUtil = require('../../util/api_util.js');
 
 var QuestionsIndex = React.createClass({
   getInitialState: function () {
+    console.log("got initial state");
     return { questions: QuestionStore.all(), page: 1 };
   },
 
@@ -72,3 +74,5 @@ var QuestionsIndex = React.createClass({
     );
   }
 });
+
+module.exports = QuestionsIndex;

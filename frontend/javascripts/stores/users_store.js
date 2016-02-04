@@ -1,4 +1,4 @@
-var Dispatcher = require('../dispatcher/dispatcher.js'),
+var AppDispatcher = require('../dispatcher/dispatcher.js'),
     UserConstants = require('../constants/current_user_constants.js'),
     Store = require('flux/utils').Store;
 
@@ -15,7 +15,7 @@ UsersStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case UserConstants.FOUND_USER:
         _user = payload.user;
-        UsersStore.emit(CHANGE_EVENT);
+        UsersStore.__emitChange();
       break;
   }
 };

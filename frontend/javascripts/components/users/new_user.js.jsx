@@ -1,106 +1,111 @@
 var React = require('react'),
+    History = require('react-router').History;
     UsersApiUtil = require('../../util/users_api_util.js');
 
 var UserForm = React.createClass({
-    defaults: {
-      user_name: "",
-      password: "",
-      imageUrl: "",
-      imageFile: null
-    },
-    getInitialState: function () {
-      return this.defaults;
-    },
+  mixins: [History],
 
-    changeFile: function (e) {
-      var reader = new FileReader();
-      var file = e.currentTarget.files[0];
-      var that = this;
+  defaults: {
+    user_name: "",
+    password: "",
+    imageUrl: "",
+    imageFile: null
+  },
+  getInitialState: function () {
+    return this.defaults;
+  },
 
-      reader.onloadend = function () {
-        that.setState({
-          imageUrl: reader.result,
-          imageFile: file
-        });
-      };
+  changeFile: function (e) {
+    var reader = new FileReader();
+    var file = e.currentTarget.files[0];
+    var that = this;
 
-      if (file) {
-        reader.readAsDataURL(file);
-      } else {
-        this.setState({ imageUrl: "", imageFile: null });
-      }
-    },
+    reader.onloadend = function () {
+      that.setState({
+        imageUrl: reader.result,
+        imageFile: file
+      });
+    };
 
-    handleSubmit: function (e) {
-      e.preventDefault();
-      var user_name = this.state.user_name;
-      var password = this.state.password;
-      var file = this.state.imageFile;
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: "", imageFile: null });
+    }
+  },
 
-      var formData = new FormData();
-      formData.append("user[user_name]", user_name);
-      formData.append("user[password]", password);
-      formData.append("user[avatar]", file);
+  handleSubmit: function (e) {
+    e.preventDefault();
+    var user_name = this.state.user_name;
+    var password = this.state.password;
+    var file = this.state.imageFile;
 
-      UsersApiUtil.signup(formData, function (credentials) {
-        this.history.pushState(null, "/");
-        this.resetForm();
-      }.bind(this));
-    },
+    var formData = new FormData();
+    formData.append("user[user_name]", user_name);
+    formData.append("user[password]", password);
+    formData.append("user[avatar]", file);
 
-    resetForm: function () {
-      this.setState({ user_name: "", password: "", imageUrl: "", imageFile: null });
-    },
+    UsersApiUtil.signup(formData, function (credentials) {
+      this.history.pushState(null, "/");
+      this.resetForm();
+    }.bind(this));
+  },
 
-    render: function() {
+  resetForm: function () {
+    this.setState({ user_name: "", password: "", imageUrl: "", imageFile: null });
+  },
 
-      return (
-        <div className="new-session">
+  render: function() {
 
-          <div className="new-session-background "></div>
-          <div className="new-session-gradient"></div>
+    return (
+      <div className="new-session">
 
-          <div className="new-session-content">
-            <div className="new-session-header">
-              <h1>
-                Quorum
-              </h1>
-              <h4>
-                The best answer to any question.
-              </h4>
-            </div>
+        <div className="new-session-background "></div>
+        <div className="new-session-gradient"></div>
 
-            <div className="new-session-form-wrapper">
-              <form className="new-session-form group" onSubmit={ this.handleSubmit }>
-                <label>
-                  Username
-                  <input
-                    type="text"
-                    id="user_name"
-                    valueLink={this.linkState('user_name')} />
-                </label>
-                <label>
-                  Password
-                  <input
-                    type="password"
-                    id="password"
-                    valueLink={ this.linkState('password') } />
-                </label>
-                <label>
-                  Avatar
-                  <input
-                    type="file"
-                    onChange={this.changeFile} />
-                </label>
-                <br/>
-                <button>Sign Up</button>
-                <button>
-                  <a href="#/signin">Sign in</a>
-                </button>
-              </form>
-            </div>
+        <div className="new-session-content">
+          <div className="new-session-header">
+            <h1>
+              Quorum
+            </h1>
+            <h4>
+              The best answer to any question.
+            </h4>
+          </div>
+
+          <div className="new-session-form-wrapper">
+            <form className="new-session-form group" onSubmit={ this.handleSubmit }>
+              <label>
+                Username
+                <input
+                  type="text"
+                  id="user_name"
+                  valueLink={this.linkState('user_name')} />
+              </label>
+              <label>
+                Password
+                <input
+                  type="password"
+                  id="password"
+                  valueLink={ this.linkState('password') } />
+              </label>
+              <label>
+                Avatar
+                <input
+                  type="file"
+                  onChange={this.changeFile} />
+              </label>
+              <br/>
+              <button>Sign Up</button>
+              <button>
+                <a href="#/signin">Sign in</a>
+              </button>
+            </form>
           </div>
         </div>
-      );
-    },
-  });
+      </div>
+    );
+  },
+});
+
+module.exports = UserForm;

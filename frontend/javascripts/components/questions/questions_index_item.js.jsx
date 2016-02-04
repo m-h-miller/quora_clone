@@ -51,5 +51,5 @@ var QuestionsIndexItem = React.createClass({
       </div>
     );
   }
-
 });
+module.exports = QuestionsIndexItem;

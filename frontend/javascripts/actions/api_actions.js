@@ -36,5 +36,7 @@ var ApiActions = {
       actionType: QuestionConstants.MORE_QUESTIONS_RECEIVED,
       questions: questions
     });
-},
+  },
 };
+
+module.exports = ApiActions;

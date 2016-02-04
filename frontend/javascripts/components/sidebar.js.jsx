@@ -13,3 +13,5 @@ var SideBar = React.createClass({
     );
   }
 });
+
+module.exports = SideBar;

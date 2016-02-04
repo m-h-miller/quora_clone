@@ -1,8 +1,10 @@
-var React = require('react'),
-    ReactRouter = require('react-router'),
-    Link = ReactRouter.Link;
+var React = require('react');
+
+var Link = require('react-router').Link;
+
 
 var CurrentUserStore = require('../stores/current_user_store.js'),
+    QuestionsForm = require('./questions/questions_form.js.jsx'),
     SessionsApiUtil = require('../util/sessions_api_util.js');
 
 var Header = React.createClass({
@@ -13,7 +15,7 @@ var Header = React.createClass({
     },
 
   componentDidMount: function () {
-    CurrentUserStore.addChangeHandler(this._onChange);
+    this.listener = CurrentUserStore.addListener(this._onChange);
   },
 
   _onChange: function () {
@@ -66,7 +68,7 @@ var Header = React.createClass({
 										</span>
 								<QuestionsForm />
 								</article>
-								<div class="modal-screen js-hide-modal"></div>
+								<div className="modal-screen js-hide-modal"></div>
 							</section>
 		          </li>
 
@@ -79,16 +81,7 @@ var Header = React.createClass({
 				<div></div>
 			);
 		}
-
 	}
 });
 
-								// <li>
-			     //        <a href="#">Notifications
-			     //        	<strong className="header-nav-badge">3</strong>
-			     //        </a>
-			     //        <ul className="header-nav-drop-down">
-			     //          <li><a href="#">Someone liked your question.</a></li>
-			     //          <li><a herf="#">Someone answered your question.</a></li>
-			     //        </ul>
-			     //      </li>
+module.exports = Header;

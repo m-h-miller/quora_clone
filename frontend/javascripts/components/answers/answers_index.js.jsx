@@ -40,3 +40,5 @@ var AnswersIndex = React.createClass({
     );
   }
 });
+
+module.exports = AnswersIndex;

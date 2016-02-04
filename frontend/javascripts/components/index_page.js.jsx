@@ -13,3 +13,5 @@ var IndexPage = React.createClass({
     );
   }
 });
+
+module.exports = IndexPage;

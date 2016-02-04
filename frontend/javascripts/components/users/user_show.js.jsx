@@ -42,7 +42,7 @@ var UserShow = React.createClass({
         <SideBar />
         <div className="page-center">
           <div className="detail">
-            <p
+            <p>
               className="detail-title"
               key={ this.props.params.id }>
               Questions asked by { this.state.user.user_name }:
@@ -52,7 +52,6 @@ var UserShow = React.createClass({
         <br/>
           <div className="answers">
             <p className="answers-header">User Activity:</p>
-
             { content }
           </div>
         </div>
@@ -60,3 +59,5 @@ var UserShow = React.createClass({
     );
   }
 });
+
+module.exports = UserShow;

@@ -1,7 +1,10 @@
 var React = require('react'),
+    LinkedStateMixin = require('react-addons-linked-state-mixin'),
     ApiUtil = require('../../util/api_util.js');
 
 var QuestionsForm = React.createClass({
+  mixins: [LinkedStateMixin],
+
   defaults: {
     title: "",
     body: ""
@@ -62,3 +65,4 @@ var QuestionsForm = React.createClass({
     );
   }
 });
+module.exports = QuestionsForm;

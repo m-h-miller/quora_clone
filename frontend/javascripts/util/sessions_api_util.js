@@ -1,3 +1,5 @@
+var UserActions = require('../actions/current_user_actions.js');
+
 var SessionsApiUtil = {
   signin: function (credentials, callback) {
     $.ajax({
@@ -34,3 +36,4 @@ var SessionsApiUtil = {
     });
   }
 };
+module.exports = SessionsApiUtil;

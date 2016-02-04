@@ -1,7 +1,9 @@
 var React = require('react'),
+    History = require('react-router').History;
     SessionsApiUtil = require('../../util/sessions_api_util.js');
 
 var SessionForm = React.createClass({
+  mixins: [History],
 
   defaults: {
     user_name: "Username",
@@ -14,7 +16,6 @@ var SessionForm = React.createClass({
 
   submit: function (e) {
     e.preventDefault();
-
     var credentials = $(e.currentTarget).serializeJSON();
     SessionsApiUtil.signin(credentials, function () {
       this.history.pushState(null, "/");
@@ -33,7 +34,6 @@ var SessionForm = React.createClass({
   },
 
   render: function() {
-
     return (
       <div className="new-session">
         <div className="new-session-background "></div>
@@ -70,3 +70,5 @@ var SessionForm = React.createClass({
     );
   },
 });
+
+module.exports = SessionForm;

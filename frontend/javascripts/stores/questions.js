@@ -1,17 +1,17 @@
 var AppDispatcher = require('./../dispatcher/dispatcher.js'),
-    QuestionConstants = require('../constants/question_constants.js'),
-    Store = require('flux/utils').Store;
+    Store = require('flux/utils').Store,
+    QuestionConstants = require('../constants/question_constants.js');
 
-var QUESTIONS_INDEX_CHANGE_EVENT = "questionsIndexChange",
-    ANSWERS_INDEX_CHANGE_EVENT = "answersIndexChange";
-
+var QuestionStore = new Store(AppDispatcher);
 var _questions = [];
 var  _answers = [];
 
-var QuestionStore = new Store(AppDispatcher);
-
 var resetQuestions = function (questions) {
-  _questions = questions.slice(0);
+  console.log("reset questions: ");
+  // console.log(questions);
+  // _questions = questions.slice(0);
+  var copy = questions;
+  _questions = copy;
 };
 
 var resetQuestion = function (question) {
@@ -36,7 +36,9 @@ var addAnswer = function (answer) {
 };
 
 QuestionStore.all = function () {
-  return _questions.slice(0);
+  // return _questions.slice(0);
+  var copy = _questions;
+  return copy;
 };
 
 QuestionStore.find = function (id) {
@@ -61,6 +63,8 @@ QuestionStore.allQuestionAnswers = function () {
 };
 
 QuestionStore.__onDispatch = function (payload) {
+  // console.log(payload);
+  console.log("Q Store payload:");
   switch(payload.actionType) {
     case QuestionConstants.QUESTIONS_RECEIVED:
         resetQuestions(payload.questions);
@@ -84,25 +88,6 @@ QuestionStore.__onDispatch = function (payload) {
         QuestionStore.__emitChange();
       break;
   }
-};
-
-QuestionStore.addQuestionsIndexChangeListener = function (callback) {
-  this.on(QUESTIONS_INDEX_CHANGE_EVENT, callback);
-};
-QuestionStore.removeQuestionsIndexChangeListener = function (callback) {
-  this.removeListener(QUESTIONS_INDEX_CHANGE_EVENT, callback);
-};
-QuestionStore.changed = function () {
-  this.emit(QUESTIONS_INDEX_CHANGE_EVENT);
-};
-QuestionStore.addAnswersIndexChangeListener = function (callback) {
-  this.on(ANSWERS_INDEX_CHANGE_EVENT, callback);
-};
-QuestionStore.removeAnswersIndexChangeListener = function (callback) {
-  this.removeListener(ANSWERS_INDEX_CHANGE_EVENT, callback);
-};
-QuestionStore.answersChanged = function () {
-  this.emit(ANSWERS_INDEX_CHANGE_EVENT);
 };
 
 module.exports = QuestionStore;
