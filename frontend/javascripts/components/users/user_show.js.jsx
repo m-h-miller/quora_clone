@@ -32,8 +32,8 @@ var UserShow = React.createClass({
     if (typeof this.state.user.questions !== "undefined") {
       content = (
         <div className="users-show-activity">
-          {this.state.user.questions.map(function (question) {
-            return <QuestionsIndexItem key={question.id} question={question} />;
+          { this.state.user.questions.map(function (question) {
+            return <QuestionsIndexItem key={ question.id } question={ question } />;
           })}
         </div>
       );
@@ -44,16 +44,14 @@ var UserShow = React.createClass({
         <SideBar />
         <div className="page-center">
           <div className="detail">
-            <p
-              className="detail-title"
-              key={ this.props.params.id }>
+            <p className="detail-title" key={ this.props.params.id }>
               Questions asked by { this.state.user.user_name }:
             </p>
 
           </div>
         <br/>
           <div className="answers">
-            <p className="answers-header">User Activity:</p>
+            <p className="answers-header"> User Activity: </p>
             { content }
           </div>
         </div>

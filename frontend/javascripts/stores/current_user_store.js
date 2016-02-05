@@ -10,17 +10,14 @@ CurrentUserStore.currentUser = function () {
 };
 
 CurrentUserStore.isSignedIn = function () {
-  console.log("CUStore.isSignedIn:");
   if ( _currentUser == {} ) {
     return false;
-  }
-  else {
+  } else {
     return ( typeof _currentUser.id !== "undefined" );
   }
 };
 
 CurrentUserStore.storeUser = function (user) {
-  console.log("CUStore.storeUser:");
   _currentUser = user;
 };
 

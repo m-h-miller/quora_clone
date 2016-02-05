@@ -1,7 +1,6 @@
 var ApiActions = require('../actions/api_actions.js');
 
 var ApiUtil = {
-
   // deprecated ... ?
   fetchAllQuestions: function () {
     $.ajax({
@@ -13,7 +12,6 @@ var ApiUtil = {
       }
     });
   },
-
   createQuestion: function (question, callback) {
     $.ajax({
       url: 'api/questions',
@@ -25,7 +23,6 @@ var ApiUtil = {
       }
     });
   },
-
   deleteQuestion: function(question_id) {
     $.ajax({
       url: 'api/questions/' + question_id,
@@ -35,7 +32,6 @@ var ApiUtil = {
       }
     });
   },
-
   fetchQuestion: function (id) {
     $.ajax({
       url: 'api/questions/' + id,
@@ -45,13 +41,10 @@ var ApiUtil = {
       }
     });
   },
-
   // I am sort of ambivalent about what to do with my routes here.
   // While on the one hand I hate this long nesting for my resources,
   // I also don't want to give the user the ability to view answers
   // absent the question's context.
-
-
   deleteAnswer: function(question_id, answer_id) {
     $.ajax({
       url: 'api/questions/' + question_id + '/answers/' + answer_id,
@@ -61,7 +54,6 @@ var ApiUtil = {
       }
     });
   },
-
   fetchAnswers: function (question_id) {
     $.ajax({
       url: 'api/questions/' + question_id + '/answers',
@@ -71,7 +63,6 @@ var ApiUtil = {
       }
     });
   },
-
   createAnswer: function (answer, callback) {
     $.ajax({
       url: 'api/questions/' + answer.question_id + '/answers',
@@ -83,7 +74,6 @@ var ApiUtil = {
       }
     });
   },
-
   fetchUserQuestions: function (user_id) {
     $.ajax({
       url: 'api/questions',
@@ -91,7 +81,6 @@ var ApiUtil = {
       data: {}
     });
   },
-
   loadMoreQuestions: function(pageNum){
     $.ajax ({
       url: 'api/questions',

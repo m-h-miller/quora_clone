@@ -10,7 +10,6 @@ var QuestionsIndex = React.createClass({
   },
 
   componentDidMount: function () {
-    // QuestionStore.addChangeListener(this._change);
     this.listener = QuestionStore.addListener(this._change);
     ApiUtil.loadMoreQuestions(this.state.page);
   },
@@ -32,28 +31,22 @@ var QuestionsIndex = React.createClass({
   handleBack: function(){
     pageNumber = this.state.page - 1;
     ApiUtil.loadMoreQuestions(pageNumber);
-    this.setState({page: pageNumber});
+    this.setState({ page: pageNumber });
   },
 
   render: function () {
-    console.log("qs_index state: ");
-    console.log(this.state);
-    var loadMore;
-    var back;
-    var page;
-    var no_content;
-
-    page = <span className="page">{this.state.page}</span>
+    var loadMore, back, no_content;
+    var page = <span className="page">{this.state.page}</span>;
 
     if (this.state.questions.length !== 0){
       loadMore = <button onClick={this.handleClick} className="load-more">
-        <span>load more!</span>
+        <span> load more! </span>
       </button>;
     }
 
     if (this.state.page !== 1){
       back = <button onClick={this.handleBack} className="load-more">
-        <span>go back!</span>
+        <span> go back! </span>
       </button>;
     }
 
@@ -67,11 +60,11 @@ var QuestionsIndex = React.createClass({
           {this.state.questions.map(function (question) {
             return <QuestionsIndexItem key={question.id} question={question} />;
           })}
-          {no_content}
+          { no_content }
         <div className="page-center-footer">
-          {back}
-          {loadMore}
-          {page}
+          { back }
+          { loadMore }
+          { page }
         </div>
       </div>
     );

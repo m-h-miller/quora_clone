@@ -4,12 +4,9 @@ var React = require('react'),
     CurrentUserStore = require('../../stores/current_user_store.js');
 
 var QuestionsForm = React.createClass({
-  mixins: [LinkedStateMixin],
+  mixins: [ LinkedStateMixin ],
 
-  defaults: {
-    title: "",
-    body: ""
-  },
+  defaults: { title: "", body: "" },
 
   getInitialState: function () {
     return this.defaults;
@@ -39,26 +36,17 @@ var QuestionsForm = React.createClass({
       <form className='new-question-form' onSubmit={this.submitQuestion}>
         <div className="group">
           <label htmlFor='question_title'>Title:</label>
-          <input
-            type='text'
-            id='question_title'
-            valueLink={this.linkState('title')} />
+          <input type='text' id='question_title' valueLink={this.linkState('title')} />
         </div><br/>
 
         <div className="group">
           <label htmlFor='question_body'>Body:</label>
-          <input
-            type='text'
-            id='question_body'
-            valueLink={this.linkState('body')} />
+          <input type='text' id='question_body' valueLink={this.linkState('body')} />
         </div><br/>
 
         <div className="group">
           <label htmlFor='question_body'>Body:</label>
-          <input
-            type='text'
-            id='question_body'
-            valueLink={this.linkState('body')} />
+          <input type='text' id='question_body' valueLink={this.linkState('body')} />
         </div><br/>
 
         <button> Ask Question </button><br/>

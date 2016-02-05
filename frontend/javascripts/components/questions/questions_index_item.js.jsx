@@ -1,8 +1,7 @@
 var React = require('react'),
     ReactRouter = require('react-router'),
-    Link = ReactRouter.Link;
-
-var CurrentUserStore = require('../../stores/current_user_store.js');
+    Link = ReactRouter.Link,
+    CurrentUserStore = require('../../stores/current_user_store.js');
 
 var QuestionsIndexItem = React.createClass({
   deleteQuestion: function () {
@@ -23,30 +22,23 @@ var QuestionsIndexItem = React.createClass({
     return(
       <div className="questions-index-item group">
         <h6 className="questions-index-item-title">
-          <Link
-            className="questions-index-title"
-            to={'/questions/' + this.props.question.id}
-            author={ this.props.question.author }>
+          <Link className="questions-index-title" to={ '/questions/' + this.props.question.id } author={ this.props.question.author }>
             {this.props.question.title}
           </Link>
         </h6>
-
         <ul className="questions-index-wrap group">
           <li className="thumb">
             <img src={ this.props.question.author.image_url } className="author-thumb" />
           </li>
-
           <li className="questions-index-item-author">
-            <Link className="questions-index-item-author-link" to={'/users/' + this.props.question.author.id }>
+            <Link className="questions-index-item-author-link" to={ '/users/' + this.props.question.author.id }>
               <strong>
                 { this.props.question.author.user_name }
               </strong>
             </Link> asked this:
           </li>
         </ul>
-
-        <p className="questions-index-item-body">{this.props.question.body} </p>
-
+        <p className="questions-index-item-body">{ this.props.question.body } </p>
         { deleteButton }
       </div>
     );

@@ -3,12 +3,9 @@ var React = require('react'),
     SessionsApiUtil = require('../../util/sessions_api_util.js');
 
 var SessionForm = React.createClass({
-  mixins: [History],
+  mixins: [ History ],
 
-  defaults: {
-    user_name: "Username",
-    password: ""
-  },
+  defaults: { user_name: "Username", password: "" },
 
   getInitialState: function () {
     return this.defaults;
@@ -34,7 +31,6 @@ var SessionForm = React.createClass({
   },
 
   render: function() {
-    console.log("new_session rendered");
     return (
       <div className="new-session">
         <div className="new-session-background "></div>
@@ -46,7 +42,7 @@ var SessionForm = React.createClass({
           </div>
           <div className="new-session-form-wrapper">
             <a className="facebook"
-              href="/auth/facebook">Log in with Facebook</a>
+              href="/auth/facebook"> Log in with Facebook </a>
             <form className="new-session-form group" onSubmit={ this.submit }>
               <label>
                 Username
@@ -57,9 +53,9 @@ var SessionForm = React.createClass({
                 <input type="password" name="password" />
               </label>
               <br/>
-              <button>Sign In</button>
+              <button> Sign In </button>
               <button>
-                <a href="#/signup">Sign up</a>
+                <a href="#/signup"> Sign up </a>
               </button>
             <button onClick={ this.handleContinue } className="continue-button">
               Continue as Guest

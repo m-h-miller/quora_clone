@@ -6,7 +6,7 @@ var AnswersForm = React.createClass({
   // Sooooo why don't I need the history mixin?
   // Ergo I must check whether I need it at ANY of the places
   // that I've included it.
-  mixins: [LinkedStateMixin],
+  mixins: [ LinkedStateMixin ],
 
   defaults: { title: "", body: "" },
 

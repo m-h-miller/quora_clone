@@ -1,4 +1,5 @@
 var React = require('react'),
+    // double check that I need history?
     History = require('react-router').History,
     LinkedStateMixin = require('react-addons-linked-state-mixin');
     UsersApiUtil = require('../../util/users_api_util.js');
@@ -17,6 +18,10 @@ var UserForm = React.createClass({
   },
 
   changeFile: function (e) {
+
+    // need to figure out Docs for this function
+    // & write some topical comments here.
+
     var reader = new FileReader();
     var file = e.currentTarget.files[0];
     var that = this;
@@ -57,49 +62,36 @@ var UserForm = React.createClass({
   },
 
   render: function() {
-
     return (
       <div className="new-session">
-
-        <div className="new-session-background "></div>
+        <div className="new-session-background"></div>
         <div className="new-session-gradient"></div>
 
         <div className="new-session-content">
           <div className="new-session-header">
-            <h1>
-              Quorum
-            </h1>
-            <h4>
-              The best answer to any question.
-            </h4>
+            <h1> Quorum </h1>
+            <h4> The best answer to any question. </h4>
           </div>
-
           <div className="new-session-form-wrapper">
             <form className="new-session-form group" onSubmit={ this.handleSubmit }>
               <label>
                 Username
-                <input
-                  type="text"
-                  id="user_name"
-                  valueLink={this.linkState('user_name')} />
+                <input type="text" id="user_name" valueLink={this.linkState('user_name')} />
               </label>
               <label>
                 Password
-                <input
-                  type="password"
-                  id="password"
-                  valueLink={ this.linkState('password') } />
+                <input type="password" id="password" valueLink={ this.linkState('password') } />
               </label>
               <label>
                 Avatar
-                <input
-                  type="file"
-                  onChange={this.changeFile} />
+                <input type="file" onChange={this.changeFile} />
               </label>
-              <br/>
-              <button>Sign Up</button>
+                <br/>
               <button>
-                <a href="#/signin">Sign in</a>
+                Sign Up
+              </button>
+              <button>
+                <a href="#/signin"> Sign in </a>
               </button>
             </form>
           </div>

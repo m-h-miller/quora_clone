@@ -2,10 +2,8 @@ var AppDispatcher = require('../dispatcher/dispatcher.js'),
     UserConstants = require('../constants/current_user_constants.js'),
     Store = require('flux/utils').Store;
 
-var UsersStore = new Store(AppDispatcher);
-
-// var CHANGE_EVENT = "users_change";
-var _user = {};
+var UsersStore = new Store(AppDispatcher),
+    _user = {};
 
 UsersStore.viewedUser = function () {
   return $.extend({}, _user);
@@ -19,13 +17,5 @@ UsersStore.__onDispatch = function (payload) {
       break;
   }
 };
-
-// UsersStore.addChangeListener = function (callback) {
-//   this.on(CHANGE_EVENT, callback)
-// };
-//
-// UsersStore.removeChangeListener = function (callback) {
-//   this.removeListener(CHANGE_EVENT, callback);
-// };
 
 module.exports = UsersStore;

@@ -14,7 +14,6 @@ var SessionsApiUtil = {
       }
     });
   },
-
   signout: function (  ) {
     $.ajax({
       url: 'api/session',
@@ -25,7 +24,6 @@ var SessionsApiUtil = {
       }
     });
   },
-
   fetchCurrentUser: function () {
     $.ajax({
       url: 'api/session',

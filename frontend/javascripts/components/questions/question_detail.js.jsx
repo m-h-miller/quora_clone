@@ -7,24 +7,17 @@ var React = require('react'),
     SideBar = require('../sidebar.js.jsx'),
     AnswersIndex = require('../answers/answers_index.js.jsx');
 
-
 var QuestionDetail = React.createClass({
-
   getStateFromStore: function () {
     return { question: QuestionStore.find(parseInt(this.props.params.id)) };
   },
-
   _onChange: function () {
     this.setState(this.getStateFromStore());
   },
-
   getInitialState: function () {
     return this.getStateFromStore();
   },
-
   componentDidMount: function () {
-    // QuestionStore.addQuestionsIndexChangeListener(this._onChange);
-    // QuestionStore.addAnswersIndexChangeListener(this._onChange);
     this.listener = QuestionStore.addListener(this._onChange);
     var id = this.props.params.id;
     ApiUtil.fetchQuestion(id);
@@ -36,7 +29,6 @@ var QuestionDetail = React.createClass({
   },
 
   componentWillUnmount: function () {
-    // QuestionStore.removeQuestionsIndexChangeListener(this._onChange);
     this.listener.remove();
   },
 
@@ -68,7 +60,7 @@ var QuestionDetail = React.createClass({
                   <img src={ this.state.question.author.image_url } className="author-thumb" />
                 </li>
                 <li className="questions-detail-author-link">
-                  <Link className="questions-index-item-author-link" to={'/users/' + this.state.question.author.id }>
+                  <Link className="questions-index-item-author-link" to={ '/users/' + this.state.question.author.id }>
                     <strong>{ this.state.question.author.user_name }</strong>
                   </Link> asked this:
                 </li>

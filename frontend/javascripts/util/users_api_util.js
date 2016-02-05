@@ -14,7 +14,6 @@ var UsersApiUtil = {
       },
     });
   },
-
   fetchUser: function(user_id) {
     $.ajax({
       url: 'api/users/' + user_id,

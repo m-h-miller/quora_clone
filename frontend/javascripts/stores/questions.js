@@ -56,6 +56,7 @@ QuestionStore.findAuthorQuestions = function (user_id) {
   return questions;
 };
 
+  // How am i populating _answers? need to move it to its own store lol
 QuestionStore.allQuestionAnswers = function () {
   return _answers.slice(0);
 };
