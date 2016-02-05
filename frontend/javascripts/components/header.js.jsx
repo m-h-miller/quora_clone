@@ -16,7 +16,7 @@ var Header = React.createClass({
   },
 
   _onChange: function () {
-    this.setState({currentUser: CurrentUserStore.currentUser()});
+    this.setState({ currentUser: CurrentUserStore.currentUser() });
   },
 
   signout: function () {
@@ -71,9 +71,12 @@ var Header = React.createClass({
 					</div>
 			  </div>
 			);
-		} else {
+		}
+
+                    //  Why did I have this included?
+    else {
 			return (
-				<div> Log in to view content. </div>
+				<div></div>
 			);
 		}
 	}
