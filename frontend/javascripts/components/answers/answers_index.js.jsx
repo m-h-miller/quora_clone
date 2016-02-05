@@ -1,6 +1,8 @@
 var React = require('react'),
     QuestionStore = require('../../stores/questions.js'),
-    ApiUtil = require('../../util/api_util.js');
+    ApiUtil = require('../../util/api_util.js'),
+    AnswersForm = require('./answers_form.js.jsx'),
+    AnswersIndexItem = require('./answers_index_item.js.jsx');
 
 var AnswersIndex = React.createClass({
   getInitialState: function () {

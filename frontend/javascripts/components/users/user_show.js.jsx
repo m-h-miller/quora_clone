@@ -1,6 +1,8 @@
 var React = require('react'),
     UsersStore = require('../../stores/users_store.js'),
-    UsersApiUtil = require('../../util/users_api_util.js');
+    UsersApiUtil = require('../../util/users_api_util.js'),
+    SideBar = require('../sidebar.js.jsx'),
+    QuestionsIndexItem = require('../questions/questions_index_item.js.jsx');
 
 var UserShow = React.createClass({
   getInitialState: function () {
@@ -42,7 +44,7 @@ var UserShow = React.createClass({
         <SideBar />
         <div className="page-center">
           <div className="detail">
-            <p>
+            <p
               className="detail-title"
               key={ this.props.params.id }>
               Questions asked by { this.state.user.user_name }:

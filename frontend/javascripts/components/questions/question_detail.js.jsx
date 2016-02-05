@@ -1,10 +1,12 @@
 var React = require('react'),
     ReactRouter = require('react-router'),
+    Link = ReactRouter.Link,
     QuestionStore = require('../../stores/questions.js'),
     CurrentUserStore = require('../../stores/current_user_store.js'),
-    ApiUtil = require('../../util/api_util.js');
+    ApiUtil = require('../../util/api_util.js'),
+    SideBar = require('../sidebar.js.jsx'),
+    AnswersIndex = require('../answers/answers_index.js.jsx');
 
-var Link = ReactRouter.Link;
 
 var QuestionDetail = React.createClass({
 
@@ -21,8 +23,9 @@ var QuestionDetail = React.createClass({
   },
 
   componentDidMount: function () {
-    QuestionStore.addQuestionsIndexChangeListener(this._onChange);
-    QuestionStore.addAnswersIndexChangeListener(this._onChange);
+    // QuestionStore.addQuestionsIndexChangeListener(this._onChange);
+    // QuestionStore.addAnswersIndexChangeListener(this._onChange);
+    this.listener = QuestionStore.addListener(this._onChange);
     var id = this.props.params.id;
     ApiUtil.fetchQuestion(id);
     this.getStateFromStore();
@@ -33,7 +36,8 @@ var QuestionDetail = React.createClass({
   },
 
   componentWillUnmount: function () {
-    QuestionStore.removeQuestionsIndexChangeListener(this._onChange);
+    // QuestionStore.removeQuestionsIndexChangeListener(this._onChange);
+    this.listener.remove();
   },
 
   deleteQuestion: function () {

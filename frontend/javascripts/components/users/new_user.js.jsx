@@ -1,9 +1,10 @@
 var React = require('react'),
-    History = require('react-router').History;
+    History = require('react-router').History,
+    LinkedStateMixin = require('react-addons-linked-state-mixin');
     UsersApiUtil = require('../../util/users_api_util.js');
 
 var UserForm = React.createClass({
-  mixins: [History],
+  mixins: [ History, LinkedStateMixin ],
 
   defaults: {
     user_name: "",

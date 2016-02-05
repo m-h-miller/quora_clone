@@ -14,16 +14,16 @@ var App = require('./components/app.js.jsx'),
     UserShow = require('./components/users/user_show.js.jsx'),
     QuestionDetail = require('./components/questions/question_detail.js.jsx');
 
-
-var routes = (
-  <Route path='/' component={ App }>
-    <Route path="signin" component={ SessionForm } />
-    <IndexRoute component={ IndexPage } />
-    // <Route path="signup" component={ UserForm } />
-    // <Route path="users/:id" component={ UserShow } />
-    // <Route path="questions/:id" component={ QuestionDetail } />
-  </Route>
-);
+//
+// var routes = (
+//   <Route path='/' component={ App }>
+//     <Route path="signin" component={ SessionForm } />
+//     <IndexRoute component={ IndexPage } />
+//     <Route path="signup" component={ UserForm } />
+//     <Route path="users/:id" component={ UserShow } />
+//     <Route path="questions/:id" component={ QuestionDetail } />
+//   </Route>
+// );
 
 document.addEventListener("DOMContentLoaded", function () {
   ReactDOM.render((
@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <Route path="/" component={ App }>
           <IndexRoute component={ IndexPage } />
           <Route path="signin" component={ SessionForm } />
+          <Route path="signup" component={ UserForm } />
+          <Route path="users/:id" component={ UserShow } />
+          <Route path="questions/:id" component={ QuestionDetail } />
         </Route>
     </Router>
   ), document.getElementById('content'));
