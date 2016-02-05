@@ -5,13 +5,11 @@ var AppDispatcher = require('./../dispatcher/dispatcher.js'),
 var QuestionStore = new Store(AppDispatcher);
 var _questions = [];
 var  _answers = [];
+// var QUESTIONS_CHANGE_EVENT = "QUESTIONS_CHANGE_EVENT"
 
 var resetQuestions = function (questions) {
-  console.log("reset questions: ");
-  // console.log(questions);
-  // _questions = questions.slice(0);
-  var copy = questions;
-  _questions = copy;
+  console.log(questions);
+  _questions = questions.slice(0);
 };
 
 var resetQuestion = function (question) {
@@ -64,9 +62,9 @@ QuestionStore.allQuestionAnswers = function () {
 
 QuestionStore.__onDispatch = function (payload) {
   // console.log(payload);
-  console.log("Q Store payload:");
   switch(payload.actionType) {
     case QuestionConstants.QUESTIONS_RECEIVED:
+        console.log(payload);
         resetQuestions(payload.questions);
         QuestionStore.__emitChange();
       break;
@@ -89,5 +87,13 @@ QuestionStore.__onDispatch = function (payload) {
       break;
   }
 };
+
+// QuestionStore.addChangeListener = function (callback) {
+//   this.on(QUESTIONS_CHANGE_EVENT, callback)
+// };
+//
+// QuestionStore.removeChangeListener = function (callback) {
+//   this.removeListener(QUESTIONS_CHANGE_EVENT, callback);
+// };
 
 module.exports = QuestionStore;

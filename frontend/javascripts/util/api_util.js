@@ -1,6 +1,8 @@
 var ApiActions = require('../actions/api_actions.js');
 
 var ApiUtil = {
+
+  // deprecated ... ?
   fetchAllQuestions: function () {
     $.ajax({
       url: 'api/questions',
@@ -18,7 +20,6 @@ var ApiUtil = {
       type: 'POST',
       data: {question: question},
       success: function (question) {
-        console.log(question);
         ApiActions.receiveSingleQuestion(question);
         callback && callback(question.id);
       }
@@ -30,7 +31,6 @@ var ApiUtil = {
       url: 'api/questions/' + question_id,
       type: 'DELETE',
       success: function (question_id) {
-        console.log("Question deleted!");
         ApiUtil.fetchAllQuestions();
       }
     });
@@ -76,7 +76,7 @@ var ApiUtil = {
     $.ajax({
       url: 'api/questions/' + answer.question_id + '/answers',
       type: 'POST',
-      data: {answer: answer},
+      data: { answer: answer },
       success: function (answer) {
         ApiActions.receiveSingleAnswer(answer);
         callback && callback(answer.question_id);
@@ -96,7 +96,7 @@ var ApiUtil = {
     $.ajax ({
       url: 'api/questions',
       type: 'GET',
-      data: {pageNum: pageNum},
+      data: { pageNum: pageNum },
       success: function(questions) {
         ApiActions.receiveMoreQuestions(questions);
       }

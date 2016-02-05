@@ -1,27 +1,30 @@
-var AppDispatcher = require('../dispatcher/dispatcher.js'),
+var CurrentUserDispatcher = require('../dispatcher/dispatcher.js'),
     UserConstants = require('../constants/current_user_constants.js');
 
 var UserActions = {
+
+  // This is currently not being used.
   receiveUsers: function (users) {
-    AppDispatcher.dispatch({
+    CurrentUserDispatcher.dispatch({
       actionType: UserConstants.RECEIVE_USERS,
       users: users
     });
   },
 
   receiveUser: function (user) {
-    AppDispatcher.dispatch({
+    CurrentUserDispatcher.dispatch({
       actionType: UserConstants.RECEIVE_CURRENT_USER,
       user: user
     });
   },
 
   foundUser: function (user) {
-    AppDispatcher.dispatch({
+    CurrentUserDispatcher.dispatch({
       actionType: UserConstants.FOUND_USER,
       user: user
     });
   }
+
 };
 
 module.exports = UserActions;

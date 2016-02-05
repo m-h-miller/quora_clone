@@ -5,11 +5,12 @@ var React = require('react'),
 
 var QuestionsIndex = React.createClass({
   getInitialState: function () {
-    console.log("got initial state");
-    return { questions: QuestionStore.all(), page: 1 };
+    _qs = QuestionStore.all();
+    return { questions: _qs, page: 1 };
   },
 
   componentDidMount: function () {
+    // QuestionStore.addChangeListener(this._change);
     this.listener = QuestionStore.addListener(this._change);
     ApiUtil.loadMoreQuestions(this.state.page);
   },
@@ -35,6 +36,8 @@ var QuestionsIndex = React.createClass({
   },
 
   render: function () {
+    console.log("qs_index state: ");
+    console.log(this.state);
     var loadMore;
     var back;
     var page;

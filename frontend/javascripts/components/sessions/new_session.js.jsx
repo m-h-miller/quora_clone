@@ -34,6 +34,7 @@ var SessionForm = React.createClass({
   },
 
   render: function() {
+    console.log("new_session rendered");
     return (
       <div className="new-session">
         <div className="new-session-background "></div>

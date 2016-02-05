@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
   ReactDOM.render((
     <Router>
         <Route path="/" component={ App }>
-          <IndexRoute path="/index" component={ IndexPage } />
+          <IndexRoute component={ IndexPage } />
           <Route path="signin" component={ SessionForm } />
         </Route>
     </Router>

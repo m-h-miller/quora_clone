@@ -4,7 +4,7 @@ var AppDispatcher = require('../dispatcher/dispatcher.js'),
 
 var UsersStore = new Store(AppDispatcher);
 
-var CHANGE_EVENT = "users_change";
+// var CHANGE_EVENT = "users_change";
 var _user = {};
 
 UsersStore.viewedUser = function () {
@@ -19,3 +19,13 @@ UsersStore.__onDispatch = function (payload) {
       break;
   }
 };
+
+// UsersStore.addChangeListener = function (callback) {
+//   this.on(CHANGE_EVENT, callback)
+// };
+//
+// UsersStore.removeChangeListener = function (callback) {
+//   this.removeListener(CHANGE_EVENT, callback);
+// };
+
+module.exports = UsersStore;

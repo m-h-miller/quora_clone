@@ -1,9 +1,10 @@
 var React = require('react'),
-    Header = require('./header.js.jsx'),
     CurrentUserStore = require('../stores/current_user_store.js'),
-    Store = require('flux/utils').Store;
     SessionsApiUtil = require('../util/sessions_api_util.js'),
+    Header = require('./header.js.jsx'),
     History = require('react-router').History;
+
+// var CHANGE_EVENT = "CURRENT_USER_CHANGE";
 
 var App = React.createClass({
   mixins: [ History ],
@@ -13,15 +14,20 @@ var App = React.createClass({
   },
 
   componentWillMount: function () {
+    // CurrentUserStore.addChangeListener(this._ensureSignedIn);
     this.listener = CurrentUserStore.addListener(this._ensureSignedIn);
     SessionsApiUtil.fetchCurrentUser();
   },
 
-  componentWillUnmount: function () {
-    this.listener.remove();
-  },
+  // I do not believe this component ought ever unmount.
+  // componentWillUnmount: function () {
+  //   // this.listener.remove();
+  //   CurrentUserStore.removeChangeListener(this._ensure_)
+  // },
 
   componentWillReceiveProps: function (newProps) {
+    console.log("newProps:");
+    console.log(newProps);
     if (newProps.location.pathname !== "/signin" &&
         newProps.location.pathname !== "/signup") {
       SessionsApiUtil.fetchCurrentUser();
@@ -29,6 +35,8 @@ var App = React.createClass({
   },
 
   _ensureSignedIn: function () {
+    console.log("_ensureSignedIn");
+
     if (!CurrentUserStore.isSignedIn()) {
       this.history.pushState(null, "/signin");
     }
@@ -36,8 +44,10 @@ var App = React.createClass({
   },
 
   render: function() {
+    console.log("rendered");
+
     return (
-      <div>
+      <div className="app">
         <Header />
         { this.props.children }
       </div>

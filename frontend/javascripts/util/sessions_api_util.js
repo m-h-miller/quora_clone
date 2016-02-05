@@ -8,6 +8,7 @@ var SessionsApiUtil = {
       dataType: 'json',
       data: {user: credentials},
       success: function (currentUser) {
+        console.log("sign in success");
         UserActions.receiveUser(currentUser);
         callback && callback();
       }
@@ -31,6 +32,8 @@ var SessionsApiUtil = {
       type: 'GET',
       dataType: 'json',
       success: function (currentUser) {
+        console.log("success: fetchCU;");
+        console.log(currentUser);
         UserActions.receiveUser(currentUser);
       }
     });
