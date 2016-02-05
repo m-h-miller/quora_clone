@@ -26,14 +26,11 @@ var AnswersIndex = React.createClass({
 
     return(
       <div className="answers-index-page">
-        <AnswersForm question={this.props.question}/>
-        <p className="answers-header">Answers:</p>
+        <AnswersForm question={ this.props.question }/>
+        <p className="answers-header"> Answers: </p>
         <div className="answers-index">
           {this.state.answers.map(function (answer) {
-            return <AnswersIndexItem
-                      key={answer.id}
-                      question={this.props.question}
-                      answer={answer} />;
+            return <AnswersIndexItem key={ answer.id } question={ this.props.question } answer={ answer } />;
           }.bind(this))}
         </div>
       </div>

@@ -59,25 +59,19 @@ var QuestionDetail = React.createClass({
         <div className="page-center">
           <div className="detail">
             <p className="detail-title" key={ this.state.question.title }> { this.state.question.title } </p>
-
               <ul className="questions-index-wrap group">
                 <li className="thumb">
                   <img src={ this.state.question.author.image_url } className="author-thumb" />
                 </li>
-
                 <li className="questions-detail-author-link">
-                  <Link
-                    className="questions-index-item-author-link"
-                    to={'/users/' + this.state.question.author.id }>
+                  <Link className="questions-index-item-author-link" to={'/users/' + this.state.question.author.id }>
                     <strong>{ this.state.question.author.user_name }</strong>
                   </Link> asked this:
                 </li>
               </ul>
-
             <p className="detail-body"> { this.state.question.body } </p>
             { deleteButton }
-          </div>
-        <br/>
+          </div> <br/>
           <div className="answers">
             <AnswersIndex question={ this.state.question } />
           </div>
@@ -86,3 +80,5 @@ var QuestionDetail = React.createClass({
     );
   }
 });
+
+module.exports = QuestionDetail;

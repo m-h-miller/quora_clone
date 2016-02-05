@@ -4,6 +4,7 @@ var QuestionDispatcher = require('../dispatcher/dispatcher.js'),
 
 var ApiActions = {
   receiveAllQuestions: function (questions) {
+// Possible deprecated
     QuestionDispatcher.dispatch({
       actionType: QuestionConstants.QUESTIONS_RECEIVED,
       questions: questions

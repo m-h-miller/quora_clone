@@ -1,14 +1,13 @@
 var AppDispatcher = require('./../dispatcher/dispatcher.js'),
     Store = require('flux/utils').Store,
-    QuestionConstants = require('../constants/question_constants.js');
+    QuestionConstants = require('../constants/question_constants.js'),
+    AnswerConstants = require('../constants/answer_constants.js');
 
-var QuestionStore = new Store(AppDispatcher);
-var _questions = [];
-var  _answers = [];
-// var QUESTIONS_CHANGE_EVENT = "QUESTIONS_CHANGE_EVENT"
+var QuestionStore = new Store(AppDispatcher),
+    _questions = [],
+    _answers = [];
 
 var resetQuestions = function (questions) {
-  console.log(questions);
   _questions = questions.slice(0);
 };
 
@@ -25,6 +24,9 @@ var resetQuestion = function (question) {
   }
 };
 
+// double check logic for reversing shit --
+// I think I avoided reversing Qs b/c i push to a
+// Question Detail component ?
 var resetAnswers = function (answers) {
   _answers = answers.reverse();
 };
@@ -34,9 +36,7 @@ var addAnswer = function (answer) {
 };
 
 QuestionStore.all = function () {
-  // return _questions.slice(0);
-  var copy = _questions;
-  return copy;
+  return _questions.slice(0);
 };
 
 QuestionStore.find = function (id) {
@@ -61,8 +61,9 @@ QuestionStore.allQuestionAnswers = function () {
 };
 
 QuestionStore.__onDispatch = function (payload) {
-  // console.log(payload);
   switch(payload.actionType) {
+// I believe this method might be deprecated since installing the
+// kaminari pagination (i.e. I only query by page unit.)
     case QuestionConstants.QUESTIONS_RECEIVED:
         console.log(payload);
         resetQuestions(payload.questions);
@@ -80,20 +81,13 @@ QuestionStore.__onDispatch = function (payload) {
         addAnswer(payload.answer);
         QuestionStore.__emitChange();
       break;
-      // What in the world could possible be calling this method??
+// What in the world could possible be calling this method??
+// N.B.: I think this deprecates the above-commented method.
     case QuestionConstants.MORE_QUESTIONS_RECEIVED:
         resetQuestions(payload.questions);
         QuestionStore.__emitChange();
       break;
   }
 };
-
-// QuestionStore.addChangeListener = function (callback) {
-//   this.on(QUESTIONS_CHANGE_EVENT, callback)
-// };
-//
-// QuestionStore.removeChangeListener = function (callback) {
-//   this.removeListener(QUESTIONS_CHANGE_EVENT, callback);
-// };
 
 module.exports = QuestionStore;

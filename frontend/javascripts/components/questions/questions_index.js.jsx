@@ -26,7 +26,7 @@ var QuestionsIndex = React.createClass({
   handleClick: function(){
     pageNumber = this.state.page + 1;
     ApiUtil.loadMoreQuestions(pageNumber);
-    this.setState({page: pageNumber});
+    this.setState({ page: pageNumber });
   },
 
   handleBack: function(){

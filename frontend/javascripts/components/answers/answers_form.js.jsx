@@ -1,12 +1,8 @@
 var React = require('react'),
     ApiUtil = require('../../util/api_util.js');
 
-
 var AnswersForm = React.createClass({
-  defaults: {
-    title: "",
-    body: ""
-  },
+  defaults: { title: "", body: "" },
 
   getInitialState: function () {
     return this.defaults;
@@ -18,13 +14,10 @@ var AnswersForm = React.createClass({
     answer.title = this.state.title;
     answer.body = this.state.body;
     answer.question_id = this.props.question.id;
-
     ApiUtil.createAnswer(answer, function (question_id) {
       this.history.pushState(null, "/questions/" + question_id, {});
     }.bind(this));
-
     this.setState(this.defaults);
-
   },
 
   render: function () {
@@ -32,23 +25,17 @@ var AnswersForm = React.createClass({
       <form className='new-answer-form' onSubmit={this.submitAnswer}>
         <div>
           <label htmlFor='answer_title'>Title:</label>
-          <input
-            type='text'
-            id='answer_title'
-            valueLink={this.linkState('title')} />
+          <input type='text' id='answer_title' valueLink={this.linkState('title')} />
         </div>
-
         <div>
           <label htmlFor='answer_body'>Body:</label>
-          <input
-            type='text'
-            id='answer_body'
-            valueLink={this.linkState('body')} />
+          <input type='text' id='answer_body' valueLink={this.linkState('body')} />
         </div>
-
         <button> Answer Question </button>
         <br/>
       </form>
     );
   }
 });
+
+module.exports = AnswersForm;

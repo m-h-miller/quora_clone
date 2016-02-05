@@ -21,19 +21,24 @@ var AnswersIndexItem = React.createClass({
     return(
       <ul className="answers-index-item">
         <li className="answers-index-item-title">
-            {this.props.answer.title}
+          {this.props.answer.title}
         </li>
         <ul className="questions-index-wrap group">
           <li className="thumb">
             <img src={ this.props.question.author.image_url } className="author-thumb" />
           </li>
-          <li className="answers-index-item-author">{this.props.answer.author.user_name} wrote: </li>
+          <li className="answers-index-item-author">
+            {this.props.answer.author.user_name} wrote:
+          </li>
         </ul>
         <br/>
-        <li className="answers-index-item-body">{this.props.answer.body} </li>
-
+        <li className="answers-index-item-body">
+          {this.props.answer.body}
+        </li>
         { deleteButton }
       </ul>
     );
   }
 });
+
+module.exports = AnswersIndexItem;
