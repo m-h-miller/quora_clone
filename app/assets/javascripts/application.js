@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require jquery.serializeJSON
 //= require_tree .
+
+console.log("application.js");
