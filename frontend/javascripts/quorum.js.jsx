@@ -1,4 +1,4 @@
-// (function () {
+(function () {
 
 console.log("quorum executed.");
 
@@ -29,6 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
           <Route path="questions/:id" component={ QuestionDetail } />
         </Route>
     </Router>
-  ), document.getElementById('content'));
+  ), document.getElementById("content"));
 });
-// })();
+})();
