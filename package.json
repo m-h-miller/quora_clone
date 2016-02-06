@@ -1,15 +1,12 @@
 {
   "name": "quorum",
+  "author": "",
   "description": "quorum",
   "version": "1.0.0",
   "license": "ISC",
-  "directories": {
-    "doc": "docs",
-    "test": "spec"
-  },
   "scripts": {
     "test": "bundle exec rspec",
-    "predeplay": ????
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "dependencies": {
     "babel-core": "^6.4.5",
@@ -26,6 +23,7 @@
     "react-router": "^1.0.0",
     "webpack": "^1.12.9"
   },
+  "devDependencies": {},
   "engines": {
     "node": "4.2.1",
     "npm": "3.5.x"

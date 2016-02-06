@@ -27,7 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Seed data
 gem 'faker'
-gem 'factory_girl_rails', '~> 4.0'
 
 gem 'bcrypt'
 gem 'paperclip'
@@ -43,6 +42,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'better_errors'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do
