@@ -1,5 +1,7 @@
 (function () {
 
+console.log("quorum executed.");
+
 var React = require('react'),
     ReactDOM = require('react-dom'),
     ReactRouter = require('react-router'),

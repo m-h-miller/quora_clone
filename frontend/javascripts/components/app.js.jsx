@@ -32,6 +32,7 @@ var App = React.createClass({
   },
 
   render: function() {
+    console.log("app");
     return (
       <div className="app">
         <Header />
