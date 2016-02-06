@@ -18,7 +18,7 @@ var App = require('./components/app.js.jsx'),
     QuestionDetail = require('./components/questions/question_detail.js.jsx');
 
 document.addEventListener("DOMContentLoaded", function () {
-  console.log('DOM-Content-Loaded: ')
+  console.log('DOM-Content-Loaded: ');
   ReactDOM.render((
     <Router>
         <Route path="/" component={ App }>
