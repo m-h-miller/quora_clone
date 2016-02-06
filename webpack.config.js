@@ -27,10 +27,9 @@ var config = module.exports = {
 
 config.output = {
   //app/assets/javascripts
-  path: path.join(__dirname, 'app', 'assets', 'javascripts'),
+  path: './app/assets/javascripts/',
   //filename of outputted bundle
   filename: 'bundle.js',
-  publicPath: '/assets',
 };
 
 config.resolve = {
