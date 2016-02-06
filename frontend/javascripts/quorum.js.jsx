@@ -1,4 +1,3 @@
-(function () {
 
 console.log("quorum executed.");
 
@@ -31,4 +30,3 @@ document.addEventListener("DOMContentLoaded", function () {
     </Router>
   ), document.getElementById("content"));
 });
-})();
