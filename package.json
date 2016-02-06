@@ -2,6 +2,15 @@
   "name": "quorum",
   "description": "quorum",
   "version": "1.0.0",
+  "license": "ISC",
+  "directories": {
+    "doc": "docs",
+    "test": "spec"
+  },
+  "scripts": {
+    "test": "bundle exec rspec",
+    "predeplay": ????
+  },
   "dependencies": {
     "babel-core": "^6.4.5",
     "babel-loader": "^6.2.1",
@@ -17,12 +26,12 @@
     "react-router": "^1.0.0",
     "webpack": "^1.12.9"
   },
+  "engines": {
+    "node": "4.2.1",
+    "npm": "3.5.x"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/m-h-miller/quora_clone.git"
-  },
-  "license": "ISC",
-  "scripts": {
-    "start" : "rails s"
   }
 }
