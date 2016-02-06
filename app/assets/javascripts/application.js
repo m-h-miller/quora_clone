@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializeJSON
+//= require bundle
 //= require_tree .
-
 console.log("application.js");
