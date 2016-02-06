@@ -1,3 +1,5 @@
+(function () {
+
 var React = require('react'),
     ReactDOM = require('react-dom'),
     ReactRouter = require('react-router'),
@@ -27,3 +29,4 @@ document.addEventListener("DOMContentLoaded", function () {
     </Router>
   ), document.getElementById('content'));
 });
+})();
