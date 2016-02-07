@@ -25,7 +25,7 @@ var AnswersIndexItem = React.createClass({
         </li>
         <ul className="questions-index-wrap group">
           <li className="thumb">
-            <img src={ this.props.question.author.image_url } className="author-thumb" />
+            <img src={ this.props.answer.author.image_url } className="author-thumb" />
           </li>
           <li className="answers-index-item-author">
             { this.props.answer.author.user_name } wrote:
