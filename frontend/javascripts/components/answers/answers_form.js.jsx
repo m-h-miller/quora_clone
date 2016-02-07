@@ -1,5 +1,6 @@
 var React = require('react'),
     ApiUtil = require('../../util/api_util.js'),
+    History = require('react-router').History,
     LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var AnswersForm = React.createClass({

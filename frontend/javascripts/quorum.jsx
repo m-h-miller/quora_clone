@@ -1,6 +1,3 @@
-
-console.log("quorum executed.");
-
 var React = require('react'),
     ReactDOM = require('react-dom'),
     ReactRouter = require('react-router'),
@@ -17,7 +14,6 @@ var App = require('./components/app.js.jsx'),
     QuestionDetail = require('./components/questions/question_detail.js.jsx');
 
 document.addEventListener("DOMContentLoaded", function () {
-  console.log('DOM-Content-Loaded: ');
   ReactDOM.render((
     <Router>
         <Route path="/" component={ App }>
