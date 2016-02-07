@@ -5,7 +5,7 @@ var React = require('react'),
     CurrentUserStore = require('../../stores/current_user_store.js');
 
 var QuestionsForm = React.createClass({
-  mixins: [ LinkedStateMixin ],
+  mixins: [ LinkedStateMixin, History ],
 
   defaults: { title: "", body: "" },
 
