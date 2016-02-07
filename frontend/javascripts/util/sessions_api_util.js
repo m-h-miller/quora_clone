@@ -13,6 +13,12 @@ var SessionsApiUtil = {
       }
     });
   },
+  // signin: function (credentials, callback) {
+  //   $.post('api/session', { user: credentials }, function (currentUser) {
+  //     UserActions.receiveUser(currentUser);
+  //     callback && callback();
+  //   });
+  // },
   signout: function (  ) {
     $.ajax({
       url: 'api/session',
@@ -23,6 +29,11 @@ var SessionsApiUtil = {
       }
     });
   },
+  // signout: function () {
+  //   $.delete('api/session', function () {
+  //     UserActions.receiveUser({});
+  //   });
+  // },
   fetchCurrentUser: function () {
     $.ajax({
       url: 'api/session',
@@ -32,6 +43,11 @@ var SessionsApiUtil = {
         UserActions.receiveUser(currentUser);
       }
     });
-  }
+  },
+  // fetchCurrentUser: function () {
+  //   $.get('api/session', function (currentUser) {
+  //     UserActions.receiveUser(curentUser);
+  //   });
+  // }
 };
 module.exports = SessionsApiUtil;
