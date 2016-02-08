@@ -1,16 +1,7 @@
 var ApiActions = require('../actions/api_actions.js');
 
 var ApiUtil = {
-  // deprecated ... ?
-  // fetchAllQuestions: function () {
-  //   $.ajax({
-  //     url: 'api/questions',
-  //     type: 'GET',
-  //     dataType: 'json',
-  //     success: function (questions) {
-  //       ApiActions.receiveAllQuestions(questions);
-  //     }
-  //   });
+
   fetchAllQuestions: function () {
     $.get('api/questions', function (questions) {
       ApiActions.receiveAllQuestions(questions);
@@ -63,15 +54,6 @@ var ApiUtil = {
       callback && callback(answer.question_id);
     });
   },
-
-  // not currently in use ?
-  // fetchUserQuestions: function (user_id) {
-  //   $.ajax({
-  //     url: 'api/questions',
-  //     type: 'GET',
-  //     data: {}
-  //   });
-  // },
 
   loadMoreQuestions: function (pageNum) {
     $.get('api/questions', { pageNum: pageNum }, function (questions) {

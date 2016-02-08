@@ -3,7 +3,7 @@ var React = require('react'),
     CurrentUserStore = require('../../stores/current_user_store.js');
 
 var AnswersIndexItem = React.createClass({
-  
+
   deleteAnswer: function () {
     console.log('delete function');
     ApiUtil.deleteAnswer(this.props.question.id, this.props.answer.id);
