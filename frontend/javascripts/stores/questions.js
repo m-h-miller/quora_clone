@@ -66,7 +66,6 @@ QuestionStore.__onDispatch = function (payload) {
 // I believe this method might be deprecated since installing the
 // kaminari pagination (i.e. I only query by page unit.)
     case QuestionConstants.QUESTIONS_RECEIVED:
-        console.log(payload);
         resetQuestions(payload.questions);
         QuestionStore.__emitChange();
       break;

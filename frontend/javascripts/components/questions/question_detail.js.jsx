@@ -1,5 +1,6 @@
 var React = require('react'),
     ReactRouter = require('react-router'),
+    History = require('react-router').History,
     Link = ReactRouter.Link,
     QuestionStore = require('../../stores/questions.js'),
     CurrentUserStore = require('../../stores/current_user_store.js'),
@@ -8,6 +9,8 @@ var React = require('react'),
     AnswersIndex = require('../answers/answers_index.js.jsx');
 
 var QuestionDetail = React.createClass({
+  mixins: [ History ],
+
   getStateFromStore: function () {
     return { question: QuestionStore.find(parseInt(this.props.params.id)) };
   },

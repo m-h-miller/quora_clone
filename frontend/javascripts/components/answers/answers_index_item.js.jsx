@@ -3,7 +3,9 @@ var React = require('react'),
     CurrentUserStore = require('../../stores/current_user_store.js');
 
 var AnswersIndexItem = React.createClass({
+  
   deleteAnswer: function () {
+    console.log('delete function');
     ApiUtil.deleteAnswer(this.props.question.id, this.props.answer.id);
   },
 
@@ -13,7 +15,7 @@ var AnswersIndexItem = React.createClass({
     if ( this.props.answer.author.user_name === CurrentUserStore.currentUser().user_name ) {
       deleteButton = (
         <p className="delete-button">
-          <button onClick={ this.deleteQuestion }>DELETE</button>
+          <button onClick={ this.deleteAnswer }> DELETE ANSWER </button>
         </p>
       );
     }

@@ -11,30 +11,19 @@ var ApiUtil = {
   //       ApiActions.receiveAllQuestions(questions);
   //     }
   //   });
-    //   $.get('api/questions', function (questions) {
-    //     ApiActions.receiveAllQuestions(questions);
-    //   });
-  // },
-
-  // createQuestion: function (question, callback) {
-  //  $.post('api/questions', { question: question }, function (question) {
-  //    ApiActions.receiveSingleQuestion(question);
-  //    callback && callback(question.id);
-  //  });
-  // },
-
-
-  createQuestion: function (question, callback) {
-    $.ajax({
-      url: 'api/questions',
-      type: 'POST',
-      data: {question: question},
-      success: function (question) {
-        ApiActions.receiveSingleQuestion(question);
-        callback && callback(question.id);
-      }
+  fetchAllQuestions: function () {
+    $.get('api/questions', function (questions) {
+      ApiActions.receiveAllQuestions(questions);
     });
   },
+
+  createQuestion: function (question, callback) {
+   $.post('api/questions', { question: question }, function (question) {
+     ApiActions.receiveSingleQuestion(question);
+     callback && callback(question.id);
+   });
+  },
+
   deleteQuestion: function(question_id) {
     $.ajax({
       url: 'api/questions/' + question_id,
@@ -44,98 +33,51 @@ var ApiUtil = {
       }
     });
   },
-  // deleteQuestion: function(question_id) {
-  //   $.delete('api/questions/' + question_id, function (question_id) {
-  //     ApiUtil.fetchAllQuestions();
-  //   });
-  // },
 
   fetchQuestion: function (id) {
-    $.ajax({
-      url: 'api/questions/' + id,
-      type: 'GET',
-      success: function (question) {
-        ApiActions.receiveSingleQuestion(question);
-      }
+    $.get('api/questions/' + id, function (question) {
+      ApiActions.receiveSingleQuestion(question);
     });
   },
-  // fetchQuestion: function (id) {
-  //   $.get('api/questions/' + id, function (question) {
-  //     ApiActions.receiveSingleQuestion(question);
-  //   });
-  // },
-  // I am sort of ambivalent about what to do with my routes here.
-  // While on the one hand I hate this long nesting for my resources,
-  // I also don't want to give the user the ability to view answers
-  // absent the question's context.
-  deleteAnswer: function(question_id, answer_id) {
+
+  deleteAnswer: function (question_id, answer_id) {
     $.ajax({
       url: 'api/questions/' + question_id + '/answers/' + answer_id,
       type: 'DELETE',
       success: function (answer) {
+        console.log('delete');
         ApiUtil.fetchAnswers(answer.question_id);
       }
     });
   },
-  // deleteAnswer: function(question_id, answer_id) {
-  //   $.delete('api/questions/' + question_id + '/answers/' + answer_id, function (question_id) {
-  //     ApiUtil.fetchAnswers(answer.question_id);
-  //   });
-  // },
+
   fetchAnswers: function (question_id) {
-    $.ajax({
-      url: 'api/questions/' + question_id + '/answers',
-      type: 'GET',
-      success: function (answers) {
-        ApiActions.receiveAllAnswers(answers);
-      }
-    });
+    $.get('api/questions/' + question_id + '/answers', function (answers) {
+      ApiActions.receiveAllAnswers(answers);
+    })
   },
-  // fetchAnswers: function (question_id) {
-  //   $.get('api/questions/' + question_id + '/answers', function (answers) {
-  //     ApiActions.receiveAllAnswers(answers);
-  //   })
-  // },
+
   createAnswer: function (answer, callback) {
-    $.ajax({
-      url: 'api/questions/' + answer.question_id + '/answers',
-      type: 'POST',
-      data: { answer: answer },
-      success: function (answer) {
-        ApiActions.receiveSingleAnswer(answer);
-        callback && callback(answer.question_id);
-      }
-    });
-  },
-  // createAnswer: function (answer, callback) {
-  //   $.post('api/questions/' + answer.question_id + '/answers', { answer: answer }, function (answer) {
-  //     ApiActions.receiveSingleAnswer(answer);
-  //     callback && callback(answer.question_id);
-  //   });
-  // },
-  fetchUserQuestions: function (user_id) {
-    $.ajax({
-      url: 'api/questions',
-      type: 'GET',
-      data: {}
+    $.post('api/questions/' + answer.question_id + '/answers', { answer: answer }, function (answer) {
+      ApiActions.receiveSingleAnswer(answer);
+      callback && callback(answer.question_id);
     });
   },
 
-  loadMoreQuestions: function (pageNum) {
-    $.ajax ({
-      url: 'api/questions',
-      type: 'GET',
-      data: { pageNum: pageNum },
-      success: function(questions) {
-        ApiActions.receiveMoreQuestions(questions);
-      }
-    });
-  },
-  // loadMoreQuestions: function (pageNum) {
-  //   $.get('api/questions', { pageNum: pageNum }, function (questions) {
-  //     ApiActions.receiveMoreQuestions(questions);
+  // not currently in use ?
+  // fetchUserQuestions: function (user_id) {
+  //   $.ajax({
+  //     url: 'api/questions',
+  //     type: 'GET',
+  //     data: {}
   //   });
-  // }
+  // },
+
+  loadMoreQuestions: function (pageNum) {
+    $.get('api/questions', { pageNum: pageNum }, function (questions) {
+      ApiActions.receiveMoreQuestions(questions);
+    });
+  }
 };
 
 module.exports = ApiUtil;
