@@ -2,21 +2,18 @@ var ApiActions = require('../actions/api_actions.js');
 
 var ApiUtil = {
   // deprecated ... ?
-  fetchAllQuestions: function () {
-    $.ajax({
-      url: 'api/questions',
-      type: 'GET',
-      dataType: 'json',
-      success: function (questions) {
-        ApiActions.receiveAllQuestions(questions);
-      }
-    });
-  },
-
   // fetchAllQuestions: function () {
-  //   $.get('api/questions', function (questions) {
-  //     ApiActions.receiveAllQuestions(questions);
+  //   $.ajax({
+  //     url: 'api/questions',
+  //     type: 'GET',
+  //     dataType: 'json',
+  //     success: function (questions) {
+  //       ApiActions.receiveAllQuestions(questions);
+  //     }
   //   });
+    //   $.get('api/questions', function (questions) {
+    //     ApiActions.receiveAllQuestions(questions);
+    //   });
   // },
 
   // createQuestion: function (question, callback) {
