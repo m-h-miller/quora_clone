@@ -24,8 +24,7 @@ var resetQuestion = function (question) {
   }
 };
 
-// double check logic for reversing shit --
-// I think I avoided reversing Qs b/c i push to a
+// I think I avoided reversing Qs b/c i push history to a
 // Question Detail component ?
 var resetAnswers = function (answers) {
   _answers = answers.reverse();
@@ -47,7 +46,6 @@ QuestionStore.find = function (id) {
   return question;
 };
 
-// Double check wtf I'm using this method for
 QuestionStore.findAuthorQuestions = function (user_id) {
   var questions = [];
   _questions.forEach(function(q) {

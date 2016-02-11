@@ -1,8 +1,20 @@
 var QuestionDispatcher = require('../dispatcher/dispatcher.js'),
     QuestionConstants = require('../constants/question_constants.js'),
+    TopicConstants = require('../constants/topic_constants.js'),
     AnswerConstants = require('../constants/answer_constants.js');
 
 var ApiActions = {
+  triggerTopics: function () {
+    QuestionDispatcher.dispatch({
+      actionType: TopicConstants.TOPICS_CHANGED
+    });
+  },
+  updateTopics: function (topics) {
+    QuestionDispatcher.dispatch({
+      actionType: TopicConstants.TOPICS_UPDATED,
+      topics: topics
+    });
+  },
   receiveAllQuestions: function (questions) {
     // Possibly deprecated
     QuestionDispatcher.dispatch({

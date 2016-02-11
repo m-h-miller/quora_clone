@@ -1,6 +1,13 @@
 var ApiActions = require('../actions/api_actions.js');
 
 var ApiUtil = {
+  triggerTopics: function () {
+    ApiActions.triggerTopics();
+  },
+
+  updateTopics: function (topics) {
+    ApiActions.updateTopics(topics);
+  },
 
   fetchAllQuestions: function () {
     $.get('api/questions', function (questions) {

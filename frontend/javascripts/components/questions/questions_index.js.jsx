@@ -1,25 +1,29 @@
 var React = require('react'),
     QuestionStore = require('../../stores/questions.js'),
+    TopicStore = require('../../stores/topics.js'),
     QuestionsIndexItem = require('./questions_index_item.js.jsx')
     ApiUtil = require('../../util/api_util.js');
 
 var QuestionsIndex = React.createClass({
   getInitialState: function () {
     _qs = QuestionStore.all();
-    return { questions: _qs, page: 1 };
+    _ts = TopicStore.all();
+    return { questions: _qs, topics: _ts, page: 1 };
   },
 
   componentDidMount: function () {
     this.listener = QuestionStore.addListener(this._change);
+    this.topic_listener = TopicStore.addListener(this._change);
     ApiUtil.loadMoreQuestions(this.state.page);
   },
 
   componentWillUnmount: function () {
     this.listener.remove();
+    this.topic_listener.remove();
   },
 
   _change: function () {
-    this.setState({ questions: QuestionStore.all() });
+    this.setState({ questions: QuestionStore.all(), topics: TopicStore.all() });
   },
 
   handleClick: function(){
@@ -38,6 +42,12 @@ var QuestionsIndex = React.createClass({
     var loadMore, back, no_content;
     var page = <span className="page">{this.state.page}</span>;
 
+    var filtered = [];
+
+    this.state.questions.forEach(function (q) {
+      console.log(q);
+    });
+
     if (this.state.questions.length !== 0){
       loadMore = <button onClick={this.handleClick} className="load-more">
         <span> load more! </span>
@@ -53,6 +63,8 @@ var QuestionsIndex = React.createClass({
     if (this.state.questions.length == 0){
       no_content = <div className="no_content"> Nothing to show :( </div>;
     }
+
+
 
     return(
       <div className="page-center">
