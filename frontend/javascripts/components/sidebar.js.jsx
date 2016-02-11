@@ -23,19 +23,12 @@ var SideBar = React.createClass({
 		    <section className="page-left-content title">
 		      Select feeds to display.
 
-          <br/>
-
           <CheckboxGroup name="topics" value={ this.state.value } ref="topicsGroup" onChange={ this.handleChange }>
             <input type="checkbox" value="General" /> General
-            <br/>
             <input type="checkbox" value="Ruby" /> Ruby
-            <br/>
             <input type="checkbox" value="Philosophy" /> Philosophy
-            <br/>
             <input type="checkbox" value="Javascript" /> Javascript
-            <br/>
             <input type="checkbox" value="React.js" /> React.js
-            <br/>
           </CheckboxGroup>
 
           </section>

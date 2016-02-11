@@ -24,7 +24,7 @@ var resetQuestion = function (question) {
   }
 };
 
-// I think I avoided reversing Qs b/c i push history to a
+// I think I avoided reversing Qs b/c I push history to a
 // Question Detail component ?
 var resetAnswers = function (answers) {
   _answers = answers.reverse();
@@ -61,8 +61,6 @@ QuestionStore.allQuestionAnswers = function () {
 
 QuestionStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
-// I believe this method might be deprecated since installing the
-// kaminari pagination (i.e. I only query by page unit.)
     case QuestionConstants.QUESTIONS_RECEIVED:
         resetQuestions(payload.questions);
         QuestionStore.__emitChange();
@@ -79,8 +77,6 @@ QuestionStore.__onDispatch = function (payload) {
         addAnswer(payload.answer);
         QuestionStore.__emitChange();
       break;
-// What in the world could possible be calling this method??
-// N.B.: I think this deprecates the above-commented method.
     case QuestionConstants.MORE_QUESTIONS_RECEIVED:
         resetQuestions(payload.questions);
         QuestionStore.__emitChange();

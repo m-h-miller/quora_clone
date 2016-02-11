@@ -16,7 +16,6 @@ var ApiActions = {
     });
   },
   receiveAllQuestions: function (questions) {
-    // Possibly deprecated
     QuestionDispatcher.dispatch({
       actionType: QuestionConstants.QUESTIONS_RECEIVED,
       questions: questions
