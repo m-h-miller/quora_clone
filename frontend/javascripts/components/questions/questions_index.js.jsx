@@ -43,12 +43,19 @@ var QuestionsIndex = React.createClass({
     var page = <span className="page">{this.state.page}</span>;
 
     var filtered = [];
+    var topics = this.state.topics;
 
-    this.state.questions.forEach(function (q) {
-      console.log(q);
-    });
+    // if (this.state.questions.length !== 0) {
+      this.state.questions.forEach(function (q) {
+        var topic = q.topics[0];
+        if (topics.includes(topic.name)) {
+          filtered.push(q);
+        }
+      });
+    // }
 
-    if (this.state.questions.length !== 0){
+    // if (this.state.questions.length !== 0){
+    if (filtered.length !== 0){
       loadMore = <button onClick={this.handleClick} className="load-more">
         <span> load more! </span>
       </button>;
@@ -60,7 +67,8 @@ var QuestionsIndex = React.createClass({
       </button>;
     }
 
-    if (this.state.questions.length == 0){
+    // if (this.state.questions.length == 0){
+    if (filtered.length == 0){
       no_content = <div className="no_content"> Nothing to show :( </div>;
     }
 
@@ -69,7 +77,7 @@ var QuestionsIndex = React.createClass({
     return(
       <div className="page-center">
         <h2 className="main-body-title">Top Stories</h2>
-          {this.state.questions.map(function (question) {
+          {filtered.map(function (question) {
             return <QuestionsIndexItem key={question.id} question={question} />;
           })}
           { no_content }

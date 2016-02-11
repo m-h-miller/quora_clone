@@ -12,3 +12,9 @@ json.answers do
     json.partial! 'api/answers/answer', answer: answer
   end
 end
+
+json.topics do
+  json.array!(question.topics) do |topic|
+    json.partial! 'api/topics/topic', topic: topic
+  end
+end
