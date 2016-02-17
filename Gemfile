@@ -29,9 +29,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faker'
 
 gem 'bcrypt'
-gem 'paperclip'
-gem 'aws-sdk', '~> 1.6'
 gem 'figaro'
+
+gem 'paperclip'
+
+gem 'aws-sdk', '~> 1.6'
 gem 'omniauth-facebook'
 
 gem 'kaminari'

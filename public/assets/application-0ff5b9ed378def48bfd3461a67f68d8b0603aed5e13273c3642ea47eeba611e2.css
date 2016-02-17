@@ -1,0 +1,503 @@
+.answers-index-item {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.answers-index-item-body {
+  padding: 5px 10px;
+}
+.answers-index-item-author {
+  font-weight:400;
+  float:left;
+  font-size: 13px;
+  color: #999;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top:10px;
+}
+.answers-index-item-author > strong {
+  font-weight:bold;
+
+}
+.answers-index-item-title {
+  FONT-SIZE: 19px;
+  color: #333;
+  letter-spacing: -0.5px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  line-height: 1.25;
+  display: block;
+  padding-bottom:5px;
+}
+.answers-index-item-body {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #333;
+  display: block;
+}
+
+.answers-index-item-title > a {
+  color: #333;
+}
+.answers-header {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-weight:bold;
+  font-size:24px;
+}
+.answers-index-item-title:hover > a {
+  text-decoration: underline;
+}
+
+.answers-index {
+  border-top: 1px solid #ccc;
+}
+/*  #############  */
+/*  #   Header  #  */
+/*  #############  */
+
+
+.header-wrap {
+  background-color: #FFF;
+  border-top: 2px solid #B92B27;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0px 1px 1px 1px #F6F6F9;
+  width:100%;
+}
+.header-content {
+  width:1000px;
+  margin:auto;
+  height:50px;
+}
+.header-logo {
+  font-size: 24px;
+  font-family: Georgia,Times,"Times New Roman",serif;
+  text-decoration: none;
+  float: left;
+}
+.header-logo > a {
+  display: block;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #B92B27;
+}
+.header-nav {
+  float:right;
+}
+.header-nav > li {
+  height:100%;
+  float:left;
+  padding: 20px 5px;
+  color: #B92B27;
+  text-decoration:none;
+}
+.header-nav > li:hover {
+  background:#eee;
+}
+.header-nav > li > a {
+  color:#999;
+}
+.header-nav > li:hover > a {
+  color:#B92B27;
+}
+
+
+/*.header-nav > ul > li {
+  position:relative;
+  float: left;
+  display: block;
+  padding: 10px 20px;
+  color: #B92B27;
+}*/
+
+.new-session-form > button > a {
+  color: #fff;
+}
+
+
+
+.header-nav-drop-down {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: -3px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background: #fff;
+  width: 300px;
+}
+/*FORM MODAL*/
+
+.modal {
+  display: none;
+}
+.modal.is-active {
+  display: block;
+}
+.modal-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.7);
+}
+.modal-content {
+  position: absolute;
+  z-index: 1000;
+  top: 203px;
+  left: 45%;
+  width: 400px;
+  padding: 50px;
+  margin-left: -250px;
+  transform: translateY(-50%);
+  background: white;
+  border-radius: 5px;
+  border: 1px solid #999;
+}
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+}
+.modal-close:hover {
+  color: #B92B27;
+}
+.darkened {
+  background-color: blue;
+}
+
+#ask-question {
+  background-color: #3E78AD;
+  padding: 5px;
+  color: #FFF;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: normal
+}
+.new-question-form {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding:20px;
+  color: #999;
+}
+
+.new-question-form > div > input {
+  width:70%;
+  float:right;
+}
+.facebook {
+  border: 1px solid #3a66ad;
+  font-size: 15px;
+  line-height: 1.4;
+  background: #3e78ad;
+  color: #fff;
+  box-shadow: 0 1px 1px 0 rgba(200,200,200,0.6);
+  border-radius: 5px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  padding: 2px 6px 3px;
+}
+
+.new-session {
+  margin:auto;
+  display:block;
+}
+.new-session-gradient {
+  background: linear-gradient(-180deg,#fff 0,#f1f1f1 100%);
+  overflow-y: hidden;
+  height:100%;
+  width:100%;
+  position:absolute;
+  z-index:-3;
+}
+.new-session-background {
+  background-size: 1757px 845px;
+  height: 845px;
+  width: 1757px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  position: absolute;
+  left: 50%;
+  margin-left: -942px;
+  opacity: .8;
+  background: url(//qsf.is.quoracdn.net/-2f32a993187981f4.png);
+  z-index:-2;
+}
+.new-session-header h1 {
+  font-size:48px;
+  color: #B92B27;
+  font-weight:bold;
+}
+.new-session-header h4 {
+  font-weight: 400;
+  color: #666;
+  font-size: 19px;
+}
+.new-session-content{
+  font-family: Georgia,Times,"Times New Roman",serif;
+  margin:auto;
+  display:block;
+  width:600px;
+  text-align:center;
+  padding-top:45px;
+}
+.new-session-form input {
+  border-radius:5px;
+  background: #EEE;
+  outline: 0;
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(200,200,200,0.3);
+  width:270px;
+  padding:5px;
+  font-size:14px;
+}
+.new-session-form label {
+  display:block;
+  width: 100%;
+  font-size: 11px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: bold;
+  margin-bottom: 18px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.new-session-form-wrapper {
+  box-sizing: content-box;
+  width: 600px;
+  height:245px;
+  padding: 25px;
+  border-radius: 3px;
+  background: #FFF;
+  border: 1px solid #DCDCDC;
+  box-shadow: 0 2px 4px 0 #DCDCDC;
+  margin-top: 0;
+}
+.new-session-form button {
+  display:block;
+  margin-top:8px;
+  float:right;
+  font-size:15px;
+  line-height:1.4;
+  background: #3e78ad;
+  color: #fff;
+  border: 1px solid #3a66ad;
+  box-shadow: 0 1px 1px 0 rgba(200,200,200,0.6);
+  border-radius:5px;
+}
+.new-session-form {
+  width:289px;
+  height:100%;
+  float:right;
+  border-left:1px solid #ccc;
+  padding-left:10px;
+  text-align:left;
+}
+.page-center-footer {
+  margin-top: 10px;
+}
+
+.load-more span {
+  color: #4090db;
+  text-transform: uppercase;
+
+  margin: auto;
+  display: block;
+}
+
+.load-more:hover {
+  background: #eee;
+}
+
+.page{
+  float: right;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.page:hover{
+  background:#eee;
+}
+.detail-title {
+  FONT-SIZE: 19px;
+  color: #333;
+  letter-spacing: -0.5px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  line-height: 1.25;
+  display: block;
+}
+.detail {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+.title, .main-body-title {
+  margin-bottom: 10px;
+}
+.questions-index-item-body {
+  padding: 5px 10px;
+}
+
+.questions-index-item {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.questions-index-item-author {
+  font-weight:400;
+  float:left;
+  font-size: 13px;
+  color: #999;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top:10px;
+}
+.questions-index-item-author > a > strong {
+  font-weight:bold;
+  color:#999;
+}
+.questions-index-item-author > a:hover > strong {
+  text-decoration:underline;
+}
+.questions-detail-author-link {
+  font-weight:400;
+  float:left;
+  font-size: 13px;
+  color: #999;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-top:10px;
+}
+.questions-index-item-title {
+  FONT-SIZE: 19px;
+  color: #333;
+  letter-spacing: -0.5px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: bold;
+  line-height: 1.25;
+  display: block;
+  padding-bottom:5px;
+}
+.questions-index-item-body {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #333;
+  display: block;
+}
+
+.questions-index-item-title > a {
+  color: #333;
+}
+
+.questions-index-item-title:hover > a {
+  text-decoration: underline;
+}
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+
+
+*/
+
+
+html, body, header, h1, h2, h6, nav, ul, li, a, p, footer, small {
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  background: transparent;
+  list-style: none;
+}
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+body {
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  background: #fff;
+  color: #333;
+}
+.title {
+  color: #999;
+  padding-top: 9px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px;
+  font-weight: bold;
+}
+.main-body-title {
+  color: black;
+  font-size: 20px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #ddd;
+  font-family: Georgia,Times,"Times New Roman",serif;
+}
+.injected-content-wrapper {
+  padding-top: 5px;
+}
+.index-page {
+  width:1000px;
+  margin:auto;
+  margin-top:25px;
+}
+.detail-view {
+  width:1000px;
+  margin:auto;
+  margin-top:25px;
+}
+.page-left {
+  width: 150px;
+  float:left;
+  display:block;
+  margin-right:30px;
+}
+.page-center {
+  width:570px;
+  float:left;
+  display:block;
+}
+li > a > strong {
+  color: #999;
+}
+li > a:hover > strong {
+  text-decoration:underline;
+}
+
+/*Images*/
+.thumb {
+  width:40px;
+  height:40px;
+  float:left;
+  padding-right:5px;
+}
+.author-thumb {
+  width: 100%;
+  height:100%;
+  border-radius:50%;
+}
+
+button {
+  margin-left: 10px;
+}

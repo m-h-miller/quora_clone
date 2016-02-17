@@ -6,7 +6,7 @@
   "license": "ISC",
   "scripts": {
     "test": "bundle exec rspec",
-    "postinstall": "echo \"Executing webpack install\" && ./node_modules/.bin/webpack"
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "dependencies": {
     "babel-core": "^6.4.5",
