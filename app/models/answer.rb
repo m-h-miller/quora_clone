@@ -1,4 +1,7 @@
 class Answer < ActiveRecord::Base
+  include PgSearch
+  multisearchable :against => [:title, :body]
+
   validates :title, :author_id, :question_id, presence: true
 
   belongs_to(
