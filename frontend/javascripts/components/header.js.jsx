@@ -2,7 +2,8 @@ var React = require('react'),
     Link = require('react-router').Link,
     CurrentUserStore = require('../stores/current_user_store.js'),
     QuestionsForm = require('./questions/questions_form.js.jsx'),
-    SessionsApiUtil = require('../util/sessions_api_util.js');
+    SessionsApiUtil = require('../util/sessions_api_util.js'),
+    Search = require('./search.js.jsx');
 
 var Header = React.createClass({
 	getInitialState: function () {
@@ -37,6 +38,9 @@ var Header = React.createClass({
 			  <div className="header-wrap group">
 					<div className="header-content">
 						<h1 className="header-logo"><a href="#">Quorum</a></h1>
+
+            < Search />
+
 
 			      <ul className="header-nav group">
 		          <li>

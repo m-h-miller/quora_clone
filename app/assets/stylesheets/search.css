@@ -1,0 +1,18 @@
+.search-bar {
+  position: absolute;
+  width: 220px;
+
+  font-size:16px;
+  padding-top:20px;
+  padding-left: 20px;
+  display: inline-block;
+  color: #125688;
+}
+
+.search-bar input {
+  padding:7px;
+  width:190px;
+  background:#FAFAFA;
+  border: 1px solid #edeeee;
+  border-radius:15px;
+}
