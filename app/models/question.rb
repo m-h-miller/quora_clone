@@ -1,6 +1,9 @@
 class Question < ActiveRecord::Base
   include PgSearch
-  multisearchable :against => [:title, :body]
+  multisearchable :against => [:title, :body],
+                  :using => {
+                    :tsearch => {:prefix => true}
+                  }
 
   validates :title, :author_id, presence: true
   validates :title, uniqueness: true
