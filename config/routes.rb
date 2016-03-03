@@ -3,11 +3,13 @@ Rails.application.routes.draw do
 
   get "/auth/facebook/callback", to: "omniauth#facebook"
 
-  namespace :api, defaults: {format: :json} do
-    resource :session, only: [:create, :destroy, :show]
-    resources :users, only: [:new, :create, :show, :index]
+  namespace :api, defaults: { format: :json } do
+    resource :session, only: [ :create, :destroy, :show ]
+    resources :users, only: [ :new, :create, :show, :index ]
 
-    resources :topics, only: [:new, :create, :index]
+    resources :topics, only: [ :new, :create, :index ]
+
+    resources :search, only: :index
 
     resources :questions do
       resources :answers
