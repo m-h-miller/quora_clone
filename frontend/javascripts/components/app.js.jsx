@@ -9,7 +9,7 @@ var App = React.createClass({
   mixins: [ History ],
 
   getInitialState: function () {
-    return { currentUser: null };
+    return { currentUser: CurrentUserStore.currentUser() };
   },
 
   componentWillMount: function () {
@@ -34,13 +34,13 @@ var App = React.createClass({
   render: function() {
     var currentUser = this.state.currentUser;
 
-
     return (
       <div className="app">
         <Header currentUser={ currentUser } />
         { this.props.children }
       </div>
     );
+
   },
 });
 

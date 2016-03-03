@@ -43,35 +43,7 @@ body {
   font-size: 12px;
   font-weight: bold;
 }
-.main-body-title {
-  color: black;
-  font-size: 20px;
-  padding-bottom: 7px;
-  border-bottom: 1px solid #ddd;
-  font-family: Georgia,Times,"Times New Roman",serif;
-}
 
-.index-page {
-  width:1000px;
-  margin:auto;
-  margin-top:25px;
-}
-.detail-view {
-  width:1000px;
-  margin:auto;
-  margin-top:25px;
-}
-.page-left {
-  width: 150px;
-  float:left;
-  display:block;
-  margin-right:30px;
-}
-.page-center {
-  width:570px;
-  float:left;
-  display:block;
-}
 li > a > strong {
   color: #999;
 }

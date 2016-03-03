@@ -22,49 +22,56 @@ var Header = React.createClass({
 	render: function () {
     var currentUser = this.props.currentUser;
 
-		return (
-		  <div className="header-wrap group">
-				<div className="header-content">
-					<h1 className="header-logo">
-            <a href="#"> Quorum </a>
-          </h1>
+    if ( currentUser.id ) {
 
-          < Search />
+  		return (
+  		  <div className="header-wrap group">
+  				<div className="header-content">
+  					<h1 className="header-logo">
+              <a href="#"> Quorum </a>
+            </h1>
 
-          <ul className="header-nav group">
+            < Search />
 
-            <li>
-              <button id="ask-question" onClick= { this.displayForm }>
-                <strong> Ask Question </strong>
-              </button>
-              <section id="modal" className="modal">
-                <article className="modal-content">
-                  <span onClick= { this.hideForm } className="modal-close js-hide-modal">
-                    &times;
-                  </span>
-                  <QuestionsForm />
-                </article>
-                <div className="modal-screen js-hide-modal"></div>
-              </section>
-            </li>
-	          <li className="header-text-link">
-              <a href="#"> Home </a>
-            </li>
-	          <li className="header-text-link">
-              <a href="#"> Write </a>
-            </li>
-	          <li className="header-text-link">
-	            <Link to={'/users/' + currentUser.id }>
-	            	{ currentUser.user_name }
-	            </Link>
-	          </li>
-	          <li>
-	            <button onClick={ this.signout }>SIGN OUT</button>
-	          </li>
-		      </ul>
-				</div>
-		  </div>
-		);
+            <ul className="header-nav group">
+
+              <li>
+                <button id="ask-question" onClick= { this.displayForm }>
+                  <strong> Ask Question </strong>
+                </button>
+                <section id="modal" className="modal">
+                  <article className="modal-content">
+                    <span onClick= { this.hideForm } className="modal-close js-hide-modal">
+                      &times;
+                    </span>
+                    <QuestionsForm />
+                  </article>
+                  <div className="modal-screen js-hide-modal"></div>
+                </section>
+              </li>
+  	          <li className="header-text-link">
+                <a href="#"> Home </a>
+              </li>
+  	          <li className="header-text-link">
+                <a href="#"> Write </a>
+              </li>
+  	          <li className="header-text-link">
+  	            <Link to={'/users/' + currentUser.id }>
+  	            	{ currentUser.user_name }
+  	            </Link>
+  	          </li>
+  	          <li>
+  	            <button onClick={ this.signout }>SIGN OUT</button>
+  	          </li>
+  		      </ul>
+  				</div>
+  		  </div>
+  		);
+    } else {
+      return (
+        <div> Log in... </div>
+      )
+    }
 	}
 });
 
