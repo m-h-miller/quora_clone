@@ -1,0 +1,11 @@
+/*Puts page body below floating nav bar*/
+
+.index-page {
+  position: relative;
+  top: 75px;
+}
+
+.detail-view {
+  position: relative;
+  top:75px;
+}

@@ -6,19 +6,6 @@ var React = require('react'),
     Search = require('./search.js.jsx');
 
 var Header = React.createClass({
-	getInitialState: function () {
-      return {
-        currentUser: CurrentUserStore.currentUser()
-      };
-    },
-
-  componentDidMount: function () {
-    this.listener = CurrentUserStore.addListener(this._onChange);
-  },
-
-  _onChange: function () {
-    this.setState({ currentUser: CurrentUserStore.currentUser() });
-  },
 
   signout: function () {
     SessionsApiUtil.signout();
@@ -33,58 +20,51 @@ var Header = React.createClass({
 	},
 
 	render: function () {
-		if (CurrentUserStore.isSignedIn()) {
-			return (
-			  <div className="header-wrap group">
-					<div className="header-content">
-						<h1 className="header-logo"><a href="#">Quorum</a></h1>
+    var currentUser = this.props.currentUser;
 
-            < Search />
+		return (
+		  <div className="header-wrap group">
+				<div className="header-content">
+					<h1 className="header-logo">
+            <a href="#"> Quorum </a>
+          </h1>
 
-            <ul className="header-nav group">
+          < Search />
 
-              <li>
-                <button id="ask-question" onClick= { this.displayForm }>
-                  <strong>Ask Question</strong>
-                </button>
-                <section id="modal" className="modal">
-                  <article className="modal-content">
-                    <span onClick= { this.hideForm } className="modal-close js-hide-modal">
-                      &times;
-                    </span>
-                    <QuestionsForm />
-                  </article>
-                  <div className="modal-screen js-hide-modal"></div>
-                </section>
-              </li>
+          <ul className="header-nav group">
 
-		          <li className="header-text-link">
-                <a href="#">Home</a>
-              </li>
-		          <li className="header-text-link">
-                <a href="#">Write</a>
-              </li>
-		          <li className="header-text-link">
-		            <Link to={'/users/' + CurrentUserStore.currentUser().id }>
-		            	{ CurrentUserStore.currentUser().user_name }
-		            </Link>
-		          </li>
-		          <li>
-		            <button onClick={ this.signout }>SIGN OUT</button>
-		          </li>
-
-			      </ul>
-					</div>
-			  </div>
-			);
-		}
-
-                    //  Why did I have this included?
-    else {
-			return (
-				<div></div>
-			);
-		}
+            <li>
+              <button id="ask-question" onClick= { this.displayForm }>
+                <strong> Ask Question </strong>
+              </button>
+              <section id="modal" className="modal">
+                <article className="modal-content">
+                  <span onClick= { this.hideForm } className="modal-close js-hide-modal">
+                    &times;
+                  </span>
+                  <QuestionsForm />
+                </article>
+                <div className="modal-screen js-hide-modal"></div>
+              </section>
+            </li>
+	          <li className="header-text-link">
+              <a href="#"> Home </a>
+            </li>
+	          <li className="header-text-link">
+              <a href="#"> Write </a>
+            </li>
+	          <li className="header-text-link">
+	            <Link to={'/users/' + currentUser.id }>
+	            	{ currentUser.user_name }
+	            </Link>
+	          </li>
+	          <li>
+	            <button onClick={ this.signout }>SIGN OUT</button>
+	          </li>
+		      </ul>
+				</div>
+		  </div>
+		);
 	}
 });
 

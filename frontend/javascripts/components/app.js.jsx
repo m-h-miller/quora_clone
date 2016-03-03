@@ -13,7 +13,7 @@ var App = React.createClass({
   },
 
   componentWillMount: function () {
-    this.listener = CurrentUserStore.addListener(this._ensureSignedIn);
+    this.current_user_listener = CurrentUserStore.addListener(this._ensureSignedIn);
     SessionsApiUtil.fetchCurrentUser();
   },
 
@@ -32,9 +32,12 @@ var App = React.createClass({
   },
 
   render: function() {
+    var currentUser = this.state.currentUser;
+
+
     return (
       <div className="app">
-        <Header />
+        <Header currentUser={ currentUser } />
         { this.props.children }
       </div>
     );

@@ -1,6 +1,5 @@
 .search-bar {
-  position: absolute;
-  width: 320px;
+  width: 20%;
   font-size:16px;
   padding-top:20px;
   padding-left: 20px;
@@ -21,7 +20,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   position: absolute;
-  width: 96%;
+  width: 19%;
   background: #fff;
   max-height: 250px;
   z-index: 5;
@@ -31,9 +30,6 @@
   border: none;
 }
 
-.user-options > li:hover {
-  background: white;
-}
 
 .search-results li{
   border-bottom: 1px solid #ccc;

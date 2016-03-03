@@ -8,11 +8,14 @@
   border-bottom: 1px solid #ddd;
   box-shadow: 0px 1px 1px 1px #F6F6F9;
   width:100%;
+
+  position:fixed;
+  top:0;
+  z-index:5;
 }
 .header-content {
   width:1000px;
   margin:auto;
-  height:50px;
 }
 .header-logo {
   font-size: 24px;

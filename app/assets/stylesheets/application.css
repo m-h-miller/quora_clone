@@ -50,9 +50,7 @@ body {
   border-bottom: 1px solid #ddd;
   font-family: Georgia,Times,"Times New Roman",serif;
 }
-.injected-content-wrapper {
-  padding-top: 5px;
-}
+
 .index-page {
   width:1000px;
   margin:auto;
