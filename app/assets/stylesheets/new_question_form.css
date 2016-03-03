@@ -43,14 +43,6 @@
   background-color: blue;
 }
 
-#ask-question {
-  background-color: #3E78AD;
-  padding: 5px;
-  color: #FFF;
-  border-radius: 5px;
-  font-size: 15px;
-  font-weight: normal
-}
 .new-question-form {
   border: 1px solid #ccc;
   border-radius: 5px;

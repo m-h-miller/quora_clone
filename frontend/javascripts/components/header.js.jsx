@@ -41,15 +41,30 @@ var Header = React.createClass({
 
             < Search />
 
+            <ul className="header-nav group">
 
-			      <ul className="header-nav group">
-		          <li>
+              <li>
+                <button id="ask-question" onClick= { this.displayForm }>
+                  <strong>Ask Question</strong>
+                </button>
+                <section id="modal" className="modal">
+                  <article className="modal-content">
+                    <span onClick= { this.hideForm } className="modal-close js-hide-modal">
+                      &times;
+                    </span>
+                    <QuestionsForm />
+                  </article>
+                  <div className="modal-screen js-hide-modal"></div>
+                </section>
+              </li>
+
+		          <li className="header-text-link">
                 <a href="#">Home</a>
               </li>
-		          <li>
+		          <li className="header-text-link">
                 <a href="#">Write</a>
               </li>
-		          <li>
+		          <li className="header-text-link">
 		            <Link to={'/users/' + CurrentUserStore.currentUser().id }>
 		            	{ CurrentUserStore.currentUser().user_name }
 		            </Link>
@@ -57,20 +72,7 @@ var Header = React.createClass({
 		          <li>
 		            <button onClick={ this.signout }>SIGN OUT</button>
 		          </li>
-		          <li>
-		          	<button id="ask-question" onClick= { this.displayForm }>
-		          		<strong>Ask Question</strong>
-								</button>
-								<section id="modal" className="modal">
-									<article className="modal-content">
-										<span onClick= { this.hideForm } className="modal-close js-hide-modal">
-                      &times;
-										</span>
-								    <QuestionsForm />
-								  </article>
-								  <div className="modal-screen js-hide-modal"></div>
-							  </section>
-		          </li>
+
 			      </ul>
 					</div>
 			  </div>
