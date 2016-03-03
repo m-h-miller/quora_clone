@@ -7,7 +7,7 @@ json.results do
       json.question result.as_json(only: [:id, :title])
       json._type "Question"
     elsif result.class == Answer
-      json.tag result.as_json(only: [:id, :title])
+      json.answer result.as_json(only: [:id, :title, :question_id])
       json._type "Answer"
     end
   end
