@@ -32,29 +32,33 @@
 .header-nav {
   float:right;
 }
+
+
 .header-nav > li {
   height:100%;
   float:left;
   padding: 20px 5px;
-  color: #B92B27;
   text-decoration:none;
 }
 .header-nav > li.header-text-link {
+  /* padding adjustment for header :hover action */
   padding: 27px;
-}
-
-.header-nav > li:hover {
-  background:#eee;
-  color:#B92B27;
-
 }
 .header-nav > li > a {
   color:#999;
 }
+
 .header-nav > li:hover > a {
   color:#B92B27;
 }
+.header-nav > li:hover {
+  background:#eee;
+}
 
+
+.header-nav > li > a {
+
+}
 
 /*.header-nav > ul > li {
   position:relative;

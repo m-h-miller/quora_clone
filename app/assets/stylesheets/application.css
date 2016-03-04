@@ -14,6 +14,7 @@
 *= require_self
 */
 
+/*reset*/
 html, body, header, h1, h2, h6, nav, ul, li, a, p, footer, small {
   border: 0;
   margin: 0;
@@ -25,16 +26,19 @@ html, body, header, h1, h2, h6, nav, ul, li, a, p, footer, small {
   background: transparent;
   list-style: none;
 }
+
+/*clear fix*/
 .group:after {
   content: "";
   display: block;
   clear: both;
 }
+
 body {
   font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-  background: #fff;
   color: #333;
 }
+
 .title {
   color: #999;
   padding-top: 9px;
