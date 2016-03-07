@@ -1,5 +1,8 @@
 # Phase 2: Flux Architecture and Question CRUD (2 days)
 
+In phase 2, I will extend the JSON API to include answers & comments. I will likewise be implementing React views & components to handle the rendering in browser.
+
+
 ## Rails
 ### Models
 

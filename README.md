@@ -13,13 +13,13 @@ Quorum is a Quora-inspired web application built using Ruby on Rails & React.js.
 - [X] Log in / Log out.
 - [X] Log in as guest.
 - [X] A user can create, read, edit, and delete questions.
-- [X] A user can create, read, edit, and delete answers for questions.
-- [ ] A user can create, read, edit, and delete comments on answers.
+- [X] A user can create, read, edit, and delete answers.
+
 - [ ] A user can follow questions, topics, and users. This adds the subject's activity to the user's home feed.
 - [X] A user can view another user's activity feed.
-- [ ] A user can view activity feeds based on topic.
-- [ ] Tag questions with multiple 'topics' and search questions by 'topics' (tags).
-- [ ] Search through questions & answers for blocks of text.
+- [X] A user can view feeds based on topic.
+- [ ] Tag questions with multiple 'topics'.
+- [X] Search for questions, answers, and users.
 
 - [ ] Bonus features are listed below.
 
@@ -62,22 +62,19 @@ Phase 3 adds organization to the Questions. Questions belong to a Topics, which 
 
 ### Phase 4: Allow Complex Styling in Question (1 day)
 
-Using quill.js, allow for complex styling of questions?
+...
 
 [Details][phase-four]
 
 ### Phase 5: Styling Cleanup and Seeding (2 days)
 
-I will do all of the styling throughout the project, but I am reserving this time to truly polish the design. I also will try to figure out bonus features.
+I will do all of the styling throughout the project, but I am reserving this time to truly polish the design.
 
 [Details][phase-five]
 
 
 ### Bonus Features (TBD)
-- [ ] Prettify transitions.
-- [ ] Use javascript library for cleaner tag selection.
 - [X] Pagination / infinite scroll for Indeces.
-- [ ] Apply complex styling to questions/answers while editing (embedded images, basic styling, formatted lists).
 - [ ] Voting functionality.
 
 [phase-one]: ./docs/phases/phase1.md
