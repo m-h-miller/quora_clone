@@ -3,9 +3,23 @@ var React = require('react'),
     CurrentUserStore = require('../stores/current_user_store.js'),
     QuestionsForm = require('./questions/questions_form.js.jsx'),
     SessionsApiUtil = require('../util/sessions_api_util.js'),
-    Search = require('./search.js.jsx');
+    Search = require('./search.js.jsx'),
+    TopicStore = require('../stores/topics.js');
 
 var Header = React.createClass({
+
+  getInitialState: function () {
+    return {
+      allTopics: TopicStore.all()
+    };
+  },
+
+  componentDidMount: function () {
+    ApiUtil.loadTopics();
+    this.setState({
+      topics: TopicStore.all()
+    });
+  },
 
   signout: function () {
     SessionsApiUtil.signout();
@@ -23,7 +37,8 @@ var Header = React.createClass({
     var currentUser = this.props.currentUser;
 
     if ( currentUser.id ) {
-
+      console.log("state from header");
+      console.log(this.state);
   		return (
   		  <div className="header-wrap group">
   				<div className="header-content">
@@ -44,7 +59,10 @@ var Header = React.createClass({
                     <span onClick= { this.hideForm } className="modal-close js-hide-modal">
                       &times;
                     </span>
-                    <QuestionsForm />
+
+                    <QuestionsForm
+                      topics={ this.state.topics } />
+
                   </article>
                   <div className="modal-screen js-hide-modal"></div>
                 </section>
@@ -69,7 +87,7 @@ var Header = React.createClass({
   		);
     } else {
       return (
-        <div> Log in... </div>
+        <div></div>
       )
     }
 	}

@@ -4,12 +4,18 @@ var React = require('react'),
 
 var SideBar = React.createClass({
   getInitialState: function () {
-    return { value: ['General', 'Ruby', 'Philosophy', 'Javascript', 'React.js']};
+    return { value: []};
   },
 
   componentDidMount: function () {
+    // this.listener = TopicStore.addListener(this._change);
+    // ApiUtil.loadTopics();
     ApiUtil.triggerTopics();
   },
+
+  // componentWillUnmount: function () {
+  //   this.listener.remove();
+  // },
 
   handleChange: function () {
     var selected = this.refs.topicsGroup.getCheckedValues();
@@ -24,11 +30,11 @@ var SideBar = React.createClass({
 		      Select feeds to display.
 
           <CheckboxGroup name="topics" value={ this.state.value } ref="topicsGroup" onChange={ this.handleChange }>
-            <input type="checkbox" value="General" /> General
-            <input type="checkbox" value="Ruby" /> Ruby
-            <input type="checkbox" value="Philosophy" /> Philosophy
-            <input type="checkbox" value="Javascript" /> Javascript
-            <input type="checkbox" value="React.js" /> React.js
+            <input className="topic-box" type="checkbox" value="General" /> General
+            <input className="topic-box" type="checkbox" value="Ruby" /> Ruby
+            <input className="topic-box" type="checkbox" value="Philosophy" /> Philosophy
+            <input className="topic-box" type="checkbox" value="Javascript" /> Javascript
+            <input className="topic-box" type="checkbox" value="React.js" /> React.js
           </CheckboxGroup>
 
           </section>

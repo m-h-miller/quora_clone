@@ -4,6 +4,7 @@ var QuestionDispatcher = require('../dispatcher/dispatcher.js'),
     AnswerConstants = require('../constants/answer_constants.js');
 
 var ApiActions = {
+
   triggerTopics: function () {
     QuestionDispatcher.dispatch({
       actionType: TopicConstants.TOPICS_CHANGED

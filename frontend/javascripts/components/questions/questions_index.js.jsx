@@ -40,16 +40,19 @@ var QuestionsIndex = React.createClass({
 
   render: function () {
     var loadMore, back, no_content;
-    var page = <span className="page">{this.state.page}</span>;
+    var page = <span className="page"> { this.state.page } </span>;
 
     var filtered = [],
         topics = this.state.topics;
 
     this.state.questions.forEach(function (q) {
-      var topic = q.topics[0];
-      if (topics.includes(topic.name)) {
-        filtered.push(q);
-      }
+      var topic = q.topics;
+
+      topic.forEach(function (topic) {
+        if (topics.includes(topic.name)) {
+          filtered.push(q);
+        }
+      });
     });
 
     if ( filtered.length !== 0 ) {
@@ -65,6 +68,8 @@ var QuestionsIndex = React.createClass({
         <span> go back! </span>
       </button>;
     }
+
+    console.log(this);
 
     return(
       <div className="page-center">

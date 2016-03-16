@@ -24,8 +24,8 @@ var resetQuestion = function (question) {
   }
 };
 
-// I think I avoided reversing Qs b/c I push history to a
-// Question Detail component ?
+// I avoided reversing Qs b/c I push history to a
+// Question Detail component
 var resetAnswers = function (answers) {
   _answers = answers.reverse();
 };

@@ -5,6 +5,16 @@ var ApiUtil = {
     ApiActions.triggerTopics();
   },
 
+  loadTopics: function () {
+    $.get('api/topics', function (topics) {
+      ApiActions.updateTopics(topics);
+    })
+  },
+
+  
+
+    // doesn't hit DB;
+    // this function passes the checked values from Sidebar to topic store;
   updateTopics: function (topics) {
     ApiActions.updateTopics(topics);
   },
