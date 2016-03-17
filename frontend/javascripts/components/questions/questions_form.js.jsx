@@ -18,18 +18,24 @@ var QuestionsForm = React.createClass({
     e.preventDefault();
     var question = { };
 
-        question.title = this.state.title;
-        question.body = this.state.body;
-        question.author = CurrentUserStore.currentUser().user_name;
-        question.question_topics_attributes = [];
+    question.title = this.state.title;
+    question.body = this.state.body;
+    question.author = CurrentUserStore.currentUser().user_name;
+    question.question_topics_attributes = [];
 
     var selected = this.refs.questionTopicsGroup.getCheckedValues(),
         topicAttrs = [];
 
 
+    console.log("selected before *General default logic* : ");
+    console.log(selected);
+
     if ( selected === [] ){
       question.question_topics_attributes.push("General");
     }
+
+    console.log("after :");
+    console.log(selected);
 
     selected.forEach(function (topic) {
       question.question_topics_attributes.push({
@@ -70,7 +76,6 @@ var QuestionsForm = React.createClass({
         <div>
           <label htmlFor='question_body'>Topics:</label>
           <CheckboxGroup name="topics" value={ this.state.value } ref="questionTopicsGroup">
-
 
             <input type="checkbox" value="General" /> General
             <input type="checkbox" value="Ruby" /> Ruby
