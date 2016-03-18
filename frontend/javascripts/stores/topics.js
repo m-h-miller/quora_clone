@@ -5,6 +5,7 @@ var AppDispatcher = require('./../dispatcher/dispatcher.js'),
 var TopicStore = new Store(AppDispatcher);
 
 var _topics = [];
+var _all_topics = [];
 
 // var resetToAllTopics = function () {
 //   _topics = ['General', 'Ruby', 'Philosophy', 'Javascript', 'React.js'].slice(0);
@@ -14,8 +15,16 @@ var resetTopics = function (topics) {
   _topics = topics.slice(0);
 };
 
+var resetAllTopics = function (topics) {
+  _all_topics = topics.slice(0);
+};
+
 TopicStore.all = function () {
   return _topics.slice(0);
+};
+
+TopicStore.allTopics = function () {
+  return _all_topics.slice(0);
 };
 
 TopicStore.__onDispatch = function (payload) {
@@ -26,6 +35,10 @@ TopicStore.__onDispatch = function (payload) {
     //   break;
     case TopicConstants.TOPICS_UPDATED:
         resetTopics(payload.topics);
+        TopicStore.__emitChange();
+      break;
+    case TopicConstants.LOAD_ALL_TOPICS:
+        resetAllTopics(payload.topics);
         TopicStore.__emitChange();
       break;
   }

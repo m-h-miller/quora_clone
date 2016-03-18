@@ -10,15 +10,21 @@ var Header = React.createClass({
 
   getInitialState: function () {
     return {
-      allTopics: TopicStore.all()
+      allTopics: TopicStore.allTopics()
     };
   },
 
   componentDidMount: function () {
-    ApiUtil.loadTopics();
-    this.setState({
-      topics: TopicStore.all()
-    });
+    this.listener = TopicStore.addListener(this._change);
+    ApiUtil.loadAllTopics();
+  },
+
+  componentWillUnmount: function () {
+    this.listener.remove();
+  },
+
+  _change: function () {
+    this.setState({ allTopics: TopicStore.allTopics() });
   },
 
   signout: function () {
@@ -37,8 +43,6 @@ var Header = React.createClass({
     var currentUser = this.props.currentUser;
 
     if ( currentUser.id ) {
-      console.log("state from header");
-      console.log(this.state);
   		return (
   		  <div className="header-wrap group">
   				<div className="header-content">
@@ -61,7 +65,7 @@ var Header = React.createClass({
                     </span>
 
                     <QuestionsForm
-                      topics={ this.state.topics } />
+                      allTopics={ this.state.allTopics } />
 
                   </article>
                   <div className="modal-screen js-hide-modal"></div>

@@ -37,7 +37,7 @@ class Api::QuestionsController < ApplicationController
 
   private
     def question_params
-      params.require(:question).permit(:title, :body)
+      params.require(:question).permit(:title, :body, question_topics_attributes: :topic_id )
     end
 
     def require_user_owns_question!

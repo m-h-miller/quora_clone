@@ -31,9 +31,13 @@ var SideBar = React.createClass({
 
           <CheckboxGroup name="topics" value={ this.state.value } ref="topicsGroup" onChange={ this.handleChange }>
             <input className="topic-box" type="checkbox" value="General" /> General
+            <br/>
             <input className="topic-box" type="checkbox" value="Ruby" /> Ruby
+            <br/>
             <input className="topic-box" type="checkbox" value="Philosophy" /> Philosophy
+            <br/>
             <input className="topic-box" type="checkbox" value="Javascript" /> Javascript
+            <br/>
             <input className="topic-box" type="checkbox" value="React.js" /> React.js
           </CheckboxGroup>
 

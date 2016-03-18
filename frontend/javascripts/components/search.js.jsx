@@ -43,8 +43,6 @@ var Search = React.createClass({
   render: function () {
     var that = this;
     var results = this.state.results;
-    console.log("render:");
-    console.log(results);
 
     var __results = [];
     results.map(function (result) {
@@ -91,8 +89,6 @@ var Search = React.createClass({
       </div>
     );
   }
-
-
 });
 
 module.exports = Search;

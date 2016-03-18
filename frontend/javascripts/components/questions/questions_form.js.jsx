@@ -20,26 +20,30 @@ var QuestionsForm = React.createClass({
 
     question.title = this.state.title;
     question.body = this.state.body;
-    question.author = CurrentUserStore.currentUser().user_name;
+    // question.author = CurrentUserStore.currentUser();
     question.question_topics_attributes = [];
 
-    var selected = this.refs.questionTopicsGroup.getCheckedValues(),
-        topicAttrs = [];
+    var selected_topic_ids = this.refs.questionTopicsGroup.getCheckedValues();
+    var topicAttrs = [];
 
 
-    console.log("selected before *General default logic* : ");
-    console.log(selected);
+    // console.log("selected before *General default logic* : ");
+    // console.log(selected);
+    //
+    // if ( selected === [] ){
+    //   question.question_topics_attributes.push({
+    //     topic_id: 1
+    //   });
+    // }
 
-    if ( selected === [] ){
-      question.question_topics_attributes.push("General");
-    }
+    console.log("selected :");
+    console.log(selected_topic_ids);
 
-    console.log("after :");
-    console.log(selected);
-
-    selected.forEach(function (topic) {
+    selected_topic_ids.forEach(function (topic_id) {
+      console.log("topic_id:");
+      console.log(topic_id);
       question.question_topics_attributes.push({
-        topic_id: topic.id
+        topic_id: topic_id
       });
     });
 
@@ -61,6 +65,15 @@ var QuestionsForm = React.createClass({
   render: function () {
     console.log("this: (from q_form)");
     console.log(this);
+
+    var allTopics = this.props.allTopics;
+    console.log(allTopics);
+
+    // <input type="checkbox" value="General" /> General
+    // <input type="checkbox" value="Ruby" /> Ruby
+    // <input type="checkbox" value="Philosophy" /> Philosophy
+    // <input type="checkbox" value="Javascript" /> Javascript
+    // <input type="checkbox" value="React.js" /> React.js
     return(
       <form className='new-question-form' onSubmit={this.submitQuestion}>
         <div className="group">
@@ -77,11 +90,16 @@ var QuestionsForm = React.createClass({
           <label htmlFor='question_body'>Topics:</label>
           <CheckboxGroup name="topics" value={ this.state.value } ref="questionTopicsGroup">
 
-            <input type="checkbox" value="General" /> General
-            <input type="checkbox" value="Ruby" /> Ruby
-            <input type="checkbox" value="Philosophy" /> Philosophy
-            <input type="checkbox" value="Javascript" /> Javascript
-            <input type="checkbox" value="React.js" /> React.js
+
+            {allTopics.map(function (topic) {
+              return(
+                <div className="questionsFormTopicListItem" key={ topic.id }>
+                  <input type="checkbox" value={topic.id} />
+                  <label> { topic.name } </label>
+                  <br/>
+                </div>
+              );
+            })}
           </CheckboxGroup>
         </div>
 

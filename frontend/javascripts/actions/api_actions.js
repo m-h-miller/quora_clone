@@ -5,6 +5,13 @@ var QuestionDispatcher = require('../dispatcher/dispatcher.js'),
 
 var ApiActions = {
 
+  loadAllTopics: function (topics) {
+    QuestionDispatcher.dispatch({
+      actionType: TopicConstants.LOAD_ALL_TOPICS,
+      topics: topics
+    });
+  },
+
   triggerTopics: function () {
     QuestionDispatcher.dispatch({
       actionType: TopicConstants.TOPICS_CHANGED

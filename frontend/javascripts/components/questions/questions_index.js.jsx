@@ -69,8 +69,6 @@ var QuestionsIndex = React.createClass({
       </button>;
     }
 
-    console.log(this);
-
     return(
       <div className="page-center">
         <h2 className="main-body-title">Top Stories</h2>
