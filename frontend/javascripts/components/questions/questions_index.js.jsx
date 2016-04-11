@@ -6,8 +6,8 @@ var React = require('react'),
 
 var QuestionsIndex = React.createClass({
   getInitialState: function () {
-    _qs = QuestionStore.all();
-    _ts = TopicStore.all();
+    var _qs = QuestionStore.all();
+    var _ts = TopicStore.all();
     return { questions: _qs, topics: _ts, page: 1 };
   },
 
@@ -42,38 +42,40 @@ var QuestionsIndex = React.createClass({
     var loadMore, back, no_content;
     var page = <span className="page"> { this.state.page } </span>;
 
-    var filtered = [],
-        topics = this.state.topics;
+    var filtered_questions = [],
+        selected_topics = this.state.topics;
 
     this.state.questions.forEach(function (q) {
-      var topic = q.topics;
+      var question_topics = q.topics;
 
-      topic.forEach(function (topic) {
-        if (topics.includes(topic.name)) {
-          filtered.push(q);
+      question_topics.forEach(function (topic) {
+        if (selected_topics.includes(topic.name)) {
+          filtered_questions.push(q);
         }
       });
     });
 
-    if ( filtered.length !== 0 ) {
-      loadMore = <button onClick={this.handleClick} className="load-more">
-        <span> load more! </span>
-      </button>;
-    } else {
-      no_content = <div className="no_content"> Nothing to show :( </div>;
-    }
+          if ( filtered_questions.length !== 0 ) {
+            loadMore = <button onClick={this.handleClick} className="load-more">
+              <span> load more! </span>
+            </button>;
+          } else {
+            no_content = <div className="no_content"> Select topics in the Sidebar to display content! </div>;
+          }
 
-    if ( this.state.page !== 1 ){
-      back = <button onClick={this.handleBack} className="load-more">
-        <span> go back! </span>
-      </button>;
-    }
+          if ( this.state.page !== 1 ){
+            back = <button onClick={this.handleBack} className="load-more">
+              <span> go back! </span>
+            </button>;
+          }
 
     return(
       <div className="page-center">
         <h2 className="main-body-title">Top Stories</h2>
-          {filtered.map(function (question) {
-            return <QuestionsIndexItem key={question.id} question={question} />;
+          {filtered_questions.map(function (question) {
+            return <QuestionsIndexItem
+                    key={question.id}
+                    question={question} />;
           })}
           { no_content }
         <div className="page-center-footer">

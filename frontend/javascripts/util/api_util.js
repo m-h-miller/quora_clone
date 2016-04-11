@@ -1,29 +1,6 @@
 var ApiActions = require('../actions/api_actions.js');
 
 var ApiUtil = {
-  triggerTopics: function () {
-    ApiActions.triggerTopics();
-  },
-
-  loadTopics: function () {
-    $.get('api/topics', function (topics) {
-      ApiActions.updateTopics(topics);
-    })
-  },
-
-    // doesn't hit DB;
-    // this function passes the checked values from Sidebar to topic store;
-  updateTopics: function (topics) {
-    ApiActions.updateTopics(topics);
-  },
-
-      loadAllTopics: function () {
-        $.get('api/topics', function (topics) {
-          ApiActions.loadAllTopics(topics);
-        })
-      },
-
-
 
   fetchAllQuestions: function () {
     $.get('api/questions', function (questions) {

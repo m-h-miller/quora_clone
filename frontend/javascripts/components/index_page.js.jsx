@@ -3,6 +3,7 @@ var React = require('react'),
     QuestionsIndex = require('./questions/questions_index.js.jsx');
 
 var IndexPage = React.createClass({
+
   render: function () {
     return(
       <div className="index-page">

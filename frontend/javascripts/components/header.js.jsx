@@ -4,6 +4,7 @@ var React = require('react'),
     QuestionsForm = require('./questions/questions_form.js.jsx'),
     SessionsApiUtil = require('../util/sessions_api_util.js'),
     Search = require('./search.js.jsx'),
+    TopicsApiUtil = require('../util/topics_api_util.js'),
     TopicStore = require('../stores/topics.js');
 
 var Header = React.createClass({
@@ -16,7 +17,7 @@ var Header = React.createClass({
 
   componentDidMount: function () {
     this.listener = TopicStore.addListener(this._change);
-    ApiUtil.loadAllTopics();
+    TopicsApiUtil.loadAllTopics();
   },
 
   componentWillUnmount: function () {
@@ -71,17 +72,21 @@ var Header = React.createClass({
                   <div className="modal-screen js-hide-modal"></div>
                 </section>
               </li>
+
   	          <li className="header-text-link">
                 <a href="#"> Home </a>
               </li>
+
   	          <li className="header-text-link">
                 <a href="#"> Write </a>
               </li>
+
   	          <li className="header-text-link">
   	            <Link to={'/users/' + currentUser.id }>
   	            	{ currentUser.user_name }
   	            </Link>
   	          </li>
+
   	          <li>
   	            <button onClick={ this.signout }>SIGN OUT</button>
   	          </li>

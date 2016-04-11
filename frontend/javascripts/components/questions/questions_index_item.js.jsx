@@ -19,11 +19,21 @@ var QuestionsIndexItem = React.createClass({
       );
     }
 
+    var relevant_topics = [];
+    var relevant;
+    this.props.question.topics.map(function (topic) {
+      relevant_topics.push(topic.name);
+    });
+    relevant_topics.join(', ');
+
+    var time_stamp = "";
+    time_stamp = this.props.question.created_at.slice(11, 16) + " on " + this.props.question.created_at.slice(0, 10);
+
     return(
       <div className="questions-index-item group">
         <h6 className="questions-index-item-title">
           <Link className="questions-index-title" to={ '/questions/' + this.props.question.id } author={ this.props.question.author }>
-            {this.props.question.title}
+            { this.props.question.title }
           </Link>
         </h6>
         <ul className="questions-index-wrap group">
@@ -35,9 +45,13 @@ var QuestionsIndexItem = React.createClass({
               <strong>
                 { this.props.question.author.user_name }
               </strong>
-            </Link> asked this:
+            </Link> in: <strong>{ relevant_topics }</strong> at: { time_stamp }
+          </li>
+          <li className="questions-index-item-author">
+
           </li>
         </ul>
+
         <p className="questions-index-item-body">{ this.props.question.body } </p>
         { deleteButton }
       </div>

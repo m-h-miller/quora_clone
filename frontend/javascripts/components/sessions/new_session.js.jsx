@@ -1,5 +1,5 @@
 var React = require('react'),
-    History = require('react-router').History;
+    History = require('react-router').History,
     SessionsApiUtil = require('../../util/sessions_api_util.js');
 
 var SessionForm = React.createClass({
@@ -44,22 +44,22 @@ var SessionForm = React.createClass({
             <a className="facebook"
               href="/auth/facebook"> Log in with Facebook </a>
             <form className="new-session-form group" onSubmit={ this.submit }>
-              <label>
-                Username
+              <label> Username
                 <input type="text" name="user_name" />
               </label>
-              <label>
-                Password
+              <label> Password
                 <input type="password" name="password" />
               </label>
-              <br/>
+
               <button> Sign In </button>
-              <button>
+
+              <button className="continue-button">
                 <a href="#/signup"> Sign up </a>
               </button>
-            <button onClick={ this.handleContinue } className="continue-button">
-              Continue as Guest
-            </button>
+
+              <button onClick={ this.handleContinue } className="continue-button">
+                Continue as Guest
+              </button>
             </form>
           </div>
         </div>
