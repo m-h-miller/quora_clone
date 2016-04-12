@@ -1,28 +1,22 @@
 var React = require('react'),
     TopicStore = require('../stores/topics.js'),
-    FilterStore = require('../stores/filters.js'),
     CheckboxGroup = require('react-checkbox-group'),
-    TopicsApiUtil = require('../util/topics_api_util.js'),
-    FiltersApiUtil = require('../util/filters_api_util.js');
+    TopicsApiUtil = require('../util/topics_api_util.js');
 
 var SideBar = React.createClass({
 
   getInitialState: function () {
     return {
       value: [],
-      allTopics: TopicStore.allTopics(),
-      filters: FilterStore.allFilters()
+      allTopics: TopicStore.allTopics()
     };
   },
 
   componentDidMount: function () {
-    this.filter_listener = FilterStore.addListener(this.handleChange);
     this.topic_listener = TopicStore.addListener(this._change);
-    TopicsApiUtil.loadAllTopics();
   },
 
   componentWillUnmount: function() {
-    this.filter_listener.remove();
     this.topic_listener.remove();
   },
 
@@ -32,7 +26,7 @@ var SideBar = React.createClass({
 
   handleChange: function () {
     var selected = this.refs.topicsGroup.getCheckedValues();
-    FiltersApiUtil.updateTopics(selected);
+    TopicsApiUtil.updateSideBarFilters(selected);
   },
 
   render: function () {

@@ -2,7 +2,6 @@ var React = require('react'),
     CurrentUserStore = require('../stores/current_user_store.js'),
     SessionsApiUtil = require('../util/sessions_api_util.js'),
     Header = require('./header.js.jsx'),
-    // need to double-check whether this is a necessary require
     History = require('react-router').History;
 
 var App = React.createClass({

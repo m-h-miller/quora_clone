@@ -10,9 +10,9 @@ var TopicActions = {
     });
   },
 
-  updateTopics: function (topics) {
+  updateSideBarFilters: function (topics) {
     Dispatcher.dispatch({
-      actionType: TopicConstants.TOPICS_UPDATED,
+      actionType: TopicConstants.UPDATE_SIDEBAR_FILTERS,
       topics: topics
     });
   },

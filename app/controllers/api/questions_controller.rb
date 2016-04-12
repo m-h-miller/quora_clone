@@ -11,7 +11,7 @@ class Api::QuestionsController < ApplicationController
     # this is my old query from before using the kaminari gem
 
     page_number = params[:pageNum] || 1
-    @questions = Question.includes(author: [:questions, :answers], answers: [:author], question_topics: [:topic])
+    @questions = Question.includes(author: [:questions, :answers], answers: [:author]).includes(:topics)
       .order(created_at: :desc)
       .page(page_number)
   end

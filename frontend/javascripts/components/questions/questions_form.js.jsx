@@ -61,7 +61,6 @@ var QuestionsForm = React.createClass({
         <div>
           <label htmlFor='question_body'>Topics:</label>
           <CheckboxGroup name="topics" value={ this.state.value } ref="questionTopicsGroup">
-
             {allTopics.map(function (topic) {
               return(
                 <div className="questionsFormTopicListItem" key={ topic.id }>

@@ -1,13 +1,13 @@
 var React = require('react'),
     QuestionStore = require('../../stores/questions.js'),
     TopicStore = require('../../stores/topics.js'),
-    QuestionsIndexItem = require('./questions_index_item.js.jsx')
+    QuestionsIndexItem = require('./questions_index_item.js.jsx'),
     ApiUtil = require('../../util/api_util.js');
 
 var QuestionsIndex = React.createClass({
   getInitialState: function () {
     var _qs = QuestionStore.all();
-    var _ts = TopicStore.all();
+    var _ts = TopicStore.allFilters();
     return { questions: _qs, topics: _ts, page: 1 };
   },
 
@@ -23,7 +23,7 @@ var QuestionsIndex = React.createClass({
   },
 
   _change: function () {
-    this.setState({ questions: QuestionStore.all(), topics: TopicStore.all() });
+    this.setState({ questions: QuestionStore.all(), selected_topics: TopicStore.allFilters() });
   },
 
   handleClick: function(){
@@ -43,17 +43,19 @@ var QuestionsIndex = React.createClass({
     var page = <span className="page"> { this.state.page } </span>;
 
     var filtered_questions = [],
-        selected_topics = this.state.topics;
+        selected_topics = this.state.selected_topics;
 
-    this.state.questions.forEach(function (q) {
-      var question_topics = q.topics;
+    if (selected_topics) {
+      this.state.questions.map(function (q) {
+        var question_topics = q.topics;
 
-      question_topics.forEach(function (topic) {
-        if (selected_topics.includes(topic.name)) {
-          filtered_questions.push(q);
-        }
+        question_topics.map(function (topic) {
+          if (selected_topics.includes(topic.name)) {
+            filtered_questions.push(q);
+          }
+        });
       });
-    });
+    }
 
           if ( filtered_questions.length !== 0 ) {
             loadMore = <button onClick={this.handleClick} className="load-more">

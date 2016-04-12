@@ -4,36 +4,35 @@ var AppDispatcher = require('./../dispatcher/dispatcher.js'),
 
 var TopicStore = new Store(AppDispatcher);
 
-var _topics = [],
-    _all_topics = [];
+var _filters = [],
+    _topics = [];
 
+var resetFilters = function (topics) {
+  _filters = topics.slice(0);
+};
 
 var resetTopics = function (topics) {
   _topics = topics.slice(0);
 };
 
-var resetAllTopics = function (topics) {
-  _all_topics = topics.slice(0);
-};
-
-TopicStore.all = function () {
-  return _topics.slice(0);
+TopicStore.allFilters = function () {
+  return _filters.slice(0);
 };
 
 TopicStore.allTopics = function () {
-  return _all_topics.slice(0);
+  return _topics.slice(0);
 };
 
 TopicStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
 
-    case TopicConstants.TOPICS_UPDATED:
-        resetTopics(payload.topics);
+    case TopicConstants.UPDATE_SIDEBAR_FILTERS:
+        resetFilters(payload.topics);
         TopicStore.__emitChange();
       break;
 
     case TopicConstants.LOAD_ALL_TOPICS:
-        resetAllTopics(payload.topics);
+        resetTopics(payload.topics);
         TopicStore.__emitChange();
       break;
 
