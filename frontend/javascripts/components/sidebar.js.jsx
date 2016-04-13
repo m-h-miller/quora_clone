@@ -37,7 +37,7 @@ var SideBar = React.createClass({
 
     // TopicsApiUtil.updateSideBarFilters(selected);
     // can it be so simple?
-    _dispatchQuery();
+    this._dispatchQuery();
   },
 
   // handles dropdown selections
@@ -46,7 +46,7 @@ var SideBar = React.createClass({
     this.setState({ filter: filter })
 
     // can it be so simple?
-    _dispatchQuery();
+    this._dispatchQuery();
   },
 
   // called by handleChange & handleFilter

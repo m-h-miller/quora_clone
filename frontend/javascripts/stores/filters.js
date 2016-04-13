@@ -5,7 +5,7 @@ var AppDispatcher = require('./../dispatcher/dispatcher.js'),
 var FilterStore = new Store(AppDispatcher);
 
 var _topics = [],
-    _dropdown;
+    _dropdown = "new";
 
 var resetFilters = function (topics, dropdown) {
   _topics = topics.slice(0);
