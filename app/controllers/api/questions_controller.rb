@@ -8,9 +8,21 @@ class Api::QuestionsController < ApplicationController
 
   def index
     page_number = params[:pageNum] || 1
-    @questions = Question.includes(author: [:questions, :answers], answers: [:author]).includes(:topics)
-      .order(created_at: :desc)
-      .page(page_number)
+
+    if params[:filter] == "new"
+      @questions = Question.includes(author: [:questions, :answers], answers: [:author])
+        .includes(:topics)
+        .order(created_at: :desc)
+        .page(page_number)
+        .per(10)
+    else
+      @questions = Question.includes(author: [:questions, :answers], answers: [:author])
+        .includes(:topics)
+        .order(created_at: :asc)
+        .page(page_number)
+        .per(10)
+      end
+
   end
 
   def show
