@@ -4,26 +4,29 @@ var AppDispatcher = require('./../dispatcher/dispatcher.js'),
 
 var FilterStore = new Store(AppDispatcher);
 
-var _topics = [],
-    _dropdown = "new";
+var _filterTopics = [],
+    _filter = "new";
 
-var resetFilters = function (topics, dropdown) {
-  _topics = topics.slice(0);
-  _dropdown = dropdown.slice(0);
+var resetFilters = function (filter, filterTopics) {
+  console.log("reset filters");
+  console.log(filter);
+  console.log(filterTopics);
+  _filterTopics = filterTopics.slice(0);
+  _filter = filter.slice(0);
 };
 
 FilterStore.all = function () {
   // will this work or do i need an array
   return {
-            topics: _topics.slice(0),
-            dropdown: _dropdown.slice(0)
+            filterTopics: _filterTopics.slice(0),
+            filter: _filter.slice(0)
           };
 };
 
 FilterStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case FilterConstants.UPDATE_FILTERS:
-        resetFilters(payload.topics, payload.dropdown);
+        resetFilters(payload.filter, payload.filterTopics);
         FilterStore.__emitChange();
       break;
   }

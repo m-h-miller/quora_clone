@@ -6,7 +6,8 @@
   "license": "ISC",
   "scripts": {
     "test": "bundle exec rspec",
-    "postinstall": "./node_modules/.bin/webpack"
+    "postinstall": "./node_modules/.bin/webpack",
+    "start": "webpack && rails s"
   },
   "dependencies": {
     "babel-core": "^6.4.5",

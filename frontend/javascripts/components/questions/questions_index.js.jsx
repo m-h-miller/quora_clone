@@ -36,6 +36,7 @@ var QuestionsIndex = React.createClass({
     var filters = FilterStore.all();
     console.log("qIndex _change");
     console.log(filters);
+
     this.setState({
       questions: QuestionStore.all(),
       filterTopics: filters.filterTopics,

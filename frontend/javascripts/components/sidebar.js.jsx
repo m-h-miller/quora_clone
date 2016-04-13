@@ -1,13 +1,13 @@
 var React = require('react'),
     TopicStore = require('../stores/topics.js'),
     CheckboxGroup = require('react-checkbox-group'),
-    ApiUtil = require('../util/api_util.js');
+    ApiUtil = require('../util/api_util.js'),
+    FilterActions = require('../actions/filter_actions.js');
 
 var SideBar = React.createClass({
 
   getInitialState: function () {
     return {
-      value: [],
       allTopics: TopicStore.allTopics(),
       filterTopics: [],
       filter: "new"
@@ -37,7 +37,7 @@ var SideBar = React.createClass({
 
     // TopicsApiUtil.updateSideBarFilters(selected);
     // can it be so simple?
-    this._dispatchQuery();
+    this._dispatchQuery(this.state.filter, selected);
   },
 
   // handles dropdown selections
@@ -46,14 +46,14 @@ var SideBar = React.createClass({
     this.setState({ filter: filter })
 
     // can it be so simple?
-    this._dispatchQuery();
+    this._dispatchQuery(filter, this.state.filterTopics);
   },
 
   // called by handleChange & handleFilter
-  _dispatchQuery: function () {
-    var filter = this.state.filter,
-        filterTopics = this.state.selectedTopics;
-
+  _dispatchQuery: function (filter, filterTopics) {
+    var filter = filter, filterTopics = filterTopics;
+    // update filters in store, then update questions in store
+    FilterActions.updateFilters(filter, filterTopics);
     ApiUtil.loadMoreQuestions2(1, filter, filterTopics);
   },
 
@@ -83,7 +83,7 @@ var SideBar = React.createClass({
             {this.state.allTopics.map(function (topic) {
               return (
               <div key={topic.id}>
-                <input className="topic-box" type="checkbox" value={topic.name} />
+                <input className="topic-box" type="checkbox" value={topic.id} />
                   {topic.name}
               </div>
               );

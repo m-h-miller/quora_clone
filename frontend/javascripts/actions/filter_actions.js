@@ -2,11 +2,11 @@ var Dispatcher = require('../dispatcher/dispatcher.js'),
     FilterConstants = require('../constants/filter_constants.js');
 
 var FilterActions = {
-  updateFilters: function (topics, dropdown) {
+  updateFilters: function (filter, filterTopics) {
     Dispatcher.dispatch({
       actionType: FilterConstants.UPDATE_FILTERS,
-      topics: topics,
-      dropdown: dropdown
+      filter: filter,
+      filterTopics: filterTopics
     });
   },
 };
