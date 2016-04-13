@@ -4,18 +4,19 @@ var AppDispatcher = require('./../dispatcher/dispatcher.js'),
 
 var FilterStore = new Store(AppDispatcher);
 
-var _filter_topics = [],
-    _dropdown_filter;
+var _topics = [],
+    _dropdown;
 
 var resetFilters = function (topics, dropdown) {
-  _filter_topics = topics.slice(0);
-  _dropdown_filter = dropdown.slice(0);
+  _topics = topics.slice(0);
+  _dropdown = dropdown.slice(0);
 };
 
 FilterStore.all = function () {
+  // will this work or do i need an array
   return {
-            filters: _filter_topics.slice(0),
-            dropdown: _dropdown_filter.slice(0)
+            topics: _topics.slice(0),
+            dropdown: _dropdown.slice(0)
           };
 };
 

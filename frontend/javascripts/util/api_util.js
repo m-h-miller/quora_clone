@@ -62,10 +62,16 @@ var ApiUtil = {
     // how will it know the state of the SideBar?
 
   loadMoreQuestions: function (pageNum) {
-    $.get('api/questions', { pageNum: pageNum }, function (questions) {
+    $.get('api/questions', { pageNum: pageNum, }, function (questions) {
       ApiActions.receiveMoreQuestions(questions);
     });
-  }
+  },
+
+  loadMoreQuestions2: function (pageNum, filter, selectedTopics) {
+    $.get('api/questions', { pageNum: pageNum, filter: filter, selectedTopics: selectedTopics }, function (questions) {
+      ApiActions.receiveMoreQuestions(questions);
+    });
+  },
 };
 
 module.exports = ApiUtil;

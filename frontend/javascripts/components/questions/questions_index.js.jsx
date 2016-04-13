@@ -8,54 +8,72 @@ var QuestionsIndex = React.createClass({
   getInitialState: function () {
     var _qs = QuestionStore.all();
     var _filters = FilterStore.all();
+    console.log('Q_index - GIS');
+    console.log(_filters);
     return {
       questions: _qs,
-      topics: _ts,
       filterTopics: _filters.topics,
-      dropdown: _filters.dropdown,
+      filter: _filters.filter,
+      all_filters: _filters,
       page: 1
     };
   },
 
   componentDidMount: function () {
-    this.listener = QuestionStore.addListener(this._change);
+    this.question_listener = QuestionStore.addListener(this._change);
     this.filter_listener = FilterStore.addListener(this._change);
-    ApiUtil.loadMoreQuestions(this.state.page);
+    var filter = this.state.filter,
+        filterTopics = this.state.filterTopics;
+    ApiUtil.loadMoreQuestions2(this.state.page, filter, filterTopics);
   },
 
   componentWillUnmount: function () {
-    this.listener.remove();
-    this.topic_listener.remove();
+    this.question_listener.remove();
+    this.filter_listener.remove();
   },
 
   _change: function () {
-    this.setState({ questions: QuestionStore.all(), selected_topics: TopicStore.allFilters() });
+    var filters = FilterStore.all();
+    console.log("qIndex _change");
+    console.log(filters);
+    this.setState({
+      questions: QuestionStore.all(),
+      filterTopics: filters.filterTopics,
+      filter: filters.filter
+    });
   },
 
   handleClick: function(){
     pageNumber = this.state.page + 1;
-    ApiUtil.loadMoreQuestions(pageNumber);
+    var filter = this.state.filter,
+        filterTopics = this.state.filterTopics;
+
+    ApiUtil.loadMoreQuestions2(pageNumber, filter, filterTopics);
     this.setState({ page: pageNumber });
   },
 
   handleBack: function(){
     pageNumber = this.state.page - 1;
-    ApiUtil.loadMoreQuestions(pageNumber);
+    var filter = this.state.filter,
+        filterTopics = this.state.filterTopics;
+
+    ApiUtil.loadMoreQuestions2(pageNumber, filter, filterTopics );
     this.setState({ page: pageNumber });
   },
 
   render: function () {
     var loadMore, back, no_content_message;
-    var page = <span className="page"> { this.state.page } </span>;
 
     var filtered_questions = [],
-        selected_topics = this.state.selected_topics;
+        filterTopics = this.state.filterTopics;
 
-    if (selected_topics) {
+    if (filterTopics) {
       this.state.questions.map(function (q) {
         var question_topics = q.topics;
         question_topics.map(function (topic) {
-          if (selected_topics.includes(topic.name)) {
+
+          // i do not believe filterTopics is an array anymore
+          if (filterTopics.includes(topic.name)) {
             filtered_questions.push(q);
           }
         });
@@ -90,7 +108,7 @@ var QuestionsIndex = React.createClass({
         <div className="page-center-footer">
           { back }
           { loadMore }
-          { page }
+          <span className="page"> { this.state.page } </span>;
         </div>
       </div>
     );

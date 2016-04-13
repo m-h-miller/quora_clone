@@ -9,7 +9,7 @@ var SideBar = React.createClass({
     return {
       value: [],
       allTopics: TopicStore.allTopics(),
-      selectedTopics: [],
+      filterTopics: [],
       filter: "new"
     };
   },
@@ -29,33 +29,32 @@ var SideBar = React.createClass({
   // handles checkbox selections
   handleCheckbox: function () {
     var selected = this.refs.topicsGroup.getCheckedValues();
-    this.setState({ selectedTopics: selected });
+    this.setState({ filterTopics: selected });
 
+    // double check. this is just triggering a re-render
+    // of Q-index, but logic for that will go through
+    // Q store once I have this dispatching queries
 
-    TopicsApiUtil.updateSideBarFilters(selected);
-
+    // TopicsApiUtil.updateSideBarFilters(selected);
     // can it be so simple?
-    dispatchQuery();
+    _dispatchQuery();
   },
 
   // handles dropdown selections
   handleSelect: function (e) {
     var filter = e.target.value;
-    this.setState({ pageNum: 1, filter: filter })
+    this.setState({ filter: filter })
 
     // can it be so simple?
-    dispatchQuery();
+    _dispatchQuery();
   },
 
   // called by handleChange & handleFilter
-  dispatchQuery: function () {
+  _dispatchQuery: function () {
     var filter = this.state.filter,
-        selectedTopics = this.state.selectedTopics;
+        filterTopics = this.state.selectedTopics;
 
-    // pageNum, filter, topic_ids
-    // needs to be refactored
-    heeeeeeerrrrrrrrrrrrrreeeeeeeee
-    ApiUtil.loadMoreQuestions(1, filter, selectedTopics);
+    ApiUtil.loadMoreQuestions2(1, filter, filterTopics);
   },
 
 
