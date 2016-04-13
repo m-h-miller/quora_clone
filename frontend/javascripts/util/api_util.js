@@ -56,11 +56,7 @@ var ApiUtil = {
     });
   },
 
-  // this is currently my primary query
-    // i will have to extend it with params for: filters + topics
-    // but, when dispatched from index page (forward/back page buttons)
-    // how will it know the state of the SideBar?
-
+  // currently used only by redirects, need to fix those
   loadMoreQuestions: function (pageNum) {
     $.get('api/questions', { pageNum: pageNum, }, function (questions) {
       ApiActions.receiveMoreQuestions(questions);

@@ -13,22 +13,17 @@ var QuestionsIndexItem = React.createClass({
     var deleteButton;
 
     if ( this.props.question.author.user_name === CurrentUserStore.currentUser().user_name ) {
-      deleteButton = (
-        <p className="delete-button">
-          <button onClick={ this.deleteQuestion }>DELETE</button>
-        </p>
-      );
+      deleteButton = (<p className="delete-button"> <button onClick={ this.deleteQuestion }>DELETE</button> </p>);
     }
 
+    // join topics with commas
     var relevant_topics = [];
     this.props.question.topics.map(function (topic) {
       relevant_topics.push(topic.name);
     });
-    relevant_topics = relevant_topics.join(', ');
-
-    console.log("alternate");
-    console.log(this.props.question.topics.join(", "));
-
+    if ( relevant_topics.length > 1){
+      relevant_topics = relevant_topics.join(', ');
+    }
     var time_stamp = this.props.question.created_at.slice(11, 16) + " on " + this.props.question.created_at.slice(0, 10);
 
     return(

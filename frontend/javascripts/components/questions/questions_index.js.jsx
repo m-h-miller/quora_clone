@@ -8,8 +8,6 @@ var QuestionsIndex = React.createClass({
   getInitialState: function () {
     var _qs = QuestionStore.all();
     var _filters = FilterStore.all();
-    console.log('Q_index - GIS');
-    console.log(_filters);
     return {
       questions: _qs,
       filterTopics: _filters.topics,
@@ -34,9 +32,6 @@ var QuestionsIndex = React.createClass({
 
   _change: function () {
     var filters = FilterStore.all();
-    console.log("qIndex _change");
-    console.log(filters);
-
     this.setState({
       questions: QuestionStore.all(),
       filterTopics: filters.filterTopics,
@@ -58,37 +53,39 @@ var QuestionsIndex = React.createClass({
     var filter = this.state.filter,
         filterTopics = this.state.filterTopics;
 
-    ApiUtil.loadMoreQuestions2(pageNumber, filter, filterTopics );
+    ApiUtil.loadMoreQuestions2(pageNumber, filter, filterTopics);
     this.setState({ page: pageNumber });
   },
 
   render: function () {
-    var loadMore, back, no_content_message;
+    var back_button, forward_button, no_content_message;
 
-    var filtered_questions = [],
-        filterTopics = this.state.filterTopics;
+    // var filtered_questions = [],
+    //     filterTopics = this.state.filterTopics;
+    //
+    // if (filterTopics) {
+    //   this.state.questions.map(function (q) {
+    //     var question_topics = q.topics;
+    //     question_topics.map(function (topic) {
+    //
+    //       // i do not believe filterTopics is an array anymore
+    //       if (filterTopics.includes(topic.name)) {
+    //         filtered_questions.push(q);
+    //       }
+    //     });
+    //   });
+    // }
 
-    if (filterTopics) {
-      this.state.questions.map(function (q) {
-        var question_topics = q.topics;
-        question_topics.map(function (topic) {
+    var qz = this.state.questions;
 
-          // i do not believe filterTopics is an array anymore
-          if (filterTopics.includes(topic.name)) {
-            filtered_questions.push(q);
-          }
-        });
-      });
-    }
-
-    if ( filtered_questions.length !== 0 ) {
-      loadMore = <button onClick={ this.handleClick } className="load-more"> <span> load more! </span> </button>;
+    if ( qz.length !== 0 ) {
+      forward_button = <button onClick={ this.handleClick } className="load-more"> <span> more! </span> </button>;
     } else {
       no_content_message = <div className="no_content"> Select topics in the Sidebar to display content! </div>;
     }
 
     if ( this.state.page !== 1 ){
-      back = <button onClick={ this.handleBack } className="load-more"> <span> go back! </span> </button>;
+      back_button = <button onClick={ this.handleBack } className="load-more"> <span> back! </span> </button>;
     }
 
     return(
@@ -98,7 +95,7 @@ var QuestionsIndex = React.createClass({
 
         </div>
 
-        {filtered_questions.map(function (question) {
+        {qz.map(function (question) {
           return <QuestionsIndexItem
                   key={ question.id }
                   question={ question } />;
@@ -107,8 +104,8 @@ var QuestionsIndex = React.createClass({
         { no_content_message }
 
         <div className="page-center-footer">
-          { back }
-          { loadMore }
+          { back_button }
+          { forward_button }
           <span className="page"> { this.state.page } </span>
         </div>
       </div>
