@@ -1,6 +1,6 @@
 var React = require('react'),
     QuestionStore = require('../../stores/questions.js'),
-    TopicStore = require('../../stores/topics.js'),
+    FilterStore = require('../../stores/filters.js'),
     QuestionsIndexItem = require('./questions_index_item.js.jsx'),
     ApiUtil = require('../../util/api_util.js');
 
