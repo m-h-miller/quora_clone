@@ -7,22 +7,22 @@ var React = require('react'),
 var QuestionsIndex = React.createClass({
   getInitialState: function () {
     var _qs = QuestionStore.all();
-    var _filters = FilterStore.all();
+    // var _filters = FilterStore.all();
     return {
       questions: _qs,
-      filterTopics: _filters.topics,
-      filter: _filters.filter,
-      all_filters: _filters,
+      // filterTopics: _filters.topics,
+      // filter: _filters.filter,
+      // all_filters: _filters,
       page: 1
     };
   },
 
   componentDidMount: function () {
-    this.question_listener = QuestionStore.addListener(this._change);
-    this.filter_listener = FilterStore.addListener(this._change);
-    var filter = this.state.filter,
-        filterTopics = this.state.filterTopics;
-    ApiUtil.loadMoreQuestions2(this.state.page, filter, filterTopics);
+    this.question_listener = QuestionStore.addListener(this._questionsChange);
+    // this.filter_listener = FilterStore.addListener(this._filtersChange);
+    // var filter = this.state.filter,
+        // filterTopics = this.state.filterTopics;
+    ApiUtil.fetchAllQuestions();
   },
 
   componentWillUnmount: function () {
@@ -30,10 +30,16 @@ var QuestionsIndex = React.createClass({
     this.filter_listener.remove();
   },
 
-  _change: function () {
+  _questionsChange: function () {
+    this.setState({ questions: QuestionStore.all() });
+  },
+
+  _filtersChange: function () {
     var filters = FilterStore.all();
+    var filter = filters.filter,
+        filterTopics = filters.filterTopics;
+
     this.setState({
-      questions: QuestionStore.all(),
       filterTopics: filters.filterTopics,
       filter: filters.filter
     });
@@ -60,23 +66,9 @@ var QuestionsIndex = React.createClass({
   render: function () {
     var back_button, forward_button, no_content_message;
 
-    // var filtered_questions = [],
-    //     filterTopics = this.state.filterTopics;
-    //
-    // if (filterTopics) {
-    //   this.state.questions.map(function (q) {
-    //     var question_topics = q.topics;
-    //     question_topics.map(function (topic) {
-    //
-    //       // i do not believe filterTopics is an array anymore
-    //       if (filterTopics.includes(topic.name)) {
-    //         filtered_questions.push(q);
-    //       }
-    //     });
-    //   });
-    // }
-
     var qz = this.state.questions;
+    console.log(qz);
+    console.log('rendering');
 
     if ( qz.length !== 0 ) {
       forward_button = <button onClick={ this.handleClick } className="load-more"> <span> more! </span> </button>;

@@ -27,4 +27,17 @@ class Question < ActiveRecord::Base
   has_many :topics, through: :question_topics, source: :topic
 
   accepts_nested_attributes_for :question_topics
+
+  # private
+  #   def self.topical(topic_ids_array)
+  #     if !topic_ids_array.nil?
+  #       topic_ids_array.select!{ |x| x.is_a? Integer }
+  #       # subquery = Topic.where(id: topic_ids_array)
+  #       Question.joins(:topics)
+  #         .where('topics.id' => topic_ids_array )
+  #     else
+  #       self
+  #     end
+  #   end
+
 end
