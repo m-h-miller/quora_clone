@@ -8,7 +8,6 @@ var TopicsApiUtil = {
     })
   },
 
-
   // sidebar calls this
   updateSideBarFilters: function (topics) {
     TopicActions.updateSideBarFilters(topics);

@@ -2,6 +2,7 @@ var ApiActions = require('../actions/api_actions.js');
 
 var ApiUtil = {
 
+  // possibly un-used
   fetchAllQuestions: function () {
     $.get('api/questions', function (questions) {
       ApiActions.receiveAllQuestions(questions);
@@ -54,6 +55,11 @@ var ApiUtil = {
       callback && callback(answer.question_id);
     });
   },
+
+  // this is currently my primary query
+    // i will have to extend it with params for: filters + topics
+    // but, when dispatched from index page (forward/back page buttons)
+    // how will it know the state of the SideBar?
 
   loadMoreQuestions: function (pageNum) {
     $.get('api/questions', { pageNum: pageNum }, function (questions) {

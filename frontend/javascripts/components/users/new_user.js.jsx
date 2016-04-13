@@ -18,10 +18,6 @@ var UserForm = React.createClass({
   },
 
   changeFile: function (e) {
-
-    // need to figure out Docs for this function
-    // & write some topical comments here.
-
     var reader = new FileReader();
     var file = e.currentTarget.files[0];
     var that = this;
@@ -74,16 +70,13 @@ var UserForm = React.createClass({
           </div>
           <div className="new-session-form-wrapper">
             <form className="new-session-form group" onSubmit={ this.handleSubmit }>
-              <label>
-                Username
+              <label> Username
                 <input type="text" id="user_name" valueLink={this.linkState('user_name')} />
               </label>
-              <label>
-                Password
+              <label> Password
                 <input type="password" id="password" valueLink={ this.linkState('password') } />
               </label>
-              <label>
-                Avatar
+              <label> Picture
                 <input type="file" onChange={this.changeFile} />
               </label>
                 <br/>
@@ -91,7 +84,7 @@ var UserForm = React.createClass({
                 Sign Up
               </button>
               <button>
-                <a href="#/signin"> Sign in </a>
+                <a href="#/signin" style={{color:"#FFF"}}> Sign in </a>
               </button>
             </form>
           </div>

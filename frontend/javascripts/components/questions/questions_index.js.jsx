@@ -7,13 +7,19 @@ var React = require('react'),
 var QuestionsIndex = React.createClass({
   getInitialState: function () {
     var _qs = QuestionStore.all();
-    var _ts = TopicStore.allFilters();
-    return { questions: _qs, topics: _ts, page: 1 };
+    var _filters = FilterStore.all();
+    return {
+      questions: _qs,
+      topics: _ts,
+      filterTopics: _filters.topics,
+      dropdown: _filters.dropdown,
+      page: 1
+    };
   },
 
   componentDidMount: function () {
     this.listener = QuestionStore.addListener(this._change);
-    this.topic_listener = TopicStore.addListener(this._change);
+    this.filter_listener = FilterStore.addListener(this._change);
     ApiUtil.loadMoreQuestions(this.state.page);
   },
 
@@ -39,7 +45,7 @@ var QuestionsIndex = React.createClass({
   },
 
   render: function () {
-    var loadMore, back, no_content;
+    var loadMore, back, no_content_message;
     var page = <span className="page"> { this.state.page } </span>;
 
     var filtered_questions = [],
@@ -48,7 +54,6 @@ var QuestionsIndex = React.createClass({
     if (selected_topics) {
       this.state.questions.map(function (q) {
         var question_topics = q.topics;
-
         question_topics.map(function (topic) {
           if (selected_topics.includes(topic.name)) {
             filtered_questions.push(q);
@@ -57,29 +62,31 @@ var QuestionsIndex = React.createClass({
       });
     }
 
-          if ( filtered_questions.length !== 0 ) {
-            loadMore = <button onClick={this.handleClick} className="load-more">
-              <span> load more! </span>
-            </button>;
-          } else {
-            no_content = <div className="no_content"> Select topics in the Sidebar to display content! </div>;
-          }
+    if ( filtered_questions.length !== 0 ) {
+      loadMore = <button onClick={ this.handleClick } className="load-more"> <span> load more! </span> </button>;
+    } else {
+      no_content_message = <div className="no_content"> Select topics in the Sidebar to display content! </div>;
+    }
 
-          if ( this.state.page !== 1 ){
-            back = <button onClick={this.handleBack} className="load-more">
-              <span> go back! </span>
-            </button>;
-          }
+    if ( this.state.page !== 1 ){
+      back = <button onClick={ this.handleBack } className="load-more"> <span> go back! </span> </button>;
+    }
 
     return(
       <div className="page-center">
-        <h2 className="main-body-title">Top Stories</h2>
-          {filtered_questions.map(function (question) {
-            return <QuestionsIndexItem
-                    key={question.id}
-                    question={question} />;
-          })}
-          { no_content }
+        <div className="main-body-title">
+          <h2>Top Stories</h2>
+
+        </div>
+
+        {filtered_questions.map(function (question) {
+          return <QuestionsIndexItem
+                  key={ question.id }
+                  question={ question } />;
+        })}
+
+        { no_content_message }
+
         <div className="page-center-footer">
           { back }
           { loadMore }

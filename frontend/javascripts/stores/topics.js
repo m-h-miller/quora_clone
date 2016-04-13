@@ -4,19 +4,10 @@ var AppDispatcher = require('./../dispatcher/dispatcher.js'),
 
 var TopicStore = new Store(AppDispatcher);
 
-var _filters = [],
-    _topics = [];
-
-var resetFilters = function (topics) {
-  _filters = topics.slice(0);
-};
+var _topics = [];
 
 var resetTopics = function (topics) {
   _topics = topics.slice(0);
-};
-
-TopicStore.allFilters = function () {
-  return _filters.slice(0);
 };
 
 TopicStore.allTopics = function () {
@@ -25,17 +16,10 @@ TopicStore.allTopics = function () {
 
 TopicStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
-
-    case TopicConstants.UPDATE_SIDEBAR_FILTERS:
-        resetFilters(payload.topics);
-        TopicStore.__emitChange();
-      break;
-
     case TopicConstants.LOAD_ALL_TOPICS:
         resetTopics(payload.topics);
         TopicStore.__emitChange();
       break;
-
   }
 };
 

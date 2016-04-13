@@ -1,7 +1,8 @@
 var React = require('react'),
     ReactRouter = require('react-router'),
     Link = ReactRouter.Link,
-    CurrentUserStore = require('../../stores/current_user_store.js');
+    CurrentUserStore = require('../../stores/current_user_store.js'),
+    ApiUtil = require('../../util/api_util.js');
 
 var QuestionsIndexItem = React.createClass({
   deleteQuestion: function () {
@@ -20,14 +21,15 @@ var QuestionsIndexItem = React.createClass({
     }
 
     var relevant_topics = [];
-    var relevant;
     this.props.question.topics.map(function (topic) {
       relevant_topics.push(topic.name);
     });
-    relevant_topics.join(', ');
+    relevant_topics = relevant_topics.join(', ');
 
-    var time_stamp = "";
-    time_stamp = this.props.question.created_at.slice(11, 16) + " on " + this.props.question.created_at.slice(0, 10);
+    console.log("alternate");
+    console.log(this.props.question.topics.join(", "));
+
+    var time_stamp = this.props.question.created_at.slice(11, 16) + " on " + this.props.question.created_at.slice(0, 10);
 
     return(
       <div className="questions-index-item group">
@@ -46,9 +48,6 @@ var QuestionsIndexItem = React.createClass({
                 { this.props.question.author.user_name }
               </strong>
             </Link> in: <strong>{ relevant_topics }</strong> at: { time_stamp }
-          </li>
-          <li className="questions-index-item-author">
-
           </li>
         </ul>
 

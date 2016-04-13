@@ -8,15 +8,7 @@ var TopicActions = {
       actionType: TopicConstants.LOAD_ALL_TOPICS,
       topics: topics
     });
-  },
-
-  updateSideBarFilters: function (topics) {
-    Dispatcher.dispatch({
-      actionType: TopicConstants.UPDATE_SIDEBAR_FILTERS,
-      topics: topics
-    });
-  },
-
+  }
 };
 
 module.exports = TopicActions;
