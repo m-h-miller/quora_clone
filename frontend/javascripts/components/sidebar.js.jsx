@@ -1,7 +1,7 @@
 var React = require('react'),
     TopicStore = require('../stores/topics.js'),
     CheckboxGroup = require('react-checkbox-group'),
-    TopicsApiUtil = require('../util/topics_api_util.js');
+    ApiUtil = require('../util/api_util.js');
 
 var SideBar = React.createClass({
 

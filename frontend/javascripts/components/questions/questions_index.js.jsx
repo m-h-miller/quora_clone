@@ -108,7 +108,7 @@ var QuestionsIndex = React.createClass({
         <div className="page-center-footer">
           { back }
           { loadMore }
-          <span className="page"> { this.state.page } </span>;
+          <span className="page"> { this.state.page } </span>
         </div>
       </div>
     );
