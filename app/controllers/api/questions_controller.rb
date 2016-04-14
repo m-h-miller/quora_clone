@@ -18,12 +18,17 @@ class Api::QuestionsController < ApplicationController
 
     topics_ids_array = params[:selectedTopics]
 
-    # if params[:filter] == "new"
-    @questions = Question.includes(author: [:questions, :answers], answers: [:author])
+    @questions = Question
+      .joins(:question_topics)
+      .where('question_topics.topic_id' => topics_ids_array)
+      .select('distinct questions.*')
+      .includes(author: [:questions, :answers], answers: [:author])
       .includes(:topics)
       .order(created_at: order)
       .page(page_number)
       .per(10)
+
+      puts @questions
   end
 
   def show

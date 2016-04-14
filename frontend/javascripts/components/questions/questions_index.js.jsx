@@ -10,7 +10,7 @@ var QuestionsIndex = React.createClass({
     // var _filters = FilterStore.all();
     return {
       questions: _qs,
-      // filterTopics: _filters.topics,
+      filterTopics: _filters.topics,
       // filter: _filters.filter,
       // all_filters: _filters,
       page: 1
@@ -19,9 +19,8 @@ var QuestionsIndex = React.createClass({
 
   componentDidMount: function () {
     this.question_listener = QuestionStore.addListener(this._questionsChange);
-    // this.filter_listener = FilterStore.addListener(this._filtersChange);
-    // var filter = this.state.filter,
-        // filterTopics = this.state.filterTopics;
+    this.filter_listener = FilterStore.addListener(this._filtersChange);
+    var filterTopics = this.state.filterTopics;
     ApiUtil.fetchAllQuestions();
   },
 
