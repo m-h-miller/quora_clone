@@ -1,0 +1,9 @@
+.page-left {
+  /*display:block;*/
+  /*float:left;*/
+  width: 150px;
+  margin-right:30px;
+  position: fixed;
+  top: 100px;
+  left: 125px;
+}

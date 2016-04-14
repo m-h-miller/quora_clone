@@ -65,8 +65,6 @@ var QuestionsIndex = React.createClass({
   render: function () {
     var back_button, forward_button, no_content_message;
     var qz = this.state.questions;
-    console.log(qz);
-    console.log('rendering');
 
     if ( qz.length !== 0 ) {
       forward_button = <button onClick={ this.handleClick } className="load-more"> <span> more! </span> </button>;

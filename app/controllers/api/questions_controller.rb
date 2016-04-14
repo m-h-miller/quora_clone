@@ -7,7 +7,8 @@ class Api::QuestionsController < ApplicationController
   end
 
   def index
-    page_number = params[:pageNum] || 1
+    page = params[:pageNum] || 1
+    topics = params[:selectedTopics]
 
     case params[:filter]
     when 'old'
@@ -16,23 +17,15 @@ class Api::QuestionsController < ApplicationController
         order = :desc
     end
 
-    topics_ids_array = params[:selectedTopics]
-
     @questions = Question
-      .joins(:question_topics)
-      .where('question_topics.topic_id' => topics_ids_array)
-      .select('distinct questions.*')
-      .includes(author: [:questions, :answers], answers: [:author])
-      .includes(:topics)
+      .joins(:question_topics).where('question_topics.topic_id' => topics).select('distinct questions.*')
+      .includes(:author, :topics)
       .order(created_at: order)
-      .page(page_number)
-      .per(10)
-
-      puts @questions
+      .page(page).per(10)
   end
 
   def show
-    @question = Question.find(params[:id])
+    @question = Question.includes(author: [:questions, :answers], answers: [:author]).find(params[:id])
   end
 
   def create

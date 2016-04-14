@@ -8,7 +8,6 @@ var QuestionStore = new Store(AppDispatcher),
     _answers = [];
 
 var resetQuestions = function (questions) {
-  console.log("resetting questions in store");
   _questions = questions.slice(0);
 };
 
