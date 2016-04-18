@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
   include PgSearch
+  include Votable
   multisearchable :against => [:title, :body],
                   :using => {
                     :tsearch => {:prefix => true}
