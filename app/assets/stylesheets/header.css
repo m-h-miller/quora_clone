@@ -60,6 +60,19 @@
 
 }
 
+#ask-question {
+  background-color: #3E78AD;
+  padding: 5px;
+  color: #FFF;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: normal
+}
+
+.header-text-link {
+  padding: 27px;
+}
+
 /*.header-nav > ul > li {
   position:relative;
   float: left;
@@ -83,16 +96,3 @@
   background: #fff;
   width: 300px;
 }*/
-
-#ask-question {
-  background-color: #3E78AD;
-  padding: 5px;
-  color: #FFF;
-  border-radius: 5px;
-  font-size: 15px;
-  font-weight: normal
-}
-
-.header-text-link {
-  padding: 27px;
-}

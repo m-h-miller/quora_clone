@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
     source: :answers
   )
 
+  has_many :user_votes, inverse_of: :user
+
   def self.find_by_credentials(user_name, password)
     return nil unless user_name && password
     user = User.find_by(user_name: user_name)
