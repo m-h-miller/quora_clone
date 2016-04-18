@@ -9,6 +9,14 @@ var QuestionsIndexItem = React.createClass({
     ApiUtil.deleteQuestion(this.props.question.id);
   },
 
+  upvote: function () {
+    VotingUtil.upvote(this.props.question.id);
+  },
+
+  downvote: function () {
+    VotingUtil.downvote(this.props.question.id);
+  },
+
   render: function () {
     var deleteButton;
 
@@ -48,6 +56,8 @@ var QuestionsIndexItem = React.createClass({
 
         <p className="questions-index-item-body">{ this.props.question.body } </p>
         { deleteButton }
+        <button name="upvote" onClick={ this.upvote }>UPVOTE</button>
+        <button name="upvote" onClick={ this.upvote }>UPVOTE</button>
       </div>
     );
   }
