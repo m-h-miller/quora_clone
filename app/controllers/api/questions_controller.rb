@@ -10,12 +10,7 @@ class Api::QuestionsController < ApplicationController
     page = params[:pageNum] || 1
     topics = params[:selectedTopics]
 
-    case params[:filter]
-    when 'old'
-        order = :asc
-    else
-        order = :desc
-    end
+    params[:filter] == 'old' ? order = :asc : order = :desc
 
     @questions = Question
       .joins(:question_topics).where('question_topics.topic_id' => topics).select('distinct questions.*')
