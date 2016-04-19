@@ -1,5 +1,4 @@
 # Quorum
-
 [Deployed via Heroku][heroku]
 [heroku]: http://quorum-app.herokuapp.com
 
@@ -16,7 +15,8 @@ Quorum allows users to:
 - [ ] Tag questions with multiple Topics.
 - [ ] View feeds based on Topics.
 - [ ] Search for Questions, Users, and Answers.
-
+- [ ] Pagination / infinite scroll for content.
+- [ ] Voting functionality.
 
 ## Design Docs
 * [View Wireframes][view]
@@ -41,16 +41,16 @@ Topics offered a unique challenge when building Quorum. Using a single join tabl
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication & Heroku Deployment (1.5 days)
+### Phase 1: User Authentication & Heroku Deployment (2 days)
 
-In Phase 1, I implemented user signup and authentication using BCrypt. Users are redirected to a landing page after signup that contains the application's root React component. Users are able to upload a profile picture via the Paperclip Gem, which is stored on Amazon Web Services' S3 Cloud Storage.
+In Phase 1, I implemented user signup and authentication functionality using BCrypt. Users can likewise sign in securely with Facebook, via OAuth. Users are redirected to a landing page after signup that contains the application's root React component. Users are able to upload a profile picture via the Paperclip Gem, which is stored on Amazon Web Services' S3 Cloud Storage.
 
 [Details][phase-one]
 ^^^^^
 
 ### Phase 2: Backend, Associations & JSON API (2.5 days)
 
-In phase 2, I built the Rails back-end for my app. It serves a JSON API, to be digested by the JavaScript front-end. Quorum has several challenges in building its associations. For example, Topics required join tables for both Questions and Users. Rails lacked built-in methods for querying the many-to-many relationship for several topics worth of questions. I ended up with a fairly complex base query for questions:
+In phase 2, I built the Rails back-end for my Minimum Viable Product app. It serves a JSON API, to be digested by the JavaScript front-end. Quorum has several challenges in building its associations. For example, Topics required join tables for both Questions and Users. Rails lacked built-in methods for querying the many-to-many relationship for several topics worth of questions. I ended up with a fairly complex base query for questions:
 
     @questions = Question
       .joins(:question_topics)
@@ -58,7 +58,7 @@ In phase 2, I built the Rails back-end for my app. It serves a JSON API, to be d
       .select('distinct questions.*')*
       .includes(:topics)
 
-Optimizing the back-end was a fascinating problem for me. I chose to write several nested JSON views, as minimalist as possible, so that I could serve up only what was required for a given action.
+Optimizing the back-end was a fascinating problem for me. I chose to write several nested JSON views, as minimalist as possible, so that I could serve up only what was absolutely necessary.
 
 ### Phase Voting
 
@@ -86,22 +86,14 @@ Phase 3 adds organization to the Questions. Questions belong to a Topics, which 
 
 [Details][phase-three]
 
-### Phase 4: Allow Complex Styling in Question (1 day)
 
-...
-
-[Details][phase-four]
-
-### Phase 5: Styling Cleanup and Seeding (2 days)
+### Phase 5: Styling Cleanup and Seeding (3 days)
 
 I will do all of the styling throughout the project, but I am reserving this time to truly polish the design.
 
 [Details][phase-five]
 
 
-### Bonus Features (TBD)
-- [X] Pagination / infinite scroll for Indeces.
-- [ ] Voting functionality.
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
