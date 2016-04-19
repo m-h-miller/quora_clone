@@ -3,7 +3,7 @@ var React = require('react'),
     Link = ReactRouter.Link,
     CurrentUserStore = require('../../stores/current_user_store.js'),
     ApiUtil = require('../../util/api_util.js'),
-    UpvoteButton = require('../upvote_button.js.jsx');
+    QuestionUpvoteButton = require('./question_upvote_button.js.jsx');
 
 var QuestionsIndexItem = React.createClass({
   deleteQuestion: function () {
@@ -54,7 +54,7 @@ var QuestionsIndexItem = React.createClass({
         <p className="questions-index-item-body">{ this.props.question.body } </p>
 
         { deleteButton }
-        <UpvoteButton upvoters={ this.props.question.upvoters } question_id={ this.props.question.id } />
+        <QuestionUpvoteButton upvoters={ this.props.question.upvoters } question_id={ this.props.question.id } />
 
       </div>
     );

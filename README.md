@@ -3,23 +3,20 @@
 [Deployed via Heroku][heroku]
 [heroku]: http://quorum-app.herokuapp.com
 
-## Minimum Viable Product
 
-Quorum is a Quora-inspired web application built using Ruby on Rails & React.js. Quorum allows users to:
+## Summary
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
+Quorum is a Quora-inspired web app built in Ruby on Rails, React.js, and jQuery.
+Quorum allows users to:
 
-- [X] Create an account.
-- [X] Log in / Log out.
-- [X] Log in as guest.
-- [X] A user can create, read, edit, and delete questions.
-- [X] A user can create, read, edit, and delete answers.
-- [X] A user can follow topics and users. This adds the subject's activity to the user's home feed.
-- [X] A user can view another user's activity feed.
-- [X] A user can view feeds based on topic.
-- [X] Tag questions with multiple 'topics'.
-- [X] Search for questions, answers, and users.
-- [ ] Bonus features are listed below.
+- [] Create an account.
+- [] Log in / Log out.
+- [] Create, read, edit, and delete Questions.
+- [] Create, read, edit, and delete Answers to Questions.
+- [] Tag questions with multiple Topics.
+- [] View feeds based on Topics.
+- [] Search for Questions, Users, and Answers.
+
 
 ## Design Docs
 * [View Wireframes][view]
@@ -27,6 +24,20 @@ Quorum is a Quora-inspired web application built using Ruby on Rails & React.js.
 
 [view]: ./docs/views.md
 [schema]: ./docs/schema.md
+
+## Topics
+
+Topics offered a unique challenge when building Quorum. Using a single join table to connect Questions and Topics was not enough, because I also wanted to persist Topics associated with a User in the database. Optimizing queries has been a big part of making an app with this many associations. For example, my index action query for Questions, on the landing page of the app:
+
+    @questions = Question
+      .joins(:question_topics)
+      .where('question_topics.topic_id' => topics)
+      .select('distinct questions.*')
+      .includes(:author, :topics, :user_votes)
+      .order(created_at: order)
+      .page(page).per(10)
+
+
 
 ## Implementation Timeline
 
