@@ -14,13 +14,11 @@ Quorum is a Quora-inspired web application built using Ruby on Rails & React.js.
 - [X] Log in as guest.
 - [X] A user can create, read, edit, and delete questions.
 - [X] A user can create, read, edit, and delete answers.
-
-- [ ] A user can follow questions, topics, and users. This adds the subject's activity to the user's home feed.
+- [X] A user can follow topics and users. This adds the subject's activity to the user's home feed.
 - [X] A user can view another user's activity feed.
 - [X] A user can view feeds based on topic.
-- [ ] Tag questions with multiple 'topics'.
+- [X] Tag questions with multiple 'topics'.
 - [X] Search for questions, answers, and users.
-
 - [ ] Bonus features are listed below.
 
 ## Design Docs

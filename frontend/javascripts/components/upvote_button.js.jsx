@@ -3,29 +3,15 @@ var React = require('react'),
     CurrentUserStore = require('../stores/current_user_store.js');
 
 var UpvoteButton = React.createClass({
-
   getInitialState: function () {
-    var currentUserID = CurrentUserStore.currentUser().id,
-        pressed = false;
-
-    if (!!this.props.upvoters) {
-      this.props.upvoters.forEach(function (upvoter) {
-        if ( upvoter["user_id"] == currentUserID.toString() ){
-          pressed = true;
-        }
-      });
-    }
-
-    if ( this.props.upvoters.includes(currentUserID) ) {
-      pressed = true;
-    }
-    return { pressed: pressed };
+    return { pressed: false };
   },
 
   componentDidMount: function () {
-    var currentUserID = CurrentUserStore.currentUser().id;
+    var currentUser = CurrentUserStore.currentUser();
+    var id = currentUser["id"];
 
-    if ( this.props.upvoters.includes(currentUserID) ) {
+    if ( this.props.upvoters[id] == true ) {
       this.setState({ pressed: true });
     }
   },
@@ -35,13 +21,12 @@ var UpvoteButton = React.createClass({
     VotingUtil.upvoteQuestion(this.props.question_id);
   },
 
-
   render: function () {
     var buttonClass = this.state.pressed == true ? "disabled" : "delete-button"
     var text = this.state.pressed == true ? "UPVOTED" : "UPVOTE"
 
     return(
-        <button onClick={ this.upvote }> { text } </button>
+        <button className={buttonClass} onClick={this.upvote}> {text} </button>
     );
   }
 });

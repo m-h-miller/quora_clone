@@ -54,7 +54,7 @@ var QuestionsIndexItem = React.createClass({
         <p className="questions-index-item-body">{ this.props.question.body } </p>
 
         { deleteButton }
-        <UpvoteButton upvoters={ this.props.question.user_votes } question_id={ this.props.question.id } />
+        <UpvoteButton upvoters={ this.props.question.upvoters } question_id={ this.props.question.id } />
 
       </div>
     );
