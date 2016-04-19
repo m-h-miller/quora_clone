@@ -13,8 +13,8 @@ Rails.application.routes.draw do
 
     resources :questions do
       resources :answers
+      
       member do
-        post "downvote"
         post "upvote"
       end
     end

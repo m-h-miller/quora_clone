@@ -12,3 +12,9 @@ json.topics do
     json.partial! 'api/topics/topic', topic: topic
   end
 end
+
+json.user_votes do
+  json.array!(question.user_votes) do |user_vote|
+    json.partial! 'api/votes/voters', user_vote: user_vote
+  end
+end

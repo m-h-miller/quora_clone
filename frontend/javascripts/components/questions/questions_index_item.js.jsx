@@ -2,7 +2,8 @@ var React = require('react'),
     ReactRouter = require('react-router'),
     Link = ReactRouter.Link,
     CurrentUserStore = require('../../stores/current_user_store.js'),
-    ApiUtil = require('../../util/api_util.js');
+    ApiUtil = require('../../util/api_util.js'),
+    UpvoteButton = require('../upvote_button.js.jsx');
 
 var QuestionsIndexItem = React.createClass({
   deleteQuestion: function () {
@@ -13,15 +14,11 @@ var QuestionsIndexItem = React.createClass({
     VotingUtil.upvote(this.props.question.id);
   },
 
-  downvote: function () {
-    VotingUtil.downvote(this.props.question.id);
-  },
-
   render: function () {
     var deleteButton;
 
     if ( this.props.question.author.user_name === CurrentUserStore.currentUser().user_name ) {
-      deleteButton = (<p className="delete-button"> <button onClick={ this.deleteQuestion }>DELETE</button> </p>);
+      deleteButton = (<button onClick={ this.deleteQuestion }>DELETE</button>);
     }
 
     // join topics with commas
@@ -55,9 +52,10 @@ var QuestionsIndexItem = React.createClass({
         </ul>
 
         <p className="questions-index-item-body">{ this.props.question.body } </p>
+
         { deleteButton }
-        <button name="upvote" onClick={ this.upvote }>UPVOTE</button>
-        <button name="upvote" onClick={ this.upvote }>UPVOTE</button>
+        <UpvoteButton upvoters={ this.props.question.user_votes } question_id={ this.props.question.id } />
+
       </div>
     );
   }

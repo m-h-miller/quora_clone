@@ -1,3 +1,6 @@
+
+# This JSON view is rendered from associations; i.e. Question.author
+
 json.extract!(
   user,
   :id, :user_name

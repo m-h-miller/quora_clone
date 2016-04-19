@@ -7,58 +7,32 @@ var React = require('react'),
 var QuestionsIndex = React.createClass({
   getInitialState: function () {
     var _qs = QuestionStore.all();
-    // var _filters = FilterStore.all();
     return {
       questions: _qs,
-      // filterTopics: _filters.topics,
-      // filter: _filters.filter,
-      // all_filters: _filters,
       page: 1
     };
   },
 
   componentDidMount: function () {
     this.question_listener = QuestionStore.addListener(this._questionsChange);
-    // this.filter_listener = FilterStore.addListener(this._filtersChange);
-    // var filterTopics = this.state.filterTopics;
     ApiUtil.fetchAllQuestions();
   },
 
   componentWillUnmount: function () {
     this.question_listener.remove();
-    // this.filter_listener.remove();
   },
 
   _questionsChange: function () {
     this.setState({ questions: QuestionStore.all() });
   },
 
-  // _filtersChange: function () {
-  //   var filters = FilterStore.all();
-  //   var filter = filters.filter,
-  //       filterTopics = filters.filterTopics;
-  //
-  //   this.setState({
-  //     filterTopics: filters.filterTopics,
-  //     filter: filters.filter
-  //   });
-  // },
-
   handleClick: function(){
     pageNumber = this.state.page + 1;
-    // var filter = this.state.filter,
-    //     filterTopics = this.state.filterTopics;
-    //
-    // ApiUtil.loadMoreQuestions2(pageNumber, filter, filterTopics);
     this.setState({ page: pageNumber });
   },
 
   handleBack: function(){
     pageNumber = this.state.page - 1;
-    // var filter = this.state.filter,
-    //     filterTopics = this.state.filterTopics;
-    //
-    // ApiUtil.loadMoreQuestions2(pageNumber, filter, filterTopics);
     this.setState({ page: pageNumber });
   },
 

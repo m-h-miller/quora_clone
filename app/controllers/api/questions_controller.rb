@@ -19,7 +19,7 @@ class Api::QuestionsController < ApplicationController
 
     @questions = Question
       .joins(:question_topics).where('question_topics.topic_id' => topics).select('distinct questions.*')
-      .includes(:author, :topics)
+      .includes(:author, :topics, :user_votes)
       .order(created_at: order)
       .page(page).per(10)
   end
@@ -44,6 +44,10 @@ class Api::QuestionsController < ApplicationController
     render json: @question
   end
 
+  def upvote
+    vote(1)
+  end
+
   private
     def question_params
       params.require(:question).permit(:title, :body, question_topics_attributes: :topic_id )
@@ -52,6 +56,23 @@ class Api::QuestionsController < ApplicationController
     def require_user_owns_question!
       return if Question.find(params[:id]).author == current_user
       render json: "Forbidden", status: :forbidden
+    end
+
+    def vote(direction)
+      @question = Question.find(params[:id])
+      @user_vote = UserVote.find_by(
+        votable_id: @question.id, votable_type: "Question", user_id: current_user.id
+      )
+
+      if @user_vote
+
+      else
+        @question.user_votes.create!(
+          user_id: current_user.id, value: direction
+        )
+      end
+
+      render json: @question
     end
 
 end

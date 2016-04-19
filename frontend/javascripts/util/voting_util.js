@@ -1,11 +1,9 @@
 var VotingUtil = {
-  upvote: function (question_id) {
-
+  upvoteQuestion: function ( question_id ) {
+    $.post('api/questions/' + question_id + '/upvote', function () {
+      console.log("upvoted");
+    });
   },
-
-  downvote: function (question_id) {
-
-  }
 };
 
 module.exports = VotingUtil;
