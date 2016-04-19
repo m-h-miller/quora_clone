@@ -9,7 +9,6 @@ class Api::QuestionsController < ApplicationController
   def index
     page = params[:pageNum] || 1
     topics = params[:selectedTopics]
-
     params[:filter] == 'old' ? order = :asc : order = :desc
 
     @questions = Question
@@ -59,12 +58,8 @@ class Api::QuestionsController < ApplicationController
         votable_id: @question.id, votable_type: "Question", user_id: current_user.id
       )
 
-      if @user_vote
-
-      else
-        @question.user_votes.create!(
-          user_id: current_user.id, value: direction
-        )
+      if @user_vote.nil?
+        @question.user_votes.create!(user_id: current_user.id, value: direction)
       end
 
       render json: @question

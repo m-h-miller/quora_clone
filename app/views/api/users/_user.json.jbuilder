@@ -14,10 +14,3 @@ end
 json.answers(
   user.answers
 )
-
-# doing it the other way
-# json.user_votes do
-#   json.array!(user.user_votes) do |vote|
-#     json.partial! 'api/votes/voters', vote: vote
-#   end
-# end

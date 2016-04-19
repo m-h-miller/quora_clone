@@ -58,9 +58,7 @@ var QuestionsIndex = React.createClass({
         </div>
 
         {qz.map(function (question) {
-          return <QuestionsIndexItem
-                  key={ question.id }
-                  question={ question } />;
+          return <QuestionsIndexItem key={ question.id } question={ question } />;
         })}
 
         { no_content_message }
