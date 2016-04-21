@@ -4,23 +4,22 @@ var React = require('react'),
 
 var TopicsIndexItem = React.createClass({
 
+  handleClick: function () {
+    console.log("handled");
+  },
 
 
   render: function () {
-    // var deleteButton;
-    //
-    // if ( this.props.answer.author.user_name === CurrentUserStore.currentUser().user_name ) {
-    //   deleteButton = (
-    //     <p className="delete-button">
-    //       <button onClick={ this.deleteAnswer }> DELETE ANSWER </button>
-    //     </p>
-    //   );
-    // }
-
     return(
-      <ul className="answers-index-item">
-        hello
-      </ul>
+      <div className="questions-index-item">
+        <div className="questions-index-title">
+          <p> <strong> {this.props.topic.name} </strong> </p>
+
+          <p className="questions-index-item-body"> {this.props.topic.description} </p>
+
+          <button onClick={this.handleClick}> Click </button>
+        </div>
+      </div>
     );
   }
 });

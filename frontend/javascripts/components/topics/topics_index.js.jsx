@@ -24,13 +24,17 @@ var TopicsIndex = React.createClass({
   render: function () {
 
     return(
-      <div className="topics-index-item">
+      <div className="index-page">
+        <div className="page-center">
+          <div className="answers-index-page">
 
-        <p className="answers-header"> Topics: </p>
-        <div className="answers-index">
-          {this.state.topics.map(function (topic) {
-            return <TopicsIndexItem key={ topic.id } topic={ topic } />;
-          }.bind(this))}
+            <p className="answers-header"> Topics: </p>
+            <div className="answers-index">
+              {this.state.topics.map(function (topic) {
+                return <TopicsIndexItem key={ topic.id } topic={ topic } />;
+              }.bind(this))}
+            </div>
+          </div>
         </div>
       </div>
     );
