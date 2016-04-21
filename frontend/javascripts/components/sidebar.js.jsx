@@ -30,8 +30,7 @@ var SideBar = React.createClass({
   handleCheckbox: function () {
     var selected = this.refs.topicsGroup.getCheckedValues();
     this.setState({ filterTopics: selected });
-    // FilterActions.updateFilters(this.state.filter, selected);
-
+    // future User checkbox post action
     this._dispatchQuery(this.state.filter, selected);
   },
 
@@ -39,7 +38,6 @@ var SideBar = React.createClass({
   handleSelect: function (e) {
     var filter = e.target.value;
     this.setState({ filter: filter })
-    // FilterActions.updateFilters(filter, this.state.filterTopics);
 
     this._dispatchQuery(filter, this.state.filterTopics);
   },
@@ -47,7 +45,6 @@ var SideBar = React.createClass({
   // called by handleChange & handleFilter
   _dispatchQuery: function (filter, filterTopics) {
     var filter = filter, filterTopics = filterTopics;
-    // update filters in store, then update questions in store
     ApiUtil.loadMoreQuestions2(1, filter, filterTopics);
   },
 

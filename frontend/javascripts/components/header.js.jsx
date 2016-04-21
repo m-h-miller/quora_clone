@@ -78,7 +78,7 @@ var Header = React.createClass({
               </li>
 
   	          <li className="header-text-link">
-                <a href="#"> Write </a>
+                <a href="#"> Topics </a>
               </li>
 
   	          <li className="header-text-link">
