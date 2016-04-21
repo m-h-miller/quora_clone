@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   ReactDOM.render((
     <Router>
         <Route path="/" component={ App }>
-          <IndexRoute component={ IndexPage } />
+          <IndexRoute path="questions" component={ IndexPage } />
           <Route path="signin" component={ SessionForm } />
           <Route path="signup" component={ UserForm } />
           <Route path="users/:id" component={ UserShow } />

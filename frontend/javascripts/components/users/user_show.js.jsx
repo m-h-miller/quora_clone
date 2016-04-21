@@ -10,7 +10,7 @@ var UserShow = React.createClass({
   },
 
   getStateFromStore: function () {
-    return {user: UsersStore.viewedUser()};
+    return { user: UsersStore.viewedUser() };
   },
 
   componentDidMount: function () {
