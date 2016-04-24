@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
     end
 
     @user = current_user
-    render json: @user
+    render "api/sessions/show"
   end
 
   def create
@@ -15,11 +15,12 @@ class Api::SessionsController < ApplicationController
       params[:user][:user_name],
       params[:user][:password]
     )
+
     if @user.nil?
       render json: {errors: ["Wrong!"]}, status: 401
     else
       sign_in!(@user)
-      render json: @user
+      render "api/sessions/show"
     end
   end
 

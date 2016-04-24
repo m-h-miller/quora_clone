@@ -22,5 +22,6 @@ var SessionsApiUtil = {
       }
     });
   },
+
 };
 module.exports = SessionsApiUtil;

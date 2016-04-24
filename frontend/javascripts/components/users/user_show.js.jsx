@@ -43,13 +43,6 @@ var UserShow = React.createClass({
       <div className="detail-view">
         <SideBar />
         <div className="page-center">
-          <div className="detail">
-            <p className="detail-title" key={ this.props.params.id }>
-              Questions asked by { this.state.user.user_name }:
-            </p>
-
-          </div>
-        <br/>
           <div className="answers">
             <p className="answers-header"> User Activity: </p>
             { content }

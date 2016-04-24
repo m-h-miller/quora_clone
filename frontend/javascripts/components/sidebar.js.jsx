@@ -2,20 +2,30 @@ var React = require('react'),
     TopicStore = require('../stores/topics.js'),
     CheckboxGroup = require('react-checkbox-group'),
     ApiUtil = require('../util/api_util.js'),
-    FilterActions = require('../actions/filter_actions.js');
+    SessionsApiUtil = require('../util/sessions_api_util.js'),
+    TopicsApiUtil = require('../util/topics_api_util.js'),
+    FilterActions = require('../actions/filter_actions.js'),
+    CurrentUserStore = require('../stores/current_user_store.js');
 
 var SideBar = React.createClass({
 
   getInitialState: function () {
+
+    var cU = CurrentUserStore.currentUser(),
+        filterTopics = [];
+
+    if ( cU.topics ) { filterTopics = Object.keys(cU.topics) };
+
     return {
       allTopics: TopicStore.allTopics(),
-      filterTopics: [],
-      filter: "new"
+      filter: "new",
+      value: filterTopics
     };
   },
 
   componentDidMount: function () {
     this.topic_listener = TopicStore.addListener(this._change);
+    this._dispatchQuery(this.state.filter, this.state.value);
   },
 
   componentWillUnmount: function() {
@@ -23,15 +33,20 @@ var SideBar = React.createClass({
   },
 
   _change: function () {
-    this.setState({ allTopics: TopicStore.allTopics() });
+    var cU = CurrentUserStore.currentUser().topics;
+    var values = [];
+
+    if ( cU ) { values = Object.keys(cU); }
+
+    this.setState({ allTopics: TopicStore.allTopics(), value: values });
   },
 
   // handles checkbox selections
   handleCheckbox: function () {
-    var selected = this.refs.topicsGroup.getCheckedValues();
-    this.setState({ filterTopics: selected });
+    var values = this.refs.topicsGroup.getCheckedValues();
+    this.setState({ value: values });
     // future User checkbox post action
-    this._dispatchQuery(this.state.filter, selected);
+    this._dispatchQuery(this.state.filter, values);
   },
 
   // handles dropdown selections
@@ -39,13 +54,13 @@ var SideBar = React.createClass({
     var filter = e.target.value;
     this.setState({ filter: filter })
 
-    this._dispatchQuery(filter, this.state.filterTopics);
+    this._dispatchQuery(filter, this.state.value);
   },
 
   // called by handleChange & handleFilter
-  _dispatchQuery: function (filter, filterTopics) {
-    var filter = filter, filterTopics = filterTopics;
-    ApiUtil.loadMoreQuestions2(1, filter, filterTopics);
+  _dispatchQuery: function (filter, value) {
+    var filter = filter, value = value;
+    ApiUtil.loadMoreQuestions2(1, filter, value);
   },
 
 
@@ -72,6 +87,8 @@ var SideBar = React.createClass({
 
           <CheckboxGroup name="topics" value={ this.state.value } ref="topicsGroup" onChange={ this.handleCheckbox }>
             {this.state.allTopics.map(function (topic) {
+
+
               return (
               <div key={topic.id}>
                 <input className="topic-box" type="checkbox" value={topic.id} />

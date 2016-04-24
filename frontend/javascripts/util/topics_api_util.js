@@ -12,7 +12,6 @@ var TopicsApiUtil = {
   updateSideBarFilters: function (topics) {
     TopicActions.updateSideBarFilters(topics);
   }
-
 };
 
 module.exports = TopicsApiUtil;
