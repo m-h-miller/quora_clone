@@ -1,18 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-
 # RESET THE DB
 User.destroy_all
 Question.destroy_all
 Answer.destroy_all
 Topic.destroy_all
 QuestionTopic.destroy_all
+UserTopic.destroy_all
 
 # GUEST USER
 @guest = User.create(user_name: "guest", password: "password", avatar: "http://placecorgi.com/200/200" )
@@ -25,9 +17,14 @@ QuestionTopic.destroy_all
 @topic4 = Topic.create(name: "Javascript", description: "js")
 @topic5 = Topic.create(name: "React.js", description: "A new library by facebook")
 
+# Guest User follows several topics
+UserTopic.create(user_id: 1, topic_id: 1)
+UserTopic.create(user_id: 1, topic_id: 2)
+UserTopic.create(user_id: 1, topic_id: 3)
+
 # DEEPLY MEANINGFUL + REALISTIC SEED DATA
 
-@question1 = Question.create(title: "First!", body: "First post! cool site, Harry! Let me hire you!", author_id: @guest.id, question_topics_attributes: [ { topic_id: @topic1.id }])
+@question1 = Question.create(title: "What is Quorum?", body: "Quorum is a Q&A site built with Rails, React.js, and jQuery", author_id: @guest.id, question_topics_attributes: [ { topic_id: @topic1.id }])
   @answer1 = Answer.create(title: "Don't beg for it", body: "have some class", author_id: @user.id, question_id: @question1.id)
 @question2 = Question.create(title: "It is such a joy working in Ruby", body: "I've become a zen master also everything is an object lol", author_id: @user.id, question_topics_attributes: [ { topic_id: @topic2.id }])
   @answer2 = Answer.create(title: "You are a stupid hipster", body: "The fact you aren't scripting in COBOL is a disgrace to technology.", author_id: @guest.id, question_id: @question2.id)

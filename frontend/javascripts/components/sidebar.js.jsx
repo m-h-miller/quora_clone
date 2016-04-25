@@ -18,7 +18,7 @@ var SideBar = React.createClass({
 
     return {
       allTopics: TopicStore.allTopics(),
-      filter: "new",
+      filter: "old",
       value: values
     };
   },
