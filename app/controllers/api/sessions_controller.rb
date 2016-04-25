@@ -7,6 +7,9 @@ class Api::SessionsController < ApplicationController
     end
 
     @user = current_user
+
+    puts @user
+
     render "api/sessions/show"
   end
 
