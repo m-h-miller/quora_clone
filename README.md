@@ -1,5 +1,7 @@
 # Quorum
 [Quorum][heroku]
+[heroku]: http://quorum-app.herokuapp.com
+
 
 
 ## Summary
