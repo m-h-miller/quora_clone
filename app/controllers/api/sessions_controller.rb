@@ -8,7 +8,8 @@ class Api::SessionsController < ApplicationController
 
     @user = current_user
 
-    puts @user
+    puts @user.to_s
+    puts @user.to_json
 
     render "api/sessions/show"
   end
