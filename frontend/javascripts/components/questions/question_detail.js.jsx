@@ -54,7 +54,6 @@ var QuestionDetail = React.createClass({
 
     return (
       <div className="detail-view">
-        <SideBar />
         <div className="page-center">
           <div className="detail">
             <p className="detail-title" key={ this.state.question.title }> { this.state.question.title } </p>

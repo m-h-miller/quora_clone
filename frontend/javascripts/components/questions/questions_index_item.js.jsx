@@ -16,7 +16,6 @@ var QuestionsIndexItem = React.createClass({
 
   render: function () {
     var deleteButton;
-    console.log(CurrentUserStore.currentUser());
 
     // join topics with commas
     var relevant_topics = [];

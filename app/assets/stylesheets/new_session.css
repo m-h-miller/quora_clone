@@ -89,7 +89,6 @@
 .new-session-form button {
   display:block;
   margin-top:8px;
-  float:right;
   font-size:15px;
   line-height:1.4;
   background: #3e78ad;
@@ -105,4 +104,15 @@
   border-left:1px solid #ccc;
   padding-left:10px;
   text-align:left;
+}
+.other-button {
+    display:block;
+    margin-top:8px;
+    font-size:15px;
+    line-height:1.4;
+    background: #3e78ad;
+    color: #fff;
+    border: 1px solid #3a66ad;
+    box-shadow: 0 1px 1px 0 rgba(200,200,200,0.6);
+    border-radius:5px;
 }
