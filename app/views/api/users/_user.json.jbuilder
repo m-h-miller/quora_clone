@@ -16,6 +16,5 @@ json.answers(
   user.answers
 )
 
-# serve a hash of IDs of topics followed by user,
-# only need ID for sidebar component initial value
+    # serve a hash of UserTopic IDs
 json.topics Hash[user.topics.map{ |topic| [ topic.id, true ] } ]

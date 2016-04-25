@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(questions: [:author, :answers], answers: [:question, :author]).find(params[:id])
+    @user = User.includes(:topics, questions: [:author, :answers], answers: [:question, :author]).find(params[:id])
   end
 
   private
