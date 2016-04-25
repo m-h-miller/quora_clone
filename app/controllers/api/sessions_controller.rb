@@ -6,21 +6,21 @@ class Api::SessionsController < ApplicationController
       return
     end
 
-    user = current_user
-  puts user.to_json
-    render "api/users/_user"
+    @user = current_user
+    puts @user.to_json
+    render "api/sessions/show"
   end
 
   def create
-    @user = User.find_by_credentials(
+    current_user = User.find_by_credentials(
       params[:user][:user_name],
       params[:user][:password]
     )
 
-    if @user.nil?
+    if current_user.nil?
       render json: {errors: ["Wrong!"]}, status: 401
     else
-      sign_in!(@user)
+      sign_in!(current_user)
       render "api/sessions/show"
     end
   end
