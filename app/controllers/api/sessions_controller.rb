@@ -6,8 +6,8 @@ class Api::SessionsController < ApplicationController
       return
     end
 
-    @user = current_user
-  puts @user.to_json
+    user = current_user
+  puts user.to_json
     render "api/users/_user"
   end
 
