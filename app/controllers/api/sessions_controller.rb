@@ -7,10 +7,7 @@ class Api::SessionsController < ApplicationController
     end
 
     @user = current_user
-
-    puts @user.to_s
-    puts @user.to_json
-
+                    puts @user.to_json
     render "api/sessions/show"
   end
 
@@ -18,7 +15,7 @@ class Api::SessionsController < ApplicationController
     @user = User.find_by_credentials(
       params[:user][:user_name],
       params[:user][:password]
-    )
+    ).includes(:topics)
 
     if @user.nil?
       render json: {errors: ["Wrong!"]}, status: 401
