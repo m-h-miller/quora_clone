@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
 
     @user = current_user
   puts @user.to_json
-    render "api/users/show"
+    render "api/users/_user"
   end
 
   def create
