@@ -21,6 +21,7 @@ class Api::SessionsController < ApplicationController
       render json: {errors: ["Wrong!"]}, status: 401
     else
       sign_in!(current_user)
+      @user = current_user
       render "api/sessions/show"
     end
   end
