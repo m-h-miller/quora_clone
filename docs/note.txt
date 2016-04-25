@@ -5,8 +5,3 @@ I used this command to precompile my assets before pushing to Heroku. It took me
 to figure it out.
 
 Because I have my bundle.js in my .gitIgnore, it was not adding the file to my heroku build in-line with a push to the heroku remote repository
-    RAILS_ENV=production bundle exec rake assets:precompile
-
-
-
-Before figuring this out, I had tried to run webpack from the installed node_module. While I could successfully run it, I

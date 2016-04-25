@@ -12,14 +12,14 @@ var SideBar = React.createClass({
   getInitialState: function () {
 
     var cU = CurrentUserStore.currentUser(),
-        filterTopics = [];
+        values = [];
 
-    if ( cU.topics ) { filterTopics = Object.keys(cU.topics) };
+    if ( cU.topics ) { values = Object.keys(cU.topics) };
 
     return {
       allTopics: TopicStore.allTopics(),
       filter: "new",
-      value: filterTopics
+      value: values
     };
   },
 
@@ -41,23 +41,19 @@ var SideBar = React.createClass({
     this.setState({ allTopics: TopicStore.allTopics(), value: values });
   },
 
-  // handles checkbox selections
   handleCheckbox: function () {
     var values = this.refs.topicsGroup.getCheckedValues();
     this.setState({ value: values });
-    // future User checkbox post action
     this._dispatchQuery(this.state.filter, values);
   },
 
-  // handles dropdown selections
   handleSelect: function (e) {
     var filter = e.target.value;
     this.setState({ filter: filter })
-
     this._dispatchQuery(filter, this.state.value);
   },
 
-  // called by handleChange & handleFilter
+      // called by handleChange & handleFilter
   _dispatchQuery: function (filter, value) {
     var filter = filter, value = value;
     ApiUtil.loadMoreQuestions2(1, filter, value);
@@ -81,13 +77,11 @@ var SideBar = React.createClass({
           </select>
           <div style={{padding:"4px"}}/>
 
-
           SHOWN:
           <div style={{padding:"4px"}}/>
 
           <CheckboxGroup name="topics" value={ this.state.value } ref="topicsGroup" onChange={ this.handleCheckbox }>
             {this.state.allTopics.map(function (topic) {
-
 
               return (
               <div key={topic.id}>
@@ -98,7 +92,7 @@ var SideBar = React.createClass({
             })}
           </CheckboxGroup>
 
-          </section>
+        </section>
       </div>
     );
   }

@@ -16,11 +16,7 @@ var QuestionsIndexItem = React.createClass({
 
   render: function () {
     var deleteButton;
-    console.log(this.props);
-    // console.log(CurrentUserStore.currentUser());
-    // if ( this.props.question.author.user_name === CurrentUserStore.currentUser().user_name ) {
-    //   deleteButton = (<button onClick={ this.deleteQuestion }>DELETE</button>);
-    // }
+    console.log(CurrentUserStore.currentUser());
 
     // join topics with commas
     var relevant_topics = [];
