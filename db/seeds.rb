@@ -21,6 +21,7 @@ UserTopic.destroy_all
 UserTopic.create(user_id: 1, topic_id: 1)
 UserTopic.create(user_id: 1, topic_id: 2)
 UserTopic.create(user_id: 1, topic_id: 3)
+UserTopic.create(user_id: 1, topic_id: 4)
 
 # DEEPLY MEANINGFUL + REALISTIC SEED DATA
 
