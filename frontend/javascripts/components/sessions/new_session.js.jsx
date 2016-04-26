@@ -42,7 +42,7 @@ var SessionForm = React.createClass({
           </div>
           <div className="new-session-form-wrapper">
 
-          <a className="facebook" href="/auth/facebook"> Log in with Facebook </a>
+            <a className="facebook" href="/auth/facebook"> Log in with Facebook </a>
 
             <form className="new-session-form" onSubmit={ this.submit }>
               <label> Username

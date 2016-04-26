@@ -72,8 +72,8 @@ var SideBar = React.createClass({
           <div style={{padding:"4px"}}/>
 
           <select name="index-filter" onChange={ this.handleSelect }>
-            <option value="new"> New </option>
             <option value="old"> Old </option>
+            <option value="new"> New </option>
           </select>
           <div style={{padding:"4px"}}/>
 
