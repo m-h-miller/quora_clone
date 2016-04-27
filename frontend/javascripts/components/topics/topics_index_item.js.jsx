@@ -1,13 +1,11 @@
 var React = require('react'),
-    TopicsApiUtil = require('../../util/topics_api_util.js'),
     UsersApiUtil = require('../../util/users_api_util.js'),
     CurrentUserStore = require('../../stores/current_user_store.js');
 
 var TopicsIndexItem = React.createClass({
 
   getInitialState: function () {
-    var followed = this.props.followed == true ? true : false;
-    return { followed: followed };
+    return { followed: this.props.followed };
   },
 
   _handleClick: function () {
@@ -15,10 +13,6 @@ var TopicsIndexItem = React.createClass({
     UsersApiUtil.toggleFollow(user_id, this.props.topic.id, this.state.followed);
     this.setState({ followed: !this.state.followed });
   },
-
-  // _toggleFollow: function (user_id, topic_id, _destroy) {
-  //   UsersApiUtil.toggleFollow(user_id, this.props.topic.id, _destroy);
-  // },
 
   render: function () {
     var text = this.state.followed == true ? "Unfollow Topic" : "Follow Topic";
@@ -31,6 +25,7 @@ var TopicsIndexItem = React.createClass({
           <p className="questions-index-item-body"> {this.props.topic.description} </p>
 
           <button onClick={this._handleClick}> {text} </button>
+          
         </div>
       </div>
     );

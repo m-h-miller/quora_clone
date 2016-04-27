@@ -11,30 +11,29 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @user = User.includes(questions: [:answers, :author], answers: [:questions, :author]).all
+    @user = User
+      .includes(questions: [:answers, :author], answers: [:questions, :author])
+      .all
   end
 
   def show
-    @user = User.includes(:user_topics).includes(questions: [:author, :answers], answers: [:question, :author]).find(params[:id])
+    @user = User
+      .includes(:user_topics)
+      .includes(questions: [:author, :answers], answers: [:question, :author])
+      .find(params[:id])
   end
 
   def update
     @user = current_user
-
-
     if params[:topic_ids]
       if params[:_destroy] == "true"
         ut_id = UserTopic.find_by(user_id: current_user.id, topic_id: params[:topic_ids]).id
-        puts ut_id
-        puts "---"
-
+          # have to pass the user_topic.id to _destroy
         @user.update(user_topics_attributes: [{ id: ut_id, user_id: current_user.id, topic_id: params[:topic_ids], _destroy: "true" }])
       else
         @user.update(user_topics_attributes: [{ user_id: current_user.id, topic_id: params[:topic_ids] }])
       end
-
     end
-
     @user = current_user
     render "api/users/show"
   end
@@ -43,5 +42,4 @@ class Api::UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:user_name, :session_token, :password, :avatar, user_topics_attributes: [:id, :user_id, :topic_id, :_destroy ])
     end
-
 end

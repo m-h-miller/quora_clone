@@ -27,7 +27,7 @@ var UsersApiUtil = {
       type: 'PATCH',
       data: { topic_ids: topic_id, _destroy: _destroy },
       success: function (user) {
-        console.log("success");
+        UserActions.receiveUser(user);
       }
     });
   },
