@@ -25,7 +25,7 @@ var TopicsIndexItem = React.createClass({
           <p className="questions-index-item-body"> {this.props.topic.description} </p>
 
           <button onClick={this._handleClick}> {text} </button>
-          
+
         </div>
       </div>
     );

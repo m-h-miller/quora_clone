@@ -11,6 +11,12 @@ var TopicsApiUtil = {
   // sidebar calls this
   updateSideBarFilters: function (topics) {
     TopicActions.updateSideBarFilters(topics);
+  },
+
+  createTopic: function (topic) {
+    $.post('api/topics', {topic: topic}, function (topic) {
+      TopicActions.receiveTopic(topic);
+    });
   }
 };
 

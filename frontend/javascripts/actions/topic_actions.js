@@ -8,6 +8,13 @@ var TopicActions = {
       actionType: TopicConstants.LOAD_ALL_TOPICS,
       topics: topics
     });
+  },
+
+  receiveTopic: function (topic) {
+    Dispatcher.dispatch({
+      actionType: TopicConstants.RECEIVE_TOPIC,
+      topic: topic
+    });
   }
 };
 

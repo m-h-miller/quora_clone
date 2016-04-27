@@ -15,7 +15,7 @@ var AnswersForm = React.createClass({
 
   submitAnswer: function (e) {
     e.preventDefault();
-    var answer = { };
+    var answer = {};
     answer.title = this.state.title;
     answer.body = this.state.body;
     answer.question_id = this.props.question.id;

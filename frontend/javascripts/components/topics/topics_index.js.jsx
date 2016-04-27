@@ -2,6 +2,7 @@ var React = require('react'),
     TopicStore = require('../../stores/topics.js'),
     TopicsApiUtil = require('../../util/topics_api_util.js'),
     TopicsIndexItem = require('./topics_index_item.js.jsx'),
+    TopicsForm = require('./topics_form.js.jsx'),
     CurrentUserStore = require('../../stores/current_user_store.js');
 
 var TopicsIndex = React.createClass({
@@ -37,6 +38,10 @@ var TopicsIndex = React.createClass({
       <div className="index-page">
         <div className="page-center">
           <div className="answers-index-page">
+
+            <p className="answers-header"> Submit a Topic: </p>
+
+            <TopicsForm/>
 
             <p className="answers-header"> Topics: </p>
             <div className="answers-index">
