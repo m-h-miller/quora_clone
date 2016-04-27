@@ -21,15 +21,12 @@ var UsersApiUtil = {
     });
   },
 
-
-
-
   toggleFollow: function (user_id, topic_id, _destroy) {
     $.ajax({
       url: 'api/users/' + user_id,
       type: 'PATCH',
       data: { topic_ids: topic_id, _destroy: _destroy },
-      success: function () {
+      success: function (user) {
         console.log("success");
       }
     });

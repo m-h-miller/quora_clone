@@ -12,15 +12,7 @@ var TopicsIndexItem = React.createClass({
 
   _handleClick: function () {
     var user_id = CurrentUserStore.currentUser().id;
-
-    if ( this.state.followed ) {
-        // unfollow
-      this._toggleFollow(user_id, this.props.topic.id, true);
-    } else {
-        // follow
-      this._toggleFollow(user_id, this.props.topic.id, false);
-    }
-
+    this._toggleFollow(user_id, this.props.topic.id, this.state.followed);
     this.setState({ followed: !this.state.followed });
   },
 
