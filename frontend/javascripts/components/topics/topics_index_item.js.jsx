@@ -12,13 +12,13 @@ var TopicsIndexItem = React.createClass({
 
   _handleClick: function () {
     var user_id = CurrentUserStore.currentUser().id;
-    this._toggleFollow(user_id, this.props.topic.id, this.state.followed);
+    UsersApiUtil.toggleFollow(user_id, this.props.topic.id, this.state.followed);
     this.setState({ followed: !this.state.followed });
   },
 
-  _toggleFollow: function (user_id, topic_id, _destroy) {
-    UsersApiUtil.toggleFollow(user_id, this.props.topic.id, _destroy);
-  },
+  // _toggleFollow: function (user_id, topic_id, _destroy) {
+  //   UsersApiUtil.toggleFollow(user_id, this.props.topic.id, _destroy);
+  // },
 
   render: function () {
     var text = this.state.followed == true ? "Unfollow Topic" : "Follow Topic";
