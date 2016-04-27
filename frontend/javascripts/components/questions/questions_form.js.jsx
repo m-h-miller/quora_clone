@@ -24,9 +24,7 @@ var QuestionsForm = React.createClass({
 
     var selected_topic_ids = this.refs.questionTopicsGroup.getCheckedValues();
 
-    console.log(selected_topic_ids);
     if ( selected_topic_ids.length == 0 ){ selected_topic_ids.push("1"); }
-    console.log(selected_topic_ids);
 
     selected_topic_ids.forEach(function (topic_id) {
       question.question_topics_attributes.push({

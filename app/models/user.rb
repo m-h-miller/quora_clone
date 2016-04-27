@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   has_many :user_topics
   has_many :topics, through: :user_topics, source: :topic
 
-  accepts_nested_attributes_for :user_topics
+  accepts_nested_attributes_for :user_topics, allow_destroy: true
 
   def self.find_by_credentials(user_name, password)
     return nil unless user_name && password

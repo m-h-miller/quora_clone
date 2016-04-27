@@ -14,6 +14,7 @@ var UsersApiUtil = {
       },
     });
   },
+
   fetchUser: function (user_id) {
     $.get('api/users/' + user_id, function (user) {
       UserActions.foundUser(user);
@@ -22,21 +23,17 @@ var UsersApiUtil = {
 
 
 
-  followTopic: function (user_id, topic_id) {
+
+  toggleFollow: function (user_id, topic_id, _destroy) {
     $.ajax({
       url: 'api/users/' + user_id,
       type: 'PATCH',
-      data: { topic_ids: topic_id },
-      success: function (){
+      data: { topic_ids: topic_id, _destroy: _destroy },
+      success: function () {
         console.log("success");
       }
     });
   },
-
-  unfollowTopic: function () {
-    console.log("unfollow");
-  }
-
 
 
 };

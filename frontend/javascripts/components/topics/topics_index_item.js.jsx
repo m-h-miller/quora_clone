@@ -14,22 +14,19 @@ var TopicsIndexItem = React.createClass({
     var user_id = CurrentUserStore.currentUser().id;
 
     if ( this.state.followed ) {
-      this._unfollowTopic(user_id, this.props.topic.id);
+        // unfollow
+      this._toggleFollow(user_id, this.props.topic.id, true);
     } else {
-      this._followTopic(user_id, this.props.topic.id);
+        // follow
+      this._toggleFollow(user_id, this.props.topic.id, false);
     }
 
     this.setState({ followed: !this.state.followed });
   },
 
-  _followTopic: function (user_id, topic_id) {
-    UsersApiUtil.followTopic(user_id, this.props.topic.id);
+  _toggleFollow: function (user_id, topic_id, _destroy) {
+    UsersApiUtil.toggleFollow(user_id, this.props.topic.id, _destroy);
   },
-
-  _unfollowTopic: function (id) {
-    console.log(this);
-  },
-
 
   render: function () {
     var text = this.state.followed == true ? "Unfollow Topic" : "Follow Topic";
@@ -41,7 +38,7 @@ var TopicsIndexItem = React.createClass({
 
           <p className="questions-index-item-body"> {this.props.topic.description} </p>
 
-          <button disabled={this.state.followed} onClick={this._handleClick}> {text} </button>
+          <button onClick={this._handleClick}> {text} </button>
         </div>
       </div>
     );

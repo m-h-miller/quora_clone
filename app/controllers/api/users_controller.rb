@@ -21,25 +21,18 @@ class Api::UsersController < ApplicationController
   def update
     @user = current_user
 
-    # if params[:topic_ids]
-    #   puts @user
-    #   puts params[:topic_ids]
-    #
-    #   topic = params[:topic_ids].to_i
-    #   topic = [topic]
-    #
-    #
-    #
-    #   @user.user_topics_attributes= topic
-    #   puts @user
-    # end
 
     if params[:topic_ids]
-      if @user.update!(user_topics_attributes: [{ user_id: current_user.id, topic_id: params[:topic_ids] }])
-        puts "mama we made it"
-        puts "------------------"
-        puts "------------------"
+      if params[:_destroy] == "true"
+        ut_id = UserTopic.find_by(user_id: current_user.id, topic_id: params[:topic_ids]).id
+        puts ut_id
+        puts "---"
+
+        @user.update(user_topics_attributes: [{ id: ut_id, user_id: current_user.id, topic_id: params[:topic_ids], _destroy: "true" }])
+      else
+        @user.update(user_topics_attributes: [{ user_id: current_user.id, topic_id: params[:topic_ids] }])
       end
+
     end
 
     @user = current_user
@@ -48,7 +41,7 @@ class Api::UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:user_name, :session_token, :password, :avatar, user_topics_attributes: :topic_id )
+      params.require(:user).permit(:user_name, :session_token, :password, :avatar, user_topics_attributes: [:id, :user_id, :topic_id, :_destroy ])
     end
 
 end
