@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resource :session, only: [ :create, :destroy, :show ]
-    resources :users, only: [ :new, :create, :show, :index ]
+    resources :users, only: [ :new, :create, :show, :index, :update ]
 
     resources :topics, only: [ :new, :create, :index ]
 
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
     resources :questions do
       resources :answers
-      
+
       member do
         post "upvote"
       end

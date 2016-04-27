@@ -14,8 +14,7 @@ class Api::QuestionsController < ApplicationController
     @questions = Question
       .joins(:question_topics).where('question_topics.topic_id' => topics).select('distinct questions.*')
       .includes(:author, :topics, :user_votes)
-      .order(created_at: order)
-      .page(page).per(10)
+      .order(created_at: order).page(page).per(10)
   end
 
   def show

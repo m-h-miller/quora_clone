@@ -23,7 +23,7 @@ class Question < ActiveRecord::Base
     primary_key: :id
   )
 
-  has_many :question_topics
+  has_many :question_topics, dependent: :destroy
   has_many :topics, through: :question_topics, source: :topic
 
   accepts_nested_attributes_for :question_topics

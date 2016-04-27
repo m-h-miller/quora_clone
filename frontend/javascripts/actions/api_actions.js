@@ -4,25 +4,6 @@ var QuestionDispatcher = require('../dispatcher/dispatcher.js'),
     AnswerConstants = require('../constants/answer_constants.js');
 
 var ApiActions = {
-
-  // loadAllTopics: function (topics) {
-  //   QuestionDispatcher.dispatch({
-  //     actionType: TopicConstants.LOAD_ALL_TOPICS,
-  //     topics: topics
-  //   });
-  // },
-  //
-  // triggerTopics: function () {
-  //   QuestionDispatcher.dispatch({
-  //     actionType: TopicConstants.TOPICS_CHANGED
-  //   });
-  // },
-  // updateTopics: function (topics) {
-  //   QuestionDispatcher.dispatch({
-  //     actionType: TopicConstants.TOPICS_UPDATED,
-  //     topics: topics
-  //   });
-  // },
   receiveAllQuestions: function (questions) {
     QuestionDispatcher.dispatch({
       actionType: QuestionConstants.QUESTIONS_RECEIVED,

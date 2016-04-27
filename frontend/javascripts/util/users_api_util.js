@@ -14,11 +14,31 @@ var UsersApiUtil = {
       },
     });
   },
-  fetchUser: function(user_id) {
+  fetchUser: function (user_id) {
     $.get('api/users/' + user_id, function (user) {
       UserActions.foundUser(user);
     });
+  },
+
+
+
+  followTopic: function (user_id, topic_id) {
+    $.ajax({
+      url: 'api/users/' + user_id,
+      type: 'PATCH',
+      data: { topic_ids: topic_id },
+      success: function (){
+        console.log("success");
+      }
+    });
+  },
+
+  unfollowTopic: function () {
+    console.log("unfollow");
   }
+
+
+
 };
 
 module.exports = UsersApiUtil;

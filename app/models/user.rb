@@ -12,23 +12,21 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, default_url: "big_square300x300.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
+  attr_reader :password
   after_initialize :ensure_session_token
 
-  attr_reader :password
-
-  has_many(
-    :questions,
-    class_name: "Question",
+  has_many :questions,
     primary_key: :id,
-    foreign_key: :author_id
-  )
+    foreign_key: :author_id,
+    dependent: :destroy,
+    class_name: "Question"
 
-  has_many(
-    :answers,
-    class_name: "Answer",
+  has_many :answers,
     primary_key: :id,
-    foreign_key: :author_id
-  )
+    foreign_key: :author_id,
+    dependent: :destroy,
+    class_name: "Answer"
+
 
   has_many(
     :answers_to_qs,
@@ -40,6 +38,8 @@ class User < ActiveRecord::Base
 
   has_many :user_topics
   has_many :topics, through: :user_topics, source: :topic
+
+  accepts_nested_attributes_for :user_topics
 
   def self.find_by_credentials(user_name, password)
     return nil unless user_name && password
