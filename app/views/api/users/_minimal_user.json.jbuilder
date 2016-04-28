@@ -1,5 +1,5 @@
-
-# This JSON view is rendered from associations; i.e. Question.author
+# This JSON view is rendered from associations;
+# i.e. Question.author, Answer.author
 
 json.extract!(
   user,

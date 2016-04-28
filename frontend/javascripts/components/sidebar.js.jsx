@@ -2,9 +2,6 @@ var React = require('react'),
     TopicStore = require('../stores/topics.js'),
     CheckboxGroup = require('react-checkbox-group'),
     ApiUtil = require('../util/api_util.js'),
-    SessionsApiUtil = require('../util/sessions_api_util.js'),
-    TopicsApiUtil = require('../util/topics_api_util.js'),
-    FilterActions = require('../actions/filter_actions.js'),
     CurrentUserStore = require('../stores/current_user_store.js');
 
 var SideBar = React.createClass({

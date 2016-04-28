@@ -12,9 +12,9 @@ json.questions do
   end
 end
 
-json.answers(
-  user.answers
-)
+# json.answers(
+#   user.answers
+# )     # possibly serve up hash of answer ids for delete button checking
 
     # serve a hash of UserTopic IDs
 json.topics Hash[user.topics.map{ |topic| [ topic.id, true ] } ]

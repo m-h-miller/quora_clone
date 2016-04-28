@@ -20,8 +20,3 @@ json.upvoters Hash[question.user_votes.map{ |vote| [ vote.user_id, true ] } ]
         #   json.array!(question.user_votes) do |user_vote|
         #     json.partial! 'api/votes/voters', user_vote: user_vote
         #   end
-
-    # alternate jbuilder hash table syntax
-        #   question.user_votes.each do |user_vote|
-        #     json.set! user_vote.user_id, true
-        #   end
