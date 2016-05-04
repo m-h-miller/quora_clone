@@ -24,7 +24,10 @@
     "react-router": "^1.0.0",
     "webpack": "^1.12.9"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "sass-loader": "^3.2.0"
+  },
   "engines": {
     "node": "4.2.1",
     "npm": "3.5.x"
