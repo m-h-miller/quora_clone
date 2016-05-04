@@ -3,3 +3,11 @@
   padding-bottom: 15px;
   padding-top: 10px;
 }
+
+
+li > a > strong {
+  color: #999;
+}
+li > a:hover > strong {
+  text-decoration:underline;
+}

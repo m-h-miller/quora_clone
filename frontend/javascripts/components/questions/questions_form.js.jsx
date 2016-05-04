@@ -49,14 +49,14 @@ var QuestionsForm = React.createClass({
 
     return(
       <form className='new-question-form' onSubmit={this.submitQuestion}>
-        <div className="">
+        <div>
           <label htmlFor='question_title'> What are you wondering? </label>
           <br/>
           <input type='text' id='question_title' valueLink={this.linkState('title')} />
         </div>
         <br/>
 
-        <div className="">
+        <div>
           <label htmlFor='question_body'> Any details? </label>
           <br/>
           <textarea id='question_body' valueLink={this.linkState('body')} rows="3"></textarea>
@@ -65,13 +65,12 @@ var QuestionsForm = React.createClass({
 
         <div>
           <label htmlFor='question_body'>Topics:</label>
-          <CheckboxGroup name="topics" value={ this.state.value } ref="questionTopicsGroup">
+          <CheckboxGroup name="topics" value={ this.state.value } ref="questionTopicsGroup" className="q-form-topics-list">
             {allTopics.map(function (topic) {
               return(
-                <div className="questionsFormTopicListItem" key={ topic.id }>
+                <div className="q-form-topics-list-item" key={ topic.id }>
                   <input type="checkbox" value={topic.id} />
                   <label> { topic.name } </label>
-                  <br/>
                 </div>
               );
             })}

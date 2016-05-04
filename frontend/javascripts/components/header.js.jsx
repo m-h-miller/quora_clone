@@ -45,7 +45,7 @@ var Header = React.createClass({
 
     if ( currentUser.id ) {
   		return (
-  		  <div className="header-wrap group">
+  		  <div className="header-wrap">
   				<div className="header-content">
   					<h1 className="header-logo">
               <a href="#"> Quorum </a>
@@ -53,7 +53,7 @@ var Header = React.createClass({
 
             < Search />
 
-            <ul className="header-nav group">
+            <ul className="header-nav">
 
               <li>
                 <button id="ask-question" onClick= { this.displayForm }>

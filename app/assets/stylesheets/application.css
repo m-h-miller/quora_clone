@@ -39,12 +39,7 @@ body {
   color: #333;
 }
 
-li > a > strong {
-  color: #999;
-}
-li > a:hover > strong {
-  text-decoration:underline;
-}
+
 
 /* LAYOUT */
 .page-left {

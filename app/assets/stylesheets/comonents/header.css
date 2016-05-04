@@ -5,10 +5,9 @@
 .header-wrap {
   background-color: #FFF;
   border-top: 2px solid #B92B27;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
   box-shadow: 0px 1px 1px 1px #F6F6F9;
   width:100%;
-
   position:fixed;
   top:0;
   z-index:5;
@@ -29,7 +28,6 @@
   float:right;
 }
 
-
 .header-nav > li {
   height:100%;
   float:left;
@@ -47,13 +45,9 @@
 .header-nav > li:hover > a {
   color:#B92B27;
 }
+
 .header-nav > li:hover {
   background:#eee;
-}
-
-
-.header-nav > li > a {
-
 }
 
 #ask-question {
@@ -68,27 +62,3 @@
 .header-text-link {
   padding: 27px;
 }
-
-/*.header-nav > ul > li {
-  position:relative;
-  float: left;
-  display: block;
-  padding: 10px 20px;
-  color: #B92B27;
-}*/
-
-/*.new-session-form > button > a {
-  color: #fff;
-}*/
-
-/*.header-nav-drop-down {
-  display: none;
-  position: absolute;
-  top: 60px;
-  left: -3px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  background: #fff;
-  width: 300px;
-}*/

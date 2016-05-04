@@ -17,7 +17,7 @@
 .modal-content {
   position: absolute;
   z-index: 1000;
-  top: 203px;
+  top: 250px;
   left: 45%;
   width: 400px;
   padding: 50px;
@@ -51,14 +51,30 @@
   border-radius: 5px;
   padding:20px;
   color: #999;
+  top: 100px;
 }
 
 .new-question-form > div > input {
   width:90%;
   margin:auto;
+  font-size:15px;
 }
 
 .new-question-form > div > textarea {
   width:90%;
   margin:auto;
+  font-size:15px;
+}
+
+.q-form-topics-list {
+  padding: 10px;
+}
+
+.q-form-topics-list-item {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  display:inline-block;
+  padding:5px;
+  margin-right:3px;
+  margin-bottom:6px;
 }
