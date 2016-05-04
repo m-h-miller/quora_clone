@@ -17,18 +17,14 @@
   width:1000px;
   margin:auto;
 }
-.header-logo {
-  font-size: 24px;
-  font-family: Georgia,Times,"Times New Roman",serif;
-  text-decoration: none;
-  float: left;
-}
+
 .header-logo > a {
   display: block;
   padding: 22px 20px;
   font-weight: bold;
   color: #B92B27;
 }
+
 .header-nav {
   float:right;
 }

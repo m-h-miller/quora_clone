@@ -49,15 +49,19 @@ var QuestionsForm = React.createClass({
 
     return(
       <form className='new-question-form' onSubmit={this.submitQuestion}>
-        <div className="group">
-          <label htmlFor='question_title'>Title:</label>
+        <div className="">
+          <label htmlFor='question_title'> What are you wondering? </label>
+          <br/>
           <input type='text' id='question_title' valueLink={this.linkState('title')} />
-        </div><br/>
+        </div>
+        <br/>
 
-        <div className="group">
-          <label htmlFor='question_body'>Body:</label>
-          <input type='text' id='question_body' valueLink={this.linkState('body')} />
-        </div><br/>
+        <div className="">
+          <label htmlFor='question_body'> Any details? </label>
+          <br/>
+          <textarea id='question_body' valueLink={this.linkState('body')} rows="3"></textarea>
+        </div>
+        <br/>
 
         <div>
           <label htmlFor='question_body'>Topics:</label>

@@ -62,7 +62,7 @@ var SideBar = React.createClass({
     return(
       <div className="page-left">
 		    <h2 className="main-body-title"> FEEDS </h2>
-		    <section className="page-left-content title">
+		    <section className="page-left-content small-grey-text sidebar-topic-names">
 
           FILTER:
 

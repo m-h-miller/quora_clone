@@ -43,6 +43,9 @@
   background-color: blue;
 }
 
+
+
+
 .new-question-form {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -51,6 +54,11 @@
 }
 
 .new-question-form > div > input {
-  width:70%;
-  float:right;
+  width:90%;
+  margin:auto;
+}
+
+.new-question-form > div > textarea {
+  width:90%;
+  margin:auto;
 }

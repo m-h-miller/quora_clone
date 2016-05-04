@@ -2,7 +2,6 @@
   FONT-SIZE: 19px;
   color: #333;
   letter-spacing: -0.5px;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: bold;
   line-height: 1.25;
   display: block;
@@ -14,4 +13,11 @@
 }
 .title, .main-body-title {
   margin-bottom: 10px;
+}
+.questions-detail-author-link {
+  font-weight:400;
+  float:left;
+  font-size: 13px;
+  color: #999;
+  padding-top:10px;
 }

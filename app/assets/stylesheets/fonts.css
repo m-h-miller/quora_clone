@@ -1,3 +1,10 @@
+.header-logo {
+  font-size: 24px;
+  font-family: Georgia,Times,"Times New Roman",serif;
+  text-decoration: none;
+  float: left;
+}
+
 .main-body-title {
   color: #333;
   font-size: 15px;
@@ -5,4 +12,37 @@
   padding-bottom: 7px;
   border-bottom: 1px solid #e2e2e2;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.small-grey-text {
+  color: #999;
+  font-size: 12px;
+}
+
+/* used by Sidebar */
+.sidebar-topic-names {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+}
+
+.title-text {
+  font-size: 19px;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+  font-weight: bold;
+}
+.title-text > a {
+  color: #333;
+}
+.title-text:hover > a {
+  text-decoration: underline;
+}
+
+.body-text {
+  padding: 10px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #333;
+  display: block;
 }

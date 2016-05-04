@@ -25,29 +25,34 @@ var QuestionsIndexItem = React.createClass({
     if ( relevant_topics.length > 1){
       relevant_topics = relevant_topics.join(', ');
     }
-    var time_stamp = this.props.question.created_at.slice(11, 16) + " on " + this.props.question.created_at.slice(0, 10);
 
     return(
-      <div className="questions-index-item group">
-        <h6 className="questions-index-item-title">
-          <Link className="questions-index-title" to={ '/questions/' + this.props.question.id } author={ this.props.question.author }>
+      <div className="questions-index-item">
+        <h6 className="title-text">
+          <Link to={ '/questions/' + this.props.question.id } >
             { this.props.question.title }
           </Link>
         </h6>
-        <ul className="questions-index-wrap group">
+        <ul>
           <li className="thumb">
-            <img src={ this.props.question.author.image_url } className="author-thumb" />
+            <img className="author-thumb" src={ this.props.question.author.image_url } />
           </li>
-          <li className="questions-index-item-author">
-            <Link className="questions-index-item-author-link" to={ '/users/' + this.props.question.author.id }>
+          <li className="small-grey-text">
+            <Link to={ '/users/' + this.props.question.author.id }>
               <strong>
                 { this.props.question.author.user_name }
               </strong>
-            </Link> in: <strong>{ relevant_topics }</strong> at: { time_stamp }
+            </Link>
+
+            <br/> in:
+              <strong>
+                { relevant_topics }
+              </strong>
+
           </li>
         </ul>
 
-        <p className="questions-index-item-body">{ this.props.question.body } </p>
+        <p className="body-text">{ this.props.question.body } </p>
 
         { deleteButton }
         <QuestionUpvoteButton upvoters={ this.props.question.upvoters } question_id={ this.props.question.id } />
