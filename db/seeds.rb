@@ -8,7 +8,7 @@ UserTopic.destroy_all
 
 # GUEST USER
 @guest = User.create(user_name: "guest", password: "password", avatar: "http://placecorgi.com/200/200" )
-@user = User.create(user_name: "snarky_dissenter", password: "password", avatar: "http://placecorgi.com/200/200" )
+@user = User.create(user_name: "Michael_Miller", password: "password", avatar: "http://placecorgi.com/200/200" )
 
 # TOPICS, OBVIOUSLY
 @topic1 = Topic.create(name: "General", description: "conversation + discussion")
@@ -23,10 +23,14 @@ UserTopic.create(user_id: 1, topic_id: 2)
 UserTopic.create(user_id: 1, topic_id: 3)
 UserTopic.create(user_id: 1, topic_id: 4)
 
-# DEEPLY MEANINGFUL + REALISTIC SEED DATA
-
+  # Intro question, background on project
 @question1 = Question.create(title: "What is Quorum?", body: "Quorum is a Q&A site built with Rails, React.js, and jQuery", author_id: @guest.id, question_topics_attributes: [ { topic_id: @topic1.id }])
-  @answer1 = Answer.create(title: "Don't beg for it", body: "have some class", author_id: @user.id, question_id: @question1.id)
+  @answer1 = Answer.create(title: "Built by M.H.Miller", body: "This site showcases my web developer skills", author_id: @user.id, question_id: @question1.id)
+
+
+
+
+
 @question2 = Question.create(title: "It is such a joy working in Ruby", body: "I've become a zen master also everything is an object lol", author_id: @user.id, question_topics_attributes: [ { topic_id: @topic2.id }])
   @answer2 = Answer.create(title: "You are a stupid hipster", body: "The fact you aren't scripting in COBOL is a disgrace to technology.", author_id: @guest.id, question_id: @question2.id)
 @question3 = Question.create(title: "Object Oriented Programming + Platonism", body: "Boy they sure curtail nicely together. I think Plato's epistemology is quite illustrative of the nature of human concept-formation and learning; though naturally I'm no metaphysicist", author_id: @user.id, question_topics_attributes: [ { topic_id: @topic3.id }])
