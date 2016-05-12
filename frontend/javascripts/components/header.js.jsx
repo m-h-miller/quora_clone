@@ -54,7 +54,6 @@ var Header = React.createClass({
             < Search />
 
             <ul className="header-nav">
-
               <li>
                 <button id="ask-question" onClick= { this.displayForm }>
                   <strong> Ask Question </strong>
@@ -65,8 +64,7 @@ var Header = React.createClass({
                       &times;
                     </span>
 
-                    <QuestionsForm
-                      allTopics={ this.state.allTopics } />
+                    <QuestionsForm allTopics={ this.state.allTopics } />
 
                   </article>
                   <div className="modal-screen js-hide-modal"></div>
