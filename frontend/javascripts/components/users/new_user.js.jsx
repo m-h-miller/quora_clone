@@ -13,6 +13,7 @@ var UserForm = React.createClass({
     imageUrl: "",
     imageFile: null
   },
+
   getInitialState: function () {
     return this.defaults;
   },
@@ -49,13 +50,13 @@ var UserForm = React.createClass({
 
     UsersApiUtil.signup(formData, function (credentials) {
       this.history.pushState(null, "/");
-      this.resetForm();
+      // this.resetForm();
     }.bind(this));
   },
 
-  resetForm: function () {
-    this.setState({ user_name: "", password: "", imageUrl: "", imageFile: null });
-  },
+  // resetForm: function () {
+  //   this.setState({ user_name: "", password: "", imageUrl: "", imageFile: null });
+  // },
 
   render: function() {
     return (
@@ -63,7 +64,7 @@ var UserForm = React.createClass({
         <div className="new-session-background"></div>
         <div className="new-session-gradient"></div>
 
-        <div className="new-session-content">
+        <div classNanme="new-session-content">
           <div className="new-session-header">
             <h1> Quorum </h1>
             <h4> The best answer to any question. </h4>
@@ -79,7 +80,6 @@ var UserForm = React.createClass({
               <label> Picture
                 <input type="file" onChange={this.changeFile} />
               </label>
-                <br/>
               <button>
                 Sign Up
               </button>

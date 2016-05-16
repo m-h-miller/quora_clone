@@ -14,6 +14,8 @@ var SessionForm = React.createClass({
   submit: function (e) {
     e.preventDefault();
     var credentials = $(e.currentTarget).serializeJSON();
+    console.log(e.currentTarget);
+    console.log(credentials);
     SessionsApiUtil.signin(credentials, function () {
       this.history.pushState(null, "/");
     }.bind(this));
@@ -33,18 +35,18 @@ var SessionForm = React.createClass({
   render: function() {
     return (
       <div className="new-session">
-        <div className="new-session-background "></div>
+        <div className="new-session-background"></div>
         <div className="new-session-gradient"></div>
+
         <div className="new-session-content">
           <div className="new-session-header">
             <h1> Quorum </h1>
             <h4> The best answer to any question. </h4>
           </div>
+
           <div className="new-session-form-wrapper">
-
             <a className="facebook" href="/auth/facebook"> Log in with Facebook </a>
-
-            <form className="new-session-form" onSubmit={ this.submit }>
+            <form className="new-session-form group" onSubmit={ this.submit }>
               <label> Username
                 <input type="text" name="user_name" />
               </label>

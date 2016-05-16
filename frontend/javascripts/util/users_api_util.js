@@ -31,8 +31,6 @@ var UsersApiUtil = {
       }
     });
   },
-
-
 };
 
 module.exports = UsersApiUtil;

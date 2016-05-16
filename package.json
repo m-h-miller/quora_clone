@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "css-loader": "^0.23.1",
+    "jsx-loader": "^0.13.2",
     "sass-loader": "^3.2.0"
   },
   "engines": {

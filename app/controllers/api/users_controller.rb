@@ -3,6 +3,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserTopic.create!(user_id: @user.id, topic_id: 1)
       sign_in!(@user)
       render "api/users/show"
     else

@@ -1,3 +1,4 @@
+
 .facebook {
   border: 1px solid #3a66ad;
   font-size: 15px;
@@ -11,7 +12,7 @@
 }
 
 .new-session {
-  margin:auto;
+  font-family: Georgia,Times,"Times New Roman",serif;
   display:block;
 }
 .new-session-gradient {
@@ -35,6 +36,11 @@
   background: url(//qsf.is.quoracdn.net/-2f32a993187981f4.png);
   z-index:-2;
 }
+
+.new-session-header {
+  text-align: center;
+}
+
 .new-session-header h1 {
   font-size:48px;
   color: #B92B27;
@@ -85,6 +91,7 @@
   border: 1px solid #DCDCDC;
   box-shadow: 0 2px 4px 0 #DCDCDC;
   margin-top: 0;
+  margin: auto;
 }
 .new-session-form button {
   display:block;
@@ -104,6 +111,7 @@
   border-left:1px solid #ccc;
   padding-left:10px;
   text-align:left;
+  margin:auto;
 }
 .other-button {
     display:block;
