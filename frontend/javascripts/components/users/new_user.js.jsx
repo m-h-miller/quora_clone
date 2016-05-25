@@ -64,7 +64,7 @@ var UserForm = React.createClass({
         <div className="new-session-background"></div>
         <div className="new-session-gradient"></div>
 
-        <div classNanme="new-session-content">
+        <div className="new-session-content">
           <div className="new-session-header">
             <h1> Quorum </h1>
             <h4> The best answer to any question. </h4>

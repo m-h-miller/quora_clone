@@ -83,11 +83,11 @@ var Header = React.createClass({
 
   	          <li className="header-text-link">
   	            <Link to={'/users/' + currentUser.id }>
-  	            	{ currentUser.user_name }
+  	            	{ currentUser.user_name.split(" ", 1) }
   	            </Link>
   	          </li>
 
-  	          <li>
+  	          <li className="header-text-link">
   	            <button onClick={ this.signout }>SIGN OUT</button>
   	          </li>
   		      </ul>
